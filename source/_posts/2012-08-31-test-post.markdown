@@ -1,0 +1,20 @@
+---
+layout: post
+title: "Test Post"
+date: 2012-08-31 01:20
+comments: true
+categories: [Test, Meetings]
+author: "Chris Powers"
+---
+
+Content is grand! This post is chilling in \source\_posts\2012-08-31-test-post.markdown
+
+It'll be removed once we get the hang of it. Look how sexy code blocks are:
+
+``` ruby Discover if a number is prime http://www.noulakaz.net/weblog/2007/03/18/a-regular-expression-to-check-for-prime-numbers/ Source Article
+class Fixnum
+  def prime?
+    ('1' * self) !~ /^1?$|^(11+?)\1+$/
+  end
+end
+```
