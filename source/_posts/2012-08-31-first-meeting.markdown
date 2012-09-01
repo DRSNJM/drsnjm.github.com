@@ -3,7 +3,7 @@ layout: post
 title: "Meeting 1: Topic Selection"
 date: 2012-08-24 13:40
 comments: true
-categories: 
+categories: meetings
 author: Ryan McGowan
 ---
 
