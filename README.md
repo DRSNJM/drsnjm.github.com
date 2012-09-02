@@ -16,5 +16,5 @@ documentation](http://octopress.org/docs/). Specifically, make sure you setup
 the deployment to use github pages.
 
 ```bash
-rake setup_github_pages['git@github.com:DRSNJM/drsnjm.github.com.git'
+rake setup_github_pages['git@github.com:DRSNJM/drsnjm.github.com.git']
 ```
