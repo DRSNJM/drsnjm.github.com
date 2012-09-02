@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: blog | Dinosaur Riding Scrum Ninja Jedi Masters]]></title>
+  <link href="http://DRSNJM.github.com/blog/categories/blog/atom.xml" rel="self"/>
+  <link href="http://DRSNJM.github.com/"/>
+  <updated>2012-09-02T12:35:16-04:00</updated>
+  <id>http://DRSNJM.github.com/</id>
+  <author>
+    <name><![CDATA[Ryan McGowan]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Managing the Blog]]></title>
+    <link href="http://DRSNJM.github.com/blog/2012/09/01/managing-the-blog/"/>
+    <updated>2012-09-01T15:23:00-04:00</updated>
+    <id>http://DRSNJM.github.com/blog/2012/09/01/managing-the-blog</id>
+    <content type="html"><![CDATA[<p>Hello there, and welcome to the DRSNJM blog, where the team will be posting updates about our work on our knowledge-based systems capstone project at the Ohio State University. We will be posting notes from our meetings so you can track our progress, as well as interesting challenges we encounter and our solutions to them. If you have interest in expert systems or AI in general, this site should provide some interesting content for you!</p>
+]]></content>
+  </entry>
+  
+</feed>
