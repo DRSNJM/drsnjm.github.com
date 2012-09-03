@@ -22,17 +22,24 @@ Jedi masters and are the first to ride the dinosaurs since, well, a long time.
 Armed with the power of sexy new technologies like Clojure and Heroku the
 *Dinosaur Riding Scrum Ninja Jedi Masters* shall ride to victory!
 
-### Alex Burkhart
+## Alex Burkhart
 
+Alex orginially went to Case Western Reserve before taking some time off to work
+at [Rapleaf](http://www.rapleaf.com/). Eventually, he decided to finish up
+school and is now a soon to be graduating CSE major.
 
-### Ryan McGowan
+## Ryan McGowan
 
+Ryan is a soon to be graduating senior majoring in Computer Science &
+Engineering.  He loves new technologies and teaching people about them.  Outside
+of the computer world Ryan likes water sports, archery and Doctor Who.
 
-
-### Chris Powers
+## Chris Powers
 
 {% img right /images/powers.jpg 138 165 Chris Powers %}
 
 Chris is a graduating senior in CSE. He was born and raised in Columbus. Outside of school, he enjoys biking, soccer, playing guitar, and playing video games.
 
-### David Albert
+## David Albert
+
+David makes rad beats and swims too. He's alright.
