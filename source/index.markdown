@@ -6,13 +6,34 @@ comments: true
 sharing: true
 footer: true
 ---
-THIS PAGE IS INCOMPLETE
 
 ## Description
-The final product will be...
+
+A board game recommendation engine.
 
 ## Goals
-maybe?
+
+*   Create a Clojure library to act as our recommendation engine.
+*   Build a web interface using the recommendation engine to allow users to
+    decide what to play next.
 
 ## Implementation
+
 A succinct view of the implementation...
+
+## Source and Docs
+
+All of our source and documentation is available on [our
+github](https://github.com/DRSNJM).
+
+### [board-ultimatum](https://github.com/DRSNJM/board-ultimatum)
+
+The noir webapp (front-end) to our board game recommendation system.
+
+[READ THE DOCS!](http://drsnjm.github.com/board-ultimatum)
+
+### [board-ultimatum.engine](https://github.com/DRSNJM/board-ultimatum-engine)
+
+The board game recommendation engine.
+
+[READ THE DOCS!](http://drsnjm.github.com/board-ultimatum-engine)
