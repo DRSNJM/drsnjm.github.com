@@ -14,9 +14,8 @@ author: Ryan McGowan
 
 ## Discussion
 
-Came up with several more topics:
-
-### Meeting 1's topics
+We came up with several more topics. Those created during our first meeting
+(1-6) are included for completeness.
 
 1.  AI Search
 2.  Board Ultimatum -- Alex
@@ -24,9 +23,6 @@ Came up with several more topics:
 4.  Music Genre Classifier -- David
 5.  Poetry Generator -- Chris
 6.  Music Generator from arbitrary data -- Ryan
-
-### New Topics
-
 7.  Craig's list recommendations  -- Ryan
 8.  Blog categorizer -- Ryan
 9.  Twitter friend suggester -- Ryan
@@ -40,7 +36,7 @@ Came up with several more topics:
 
 ### Creating a Team Name
 
-Finding the concept overly zealous agile and scrum teams rather hilarious the
+Finding the concept of overly zealous agile and scrum teams rather hilarious the
 name *Scrum Ninjas* was suggested. However, we were worried that it might be a
 name that an overly zealous agile and/or scrum team might actual use.  Not
 wanting to be confused with people who actually think a name like *Scrum Ninjas*
@@ -57,7 +53,7 @@ during our next meeting.
 
 We picked the team name: *Dinosaur Riding Scrum Ninja Jedi Masters* (DRSNJM).
 
-### Attendance
+## Attendance
 
 -   Ryan McGowan
 -   Chris Powers

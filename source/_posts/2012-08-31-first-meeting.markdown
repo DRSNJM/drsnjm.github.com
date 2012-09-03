@@ -13,7 +13,7 @@ Make introductions and start brainstorming topic ideas.
 
 ## Discussion
 
-Came up with several topics:
+We came up with several topics:
 
 1.  AI Search
 2.  Board Ultimatum -- Alex
@@ -27,7 +27,7 @@ Came up with several topics:
 
 By the end of this meeting we were deciding between topics 1 and 2.
 
-### Attendance
+## Attendance
 
 -   Ryan McGowan
 -   Chris Powers
