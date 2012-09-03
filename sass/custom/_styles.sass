@@ -1,5 +1,28 @@
 // This File is imported last, and will override other styles in the cascade
 // Add styles here to make changes without digging in too much
 
-article a
-  white-space: normal
+body
+  font-size: 1em
+  > header h2
+    font-size: $header-subtitle-font-size
+
+ol, ul
+  list-style-position: inside
+
+p, blockquote, ul, ol
+  margin-bottom: .8em
+
+article
+  font-family: $sans
+  a
+    white-space: normal
+  header
+    padding-bottom: 1em
+    margin-bottom: 1.4em
+  .entry-content > *:first-child
+    margin-top: 0
+    padding-top: 0
+
+h1, h2, h3, h4 ,h5 ,h6
+  font-weight: normal
+  margin: .8em 0 .4em
