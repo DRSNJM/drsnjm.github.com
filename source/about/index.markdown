@@ -36,8 +36,6 @@ of the computer world Ryan likes water sports, archery and Doctor Who.
 
 ## Chris Powers
 
-{% img right /images/powers.jpg 138 165 Chris Powers %}
-
 Chris is a graduating senior in CSE. He was born and raised in Columbus. Outside of school, he enjoys biking, soccer, playing guitar, and playing video games.
 
 ## David Albert

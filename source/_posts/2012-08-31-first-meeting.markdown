@@ -29,7 +29,11 @@ By the end of this meeting we were deciding between topics 1 and 2.
 
 ## Attendance
 
--   Ryan McGowan
+-   Ryan McGowan (scribe)
 -   Chris Powers
 -   Alex Burkhart
 -   David Albert
+
+## Location
+
+Dreese Labs

@@ -21,9 +21,13 @@ The board game recommendation engine seemed the best option to everyone. The tea
 
 The team agreed that the board game recommendation engine would be the group's capstone project.
 
-### Attendance
+## Attendance
 
 -   Ryan McGowan
--   Chris Powers
+-   Chris Powers (scribe)
 -   Alex Burkhart
 -   David Albert
+
+## Location
+
+Dreese Labs

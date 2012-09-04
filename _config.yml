@@ -5,9 +5,9 @@
 url: http://DRSNJM.github.com
 title: Dinosaur Riding Scrum Ninja Jedi Masters
 subtitle: Agile is so last year...
-author: Ryan McGowan
+author: Ryan McGowan, Alex Burkhart, David Albert, Chris Powers
 simple_search: http://google.com/search
-description:
+description: Capstone team of graduating seniors at The Ohio State University that is creating a board game recommendation system.
 
 # Default date format is "ordinal" (resulting in "July 22nd 2007")
 # You can customize the format as defined in
@@ -59,7 +59,7 @@ default_asides: [asides/recent_posts.html, asides/github.html, asides/twitter.ht
 
 # Github repositories
 github_user: DRSNJM
-github_repo_count: 0
+github_repo_count: 3
 github_show_profile_link: true
 github_skip_forks: true
 
