@@ -1,9 +1,14 @@
 // This File is imported last, and will override other styles in the cascade
 // Add styles here to make changes without digging in too much
 
+html
+  background-color: #161111
+
 body
   font-size: 1em
   > header
+    h1
+      +text-shadow(1px 1px 10px rgba(#68f666, 1))
     background: url(/images/drsnjm-header.png) no-repeat
     background-position: 92% 47px
     @media only screen and (min-width: 809px)
@@ -14,6 +19,8 @@ body
       font-size: $header-subtitle-font-size
   nav[role=navigation]
     +border-radius(3px 3px 0 0)
+    ul
+      padding-top: 0
 
 ol, ul
   list-style-position: inside
