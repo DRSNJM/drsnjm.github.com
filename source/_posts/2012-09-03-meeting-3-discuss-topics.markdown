@@ -21,9 +21,13 @@ The "Reading Leveler" (a reading level classification engine), proposed by Ryan,
 
 Everyone gained a better understanding of the general requirements of each of these popular proposals, but none were definitively selected.
 
-### Attendance
+## Attendance
 
 -   Ryan McGowan
--   Chris Powers
+-   Chris Powers (scribe)
 -   Alex Burkhart
 -   David Albert
+
+## Location
+
+Dreese Labs

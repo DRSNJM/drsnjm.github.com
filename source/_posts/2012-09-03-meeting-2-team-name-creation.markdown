@@ -55,7 +55,11 @@ We picked the team name: *Dinosaur Riding Scrum Ninja Jedi Masters* (DRSNJM).
 
 ## Attendance
 
--   Ryan McGowan
+-   Ryan McGowan (scribe)
 -   Chris Powers
 -   Alex Burkhart
 -   David Albert
+
+## Location
+
+Dreese Labs
