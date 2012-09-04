@@ -14,7 +14,7 @@ capstone project.
 
 Long ago, in a time where developing web applications using overly complex
 enterprise tools like JBOSS was still considered cool, four champions appeared.
-Each ridding an ancient, majestic stead clad in scales.
+Each ridding a majestic, paleolitic steed clad in green scales.
 
 Practicing futuristic coding techniques these four ninja champions have become
 Jedi masters and are the first to ride the dinosaurs since, well, a long time.
@@ -42,4 +42,4 @@ Chris is a graduating senior in CSE. He was born and raised in Columbus. Outside
 
 ## David Albert
 
-David makes rad beats and swims too. He's alright.
+David is also a graduating senior in CSE. He plays on the [OSU Club Water Polo Team](http://osuwaterpolo.com) and enjoys doing music and art projects in his free time.
