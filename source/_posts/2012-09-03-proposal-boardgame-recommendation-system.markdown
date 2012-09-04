@@ -3,7 +3,7 @@ layout: post
 title: "Proposal: Board Game Recommendation System"
 date: 2012-09-03 21:01
 comments: true
-categories: blog, proposal
+categories: blog proposal
 author: Alex Burkhart, Ryan McGowan
 ---
 
