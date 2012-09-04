@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Meeting 5: Set Up"
+title: "Meeting 6: Team Deliverable 1"
 date: 2012-09-03 22:31
 comments: true
 categories: meetings
