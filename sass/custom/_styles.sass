@@ -3,8 +3,17 @@
 
 body
   font-size: 1em
-  > header h2
-    font-size: $header-subtitle-font-size
+  > header
+    background: url(/images/drsnjm-header.png) no-repeat
+    background-position: 92% 47px
+    @media only screen and (min-width: 809px)
+      background-position: 98% 6px
+    @media only screen and (min-width: 992px)
+      background-position: 94% 6px
+    h2
+      font-size: $header-subtitle-font-size
+  nav[role=navigation]
+    +border-radius(3px 3px 0 0)
 
 ol, ul
   list-style-position: inside
