@@ -1,0 +1,62 @@
+---
+layout: post
+title: "Meeting 7"
+date: 2012-09-07 13:12
+comments: true
+categories: meetings
+author: Alex Burkhart
+---
+
+## Goals
+
+Discuss the requirements for second deliverable. Set goals for each
+team member for the next week.
+
+## Discussion
+
+We reviewed what would be necessary for the next milestone. In
+particular, we tried to nail down how we will model the data within
+the system.
+
+We discussed how the data would flow through the
+system. We needed to determine exactly how we'd handle obtaining data
+from the user of the system, and how that would translate into a
+query for a recommendation.
+
+We have tentatively proposed a system that involves multiple discrete
+components. A Filter step, a Inference step, and Learning
+step. Filtering would include removing games that do not match basic
+criteria such as Game Length or Number of Players. The remaining games
+would be sent forward into the Inference Engine. This is where we will
+use expert information to find games that fit the remaining
+criteria. Next we will send the games into a step that finds games
+similar to the games recommended by the Inference Engine. These games
+are then filtered again for basic criteria fitness.
+
+This system has the advantage of separating the recommendations into
+independent components which we can provide a clear division of work,
+experiement with different ideas, and analyze the algorithms'
+performance.
+
+
+## Results
+
+Chris is going to upload photos of the dataflow charts we
+created. Ryan volunteered to make a digital version of the dataflow
+chart. Alex will begin scheduling expert interviews with CABS members,
+with special emphasis to members of the CABS Design Group. Alex will
+also publish this meeting's notes on the website.
+
+## Attendance
+
+-   Ryan McGowan
+-   Chris Powers
+-   Alex Burkhart (scribe)
+
+David was unable to make it for the meeting time we had arranged. He
+let us know ahead of time that he would be unavailable.
+
+## Location
+
+Physics Research Building first floor lobby.
+
