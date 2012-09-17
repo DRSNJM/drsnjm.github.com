@@ -4,6 +4,7 @@ title: "Interview 1: Raymond Chandler"
 date: 2012-09-11 17:45
 comments: true
 categories: interviews
+author: Ryan McGowan
 ---
 
 For more [information about Ray](/experts#ray) see the experts page.
