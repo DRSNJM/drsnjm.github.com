@@ -25,7 +25,7 @@ Lot's of input.  Primarily our initial screening should consider the following:
     (e.g. dice rolling, card management)
 *   Genre -- What type of game is it (e.g. empire building, tech building, pure
     strategy)
-*   Theme -- The setting and style of a game (e.g. e.g. 1800's Britain mystery,
+*   Theme -- The setting and style of a game (e.g. 1800's Britain mystery,
     or a futuristic role palying game set in space)
 *   Light or Heavy -- Does the game require the player's full attention or is it
     more relaxed?
