@@ -13,7 +13,7 @@ scientists studying at the Ohio State University. The team is actively building
 a board game recommendation system, designed and constructed from the ground up
 to emulate the expertise of a board game enthusiast using artificial
 intelligence fundamentals. The system is a major capstone project at the
-university, but will be fully functional and useable to any 3rd party user.
+university that will be a fully functional and product.
 
 ---
 
@@ -21,7 +21,7 @@ university, but will be fully functional and useable to any 3rd party user.
 
 ## Description
 
-The Board Ultimatum will be a useable site, where a user can register an account
+The Board Ultimatum will be a usable site, where a user can register an account
 and start receiving board game recommendations based on their input and
 preferences. The user will tell the system what it's looking for out of a game,
 and the system will return games as results that match the user's selections.
