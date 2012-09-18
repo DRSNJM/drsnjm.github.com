@@ -9,7 +9,7 @@ footer: true
 
 ## Raymond Chandler
 
-Raymond is not only an avid board game player, but a vertiable
+Raymond is not only an avid board game player, but a veritable
 connoisseur of board games. He has been a member of the Columbus Area
 Board Gaming Society for 3 years. Raymond has been part of the CABS
 Design Group for half that time. He is close to publishing his first
