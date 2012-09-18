@@ -7,7 +7,7 @@ categories: design blog
 author: David Albert
 ---
 
-# Problem Domain #
+## Problem Domain ##
 
 Board games have been around for thousands of years and are enjoyed by
 countless people. The different types of games are innumerable - from something
@@ -22,7 +22,7 @@ thatthey have enjoyed playing in the past, it would be very beneficial to board
 game enthusiasts to have access to a system that could provide such
 recommendations. 
 
-## Knowledge Base ##
+### Knowledge Base ###
 
 Expert knowledge in the problem domain of board game recommendation can come
 from a variety of sources. Human experts primarily include those who design
@@ -38,7 +38,7 @@ specific website contains a large, publicly accessible database of games,
 descriptions, and ratings. This data can be incorporated, as facts or
 otherwise, into a system to provide recommendations to its users. 
 
-# Project Motivation #
+## Project Motivation ##
 
 One of the team's members, Alex Burkhart, is actively involved in the Columbus
 Area Boardgaming Society. He had mentioned that with such a large library (over
