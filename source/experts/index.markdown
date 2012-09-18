@@ -7,7 +7,31 @@ sharing: true
 footer: true
 ---
 
-<h2 id="ray">Raymond Chandler</h2>
+## Raymond Chandler
 
-Ray is not only an avid board game player, but also has a lot of experience with
-gameboard design.
+Raymond is not only an avid board game player, but a vertiable
+connoisseur of board games. He has been a member of the Columbus Area
+Board Gaming Society for 3 years. Raymond has been part of the CABS
+Design Group for half that time. He is close to publishing his first
+board game, Red Tape. Raymond estimates his personal game collection
+to be around 150 games. Raymond graduated from Full Sail University,
+where he gained extensive experience in designing games.
+
+## Jessica Ramey
+
+Jessica is the Librarian of the CABS game library and a member of the
+Executive Board. She oversees well over 1000 board games in the
+library and manages the happiness of over 400 members. Jessica also has an
+extensive personal collection.
+
+## In The Works (alphabetic)
+
+* Corey Sanders - CABS System Administrator
+* Greg Parsons - Game Designer & Publisher
+* Jeff Horger - Game Designer
+* Jim Harmon - Game Designer
+* Meg Boggus - Board Member of CABS
+* Nathan Morse - President of CABS
+
+
+
