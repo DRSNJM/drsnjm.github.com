@@ -38,22 +38,72 @@ games the user likes, and factor this information into the results.
     list of games that match this input. The input/output system changes over
     time as users rate and select different games.
 
-## Implementation
+## Design &amp; Implementation
 
-Stay tuned for implementation details once the project is underway!
+The board ultimatum system consists of two main components, the web application
+and the engine. The web app contains the engine, in fact the engine is a
+dependency to it.
+
+### The Web App
+
+The web application itself is mostly a front-end to the engine. It takes data
+input from a user, uses the engine to derive a list of games the user might
+want, and delivers the list back to the user.  The front-end is split into the
+following parts:
+
+*   A web server -- Capture and format HTTP requests and responses on our host.
+*   A routing to view framework -- Using [Noir](http://www.webnoir.org/) to
+    declartivly create pages.
+*   An API built on top of that framework -- Handle AJAX requests for
+    interactive user experience.
+*   An HTML generation scheme
+*   Static resources -- (e.g. SASS &rarr; CSS, cljs &rarr; Javascript)
+
+
+### The Engine
+
+The engine is almost synonymous with the expert system. Not only will it contain
+our rules and at least part of our facts, it will also include the code to make
+inferences and decisions from them. However, the engine will also include the
+explanation component and a machine learning component.
+
+
+#### Facts, Decisions, Inferencing and Rules
+
+In general, our experts provide us with rules and decisions as well as specify
+what types of facts we should gather and use in our system.
+
+Many facts will be stored in a persistent store after being gathered from
+[BoardGameGeek](http://boardgamegeek.com/)'s open API which contains a multitude
+of metadata.  This data includes play time, player number range and other
+helpful information ([see an example
+game](http://boardgamegeek.com/boardgame/25613/through-the-ages-a-story-of-civilization)).
+
+These facts are connected by rules and decisions primarily gathered from
+experts.  Sometimes these rules may be common sense (e.g. `IF NOT
+between(num_players(X), min_players, max_players) THEN NOT X`) or they may be
+more complex decisions (e.g. acceptable deviation in complexity is higher for
+experts and beginners than it is for intermediate board gamers).
+
+
+#### Components
+
+*   Game Attribute Matching Machine (*GAMMa*) -- Rules, facts, decisions and
+    inferencing engine goodness.
+*   Reasoning/Explanation Framework (*Referree*) -- Keep track of how choices
+    are made.
+*   Similar Game Machine (*SiGMa*)-- Given a particular game list some similar
+    ones.
+
+For more information on our design see [our design blog posts](/blog/categories/design/).
 
 ## Source Code and Documentation
 
-All of our source and documentation is open and available on [our github](https://github.com/DRSNJM).
+All of our source and documentation is available on
+[github](https://github.com/DRSNJM). For direct links to our repositories see
+the sidebar. Links to documentation can be found below:
 
-### [board-ultimatum](https://github.com/DRSNJM/board-ultimatum)
+#### Board Ultimatum Docs
 
-The noir webapp (front-end) to our board game recommendation system.
-
-*	[Read the docs](http://drsnjm.github.com/board-ultimatum)
-
-### [board-ultimatum.engine](https://github.com/DRSNJM/board-ultimatum-engine)
-
-The board game recommendation engine.
-
-*	[Read the docs](http://drsnjm.github.com/board-ultimatum-engine)
+*	[Web App](http://drsnjm.github.com/board-ultimatum)
+*	[Engine](http://drsnjm.github.com/board-ultimatum-engine)
