@@ -18,7 +18,7 @@ With such a diverse set of criteria to describe games, as well as the large
 number of games available, one can see how it would be difficult to classify
 and recommend games to players that they will enjoy. Whether it is based on a
 set of attributes that the player desires, or the player's history of games
-thatthey have enjoyed playing in the past, it would be very beneficial to board
+that they have enjoyed playing in the past, it would be very beneficial to board
 game enthusiasts to have access to a system that could provide such
 recommendations. 
 
