@@ -4,6 +4,7 @@ date: 2012-09-01 11:53
 comments: false
 sharing: true
 footer: true
+author: Ryan McGowan, Chris Powers
 ---
 # The DRSNJM
 
