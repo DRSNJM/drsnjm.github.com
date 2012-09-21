@@ -4,7 +4,7 @@ title: "Meeting 8"
 date: 2012-09-11 14:24
 comments: true
 categories: meetings
-author: David Albert 
+author: David Albert
 ---
 
 ## Goals
@@ -18,13 +18,13 @@ expert interview.
 Several minor bookkeeping issues were discussed in regards to the
 github and pivotal tracker accounts. Utilizing tracker to log our
 team and individual progress was emphasized, and the procedures
-for doing so were decided on. An interview time was arranged with 
-our first expert, Ray Chandler, from the Columbus Area Board Game 
-Society. A location and time were determined. 
+for doing so were decided on. An interview time was arranged with
+our first expert, Ray Chandler, from the Columbus Area Board Game
+Society. A location and time were determined.
 
 ## Results
 
-The tracker was updated to include more detailed descriptions of the 
+The tracker was updated to include more detailed descriptions of the
 tasks due for Timebox #2. Ryan, Chris, and Alex are going to meet
 with Ray this evening for an interview. David is going to get
 started on the powerpoint presentation for the Tuesday status update.
@@ -35,7 +35,7 @@ tracker: [https://www.pivotaltracker.com/projects/630615](https://www.pivotaltra
 
 -   Ryan McGowan
 -   Chris Powers
--   Alex Burkhart 
+-   Alex Burkhart
 -   David Albert (scribe)
 
 ## Location
