@@ -19,20 +19,24 @@ author: David Albert
 
 David shared some of the progress that he had made in learning and using core.logic to create facts and rules, applicable to the problem. Chris and David discussed some of the possible front-end interactions available to the user, including, but not limited to, what options the user should have available to them, what parameters we should entrust to the user and what we should allow the experts to define, and different UI methods for presenting this information to the user. 
 
-Alex shared his progress in the data scrape of BoardGameGeek and methods for storing and loading this data into the inference engine were discussed. Pros and cons of SQL vs. JSON based storage were weighed; no decision was made until further discussion with Ryan.
+Alex shared his progress in the data scrape of BoardGameGeek and methods for storing and loading this data into the inference engine were discussed. Pros and cons of SQL vs. JSON based storage were weighed; the decision to go with MongoDB was made after further discussion with Ryan.
+
+Design and implementation issues of the engine itself were discussed heavily, including logic related to weighting and scoring the different attributes that the user is querying on. 
 
 ## Results
 
 *   A simple set of facts and rules written in Clojure/core.logic was demoed by David
 *   A simple web interface with a form containing input fields was also demoed
+*   The web front-end succesfully made a query to the inference engine
 *   Alex presented the data he had gathered and uploaded it to Google Docs
 *   New tasks for each member were determined for the coming week
 
 ## Outgoing Responsibilities
 
 *   Chris is going to make some wireframes for different UI layouts we can present to the user
-*   David will consult with Ryan to get the entire dependency chain working so that the website can fully interact with the inference engine
+*   David will consult with Ryan to get the entire dependency chain working 
 *   Alex will nail down an interview time and plan on interviewing one of the CABS experts with David and anyone else who is available
+*   Ryan will write a script to import the BGG XML data into a MongoDB that can then be loaded as facts into the engine at app startup
 *   As many team members as possible will try to attend the CABS meeting this weekend to gather information
 
 ## Attendance
