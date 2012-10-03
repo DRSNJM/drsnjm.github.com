@@ -1,0 +1,46 @@
+---
+layout: post
+title: "Meeting 10: Defining Requirements"
+date: 2012-10-03 15:15
+comments: true
+categories: meetings
+author: David Albert
+---
+
+## Goals
+
+*   Get basic web/engine system working and interacting
+*   Discuss progress made in learning and using Clojure and core.logic
+*   Discuss ways in which we can translate our knowledge into rules and logic
+*   Schedule an additional expert meeting
+*   Determine what requirements we can define in concrete terms and put a cap on the scope of this timebox
+
+## Discussion
+
+David shared some of the progress that he had made in learning and using core.logic to create facts and rules, applicable to the problem. Chris and David discussed some of the possible front-end interactions available to the user, including, but not limited to, what options the user should have available to them, what parameters we should entrust to the user and what we should allow the experts to define, and different UI methods for presenting this information to the user. 
+
+Alex shared his progress in the data scrape of BoardGameGeek and methods for storing and loading this data into the inference engine were discussed. Pros and cons of SQL vs. JSON based storage were weighed; no decision was made until further discussion with Ryan.
+
+## Results
+
+*   A simple set of facts and rules written in Clojure/core.logic was demoed by David
+*   A simple web interface with a form containing input fields was also demoed
+*   Alex presented the data he had gathered and uploaded it to Google Docs
+*   New tasks for each member were determined for the coming week
+
+## Outgoing Responsibilities
+
+*   Chris is going to make some wireframes for different UI layouts we can present to the user
+*   David will consult with Ryan to get the entire dependency chain working so that the website can fully interact with the inference engine
+*   Alex will nail down an interview time and plan on interviewing one of the CABS experts with David and anyone else who is available
+*   As many team members as possible will try to attend the CABS meeting this weekend to gather information
+
+## Attendance
+
+-   Alex Burkhart
+-   Chris Powers
+-   David Albert (scribe)
+
+## Location
+
+Dreese Computer Lab
