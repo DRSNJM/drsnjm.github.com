@@ -40,6 +40,7 @@ Alex shared his progress in the data scrape of BoardGameGeek and methods for sto
 -   Alex Burkhart
 -   Chris Powers
 -   David Albert (scribe)
+-   Ryan McGowan
 
 ## Location
 
