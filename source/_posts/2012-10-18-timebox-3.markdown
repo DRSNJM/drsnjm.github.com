@@ -36,3 +36,9 @@ below:
 *   Initial bootstrap UI demo
 *   Machine Learning component R&D
     ([more details here](/blog/2012/10/19/similarity-engine-design-and-machine-learning-tools/))
+
+## Commit History
+
+For more information on who has done what see [our commit
+history](https://github.com/DRSNJM/board-ultimatum/commits/master) on our github
+project.
