@@ -30,7 +30,7 @@ been published.
 ## Jeff Kayati
 
 <span id="corey"></span>
-## Corey Sanderson
+## Corey Sanders
 
 Corey is the system administrator for CABS as well as an avid game player.
 
