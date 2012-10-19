@@ -7,7 +7,5 @@ categories: blog timebox
 author: Chris Powers
 ---
 
-# [Attribute search design](/blog/2012/10/18/interface-design/)
-
-Designs, mockups by Chris Powers
-
+### [Attribute search design](/blog/2012/10/18/interface-design/)
+* Designs, mockups by Chris Powers
