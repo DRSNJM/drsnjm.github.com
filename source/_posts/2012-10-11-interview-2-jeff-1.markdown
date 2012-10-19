@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Interview 2: Jeff 1"
+title: "Interview 2: Jeff Horger"
 date: 2012-10-08 20:00
 comments: true
 categories: interviews
