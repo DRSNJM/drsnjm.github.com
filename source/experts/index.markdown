@@ -44,9 +44,7 @@ extensive personal collection.
 
 ## In The Works (alphabetic)
 
-* Corey Sanders - CABS System Administrator
 * Greg Parsons - Game Designer & Publisher
-* Jeff Horger - Game Designer
 * Jim Harmon - Game Designer
 * Meg Boggus - Board Member of CABS
 * Nathan Morse - President of CABS
