@@ -32,6 +32,3 @@ extensive personal collection.
 * Jim Harmon - Game Designer
 * Meg Boggus - Board Member of CABS
 * Nathan Morse - President of CABS
-
-
-

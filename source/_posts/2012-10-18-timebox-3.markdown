@@ -4,13 +4,31 @@ title: "Timebox 3"
 date: 2012-10-18 23:16
 comments: true
 categories: blog timebox
-author: Chris Powers
+author: Chris Powers, Ryan McGowan
 ---
 
-### [Attribute search design](/blog/2012/10/18/interface-design/)
-* Designs, mockups by Chris Powers
+For detraied informationi on accomplishesments from this timebox see the links
+below:
 
-### [Attribute search implementation](/blog/2012/10/16/interface-implementation/)
-* Attribute selection functionality by David Albert
-* Discrete valued attribute functionality by Alex Burkhart
-* Tri-state preference functionality by Chris Powers, bug-fixed by Ryan McGowan
+*   [Attribute search design](/blog/2012/10/18/interface-design/)
+*   [Attribute search implementation](/blog/2012/10/16/interface-implementation/)
+
+#### Interviews
+
+1.  [Jeff Horger]()
+2.  [Jeff Kayati]()
+3.  [Corey Sanders]()
+
+
+## Worklog
+
+### Chris Powers
+
+*   Front-end mockups
+*   Tri-State button functionality
+
+### Alex Burkhart
+
+### Ryan McGowan
+
+### David Albert
