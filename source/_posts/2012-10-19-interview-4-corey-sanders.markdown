@@ -14,18 +14,20 @@ A recording of the interview is accessible
 
 ## Notes
 
-As with most of our experts we asked Corey a few basic questions:
+For the most part, Corey reiterated a lot of the things we have heard from
+interviews with other experts.  The attributes he suggested are:
 
-1.  How do you pick what game to play?
-2.  How do you determine what game to suggest to another player?
-3.  What attributes do you think are important to consider when selecting a game
-    to play?
+*   Mechanics
+*   Easy to Learn?
+*   Gateway Game?
+*   Rank (from BGG)
+*   Play time
+*   Age Group
+*   Availability -- How easy is it to buy this game in a store?
 
-#### 1.  Choosing for Self
-
-#### 2.  Suggesting to Others
-
-#### 3.  Attributes
+Corey agreed that player skill might also be important and thought that using
+most difficult game played might work as well as the number of unique games
+played.
 
 ---
 #### Location
