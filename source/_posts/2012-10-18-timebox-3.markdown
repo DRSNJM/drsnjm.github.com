@@ -9,3 +9,8 @@ author: Chris Powers
 
 ### [Attribute search design](/blog/2012/10/18/interface-design/)
 * Designs, mockups by Chris Powers
+
+### [Attribute search implementation](/blog/2012/10/16/interface-implementation/)
+* Attribute selection functionality by David Albert
+* Discrete valued attribute functionality by Alex Burkhart
+* Tri-state preference functionality by Chris Powers, bug-fixed by Ryan McGowan

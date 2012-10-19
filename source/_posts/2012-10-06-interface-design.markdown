@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Attribute Search Interface Design"
-date: 2012-10-18 23:19
+date: 2012-10-06 23:19
 comments: true
 categories: blog design
 author: Chris Powers

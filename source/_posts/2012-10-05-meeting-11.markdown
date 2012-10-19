@@ -1,0 +1,34 @@
+---
+layout: post
+title: "Meeting 11: Preparing for Interviews"
+date: 2012-10-05 15:16
+comments: true
+categories: meetings
+author: Chris Powers
+---
+
+## Goals
+
+Prepare for interviews, provide updates on coding.
+
+## Discussion
+
+Alex set up 4 more interviews for us the following week. In addition, Alex informed everyone that CABS is tonight, so everyone is invited who wants to see what we're building a system for. Chris agreed to come. David suggested that interviews should be straightforward, and that it's more important to have our experts for training the system. Ryan said he could record the interviews again if David couldn't make it. Chris said that the most important thing to get out of the interviews is the attributes of the games used in matching preferences.
+
+David implemented the basic interfaces for allowing experts to train the system and for building a query. Chris said that he would work on populating some of attributes. Alex said that he has pulled all the necessary information off of board game geek, but that he'll just need Ryan's help to properly import it into Mongo, since he has no experience with it.
+
+
+## Results
+
+Chris will visit CABS tonight with Alex to see what the system is like. He will also populate some of the attribute records and touch up the expert training interface. Ryan will help Alex import the records into a Mongo instance.
+
+## Attendance
+
+-   Ryan McGowan
+-   Chris Powers (scribe)
+-   Alex Burkhart
+-	David Albert
+
+## Location
+
+Dreese Labs
