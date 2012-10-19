@@ -106,4 +106,8 @@ the sidebar. Links to documentation can be found below:
 #### Board Ultimatum Docs
 
 *	[Web App](http://drsnjm.github.com/board-ultimatum)
+
+The engine component is now included in the web app above. The link below
+remains for historical purposes only.
+
 *	[Engine](http://drsnjm.github.com/board-ultimatum-engine)
