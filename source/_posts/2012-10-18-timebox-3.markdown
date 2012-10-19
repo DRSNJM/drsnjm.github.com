@@ -31,6 +31,20 @@ below:
 
 ### Ryan McGowan
 
+Ryan primarily managed code being included into our master branch.  He did most
+of the merging of features and refactored several components.
+
+*   Create initial project scaffolding.
+    *   Bootstrap, Leiningen, Mongo and the wiring between them to have a
+        running app. This includes the config functionality.
+*   Refactor Javascript for query interface.
+*   Corrections to markup for query interface to properly use bootstrap
+    scaffolding.
+*   Feature branch merges
+*   Refactor `expert.js` and the expert select interface to use bootstrap
+    scaffolding.
+*   Several other style changes.
+
 ### David Albert
 
 *   Initial bootstrap UI demo
