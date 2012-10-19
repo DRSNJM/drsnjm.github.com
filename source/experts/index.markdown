@@ -33,6 +33,7 @@ been published.
 ## Corey Sanders
 
 Corey is the system administrator for CABS as well as an avid game player.
+During the day he is a software developer at IBM.
 
 <span id="jessica"></span>
 ## Jessica Ramey
