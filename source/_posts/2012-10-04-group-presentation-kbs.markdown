@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Group Presentation: KBS Chapters 11, 12"
-date: 2012-04-06 19:20
+date: 2012-10-04 19:20
 comments: true
 categories: blog presentation
 author: Chris Powers
