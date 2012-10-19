@@ -15,9 +15,9 @@ below:
 
 #### Interviews
 
-1.  [Jeff Horger]()
-2.  [Jeff Kayati]()
-3.  [Corey Sanders]()
+1.  [Jeff Horger](/blog/2012/10/19/interview-2-jeff-1/)
+2.  [Jeff Kayati](/blog/2012/10/19/interview-3-jeff-kayati/)
+3.  [Corey Sanders](/blog/2012/10/19/interview-4-corey-sanders/)
 
 
 ## Worklog
@@ -48,10 +48,7 @@ of the merging of features and refactored several components.
 *   Refactor `expert.js` and the expert select interface to use bootstrap
     scaffolding.
 *   Several other style changes.
-*   Interview writeup and notes:
-    1.  [Jeff Horger](/blog/2012/10/19/interview-2-jeff-1/)
-    2.  [Jeff Kayati](/blog/2012/10/19/interview-3-jeff-kayati/)
-    3.  [Corey Sanders](/blog/2012/10/19/interview-4-corey-sanders/)
+*   Interview writeups and notes
 
 ### David Albert
 
