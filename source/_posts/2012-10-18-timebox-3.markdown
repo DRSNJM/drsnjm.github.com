@@ -7,7 +7,7 @@ categories: blog timebox
 author: Chris Powers, Ryan McGowan
 ---
 
-For detraied informationi on accomplishesments from this timebox see the links
+For detailed information on accomplishements from this timebox, see the links
 below:
 
 *   [Attribute search design](/blog/2012/10/18/interface-design/)
@@ -32,3 +32,7 @@ below:
 ### Ryan McGowan
 
 ### David Albert
+
+*   Initial bootstrap UI demo
+*   Machine Learning component R&D
+    ([more details here](/blog/2012/10/19/similarity-engine-design-and-machine-learning-tools/))
