@@ -29,6 +29,10 @@ below:
 
 ### Alex Burkhart
 
+*   Load mongodb from BGG data
+*   Get simple query functionality working
+*   Make prototype query results page.
+
 ### Ryan McGowan
 
 Ryan primarily managed code being included into our master branch.  He did most
