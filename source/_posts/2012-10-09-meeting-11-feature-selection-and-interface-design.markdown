@@ -63,7 +63,11 @@ likes game *B*" we also want to change the layout.  Alex made the point that an
 expert might not know one of the two games we are asking them to prepare.
 Providing a skip feature would work, but it might mean the expert does a lot of
 skipping if they know 100 games out of the 1000 we are using in the system it
-could take awhile to find a pair of games that they know both of.
+could take awhile to find a pair of games that they know both of. Thus the
+excepted interface involves a two step process. The first step is a page that
+shows a group of around 10 games. The expert selects which of these games they
+know.  The expert then continues to the next page which lists all two game
+combinations from their selections on the first page.
 
 
 ## Results
