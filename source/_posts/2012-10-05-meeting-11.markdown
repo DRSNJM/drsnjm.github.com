@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Meeting 11: Preparing for Interviews"
+title: "Meeting 12: Preparing for Interviews"
 date: 2012-10-05 15:16
 comments: true
 categories: meetings
