@@ -3,7 +3,7 @@ layout: post
 title: "Meeting 7"
 date: 2012-09-07 13:12
 comments: true
-categories: meetings
+categories: meetings blog
 author: Alex Burkhart
 ---
 

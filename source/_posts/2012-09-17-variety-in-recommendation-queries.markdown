@@ -40,9 +40,12 @@ interface to experts on the website so that they can map games to each other.
 I drew up some flowcharts on the proposed system. When the system is 
 finalized, we'll have some proper flowcharts:
 
-![Overall system chart](/images/diagrams/Board%20Ultimatum%20Flow.jpeg)
+![Overall system chart](/images/diagrams/board-ultimatum-flow.jpeg)
+
 The overall I/O of the system with the two proposed engines.
-![Query process](/images/diagrams/Query%20Flow.jpeg)
+
+![Query process](/images/diagrams/query-flow.jpeg)
+
 The flow of a recommendation query from inception to display.
 
 Essentially, instead of returning games matched by attributes immediately, 
