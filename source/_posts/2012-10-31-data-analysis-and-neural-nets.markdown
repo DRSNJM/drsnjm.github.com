@@ -27,4 +27,4 @@ The next step was to run the data through the neural net. Since the expert inter
 
 One problem that I encountered was the amount of storage that the output takes. In memory, it is ~65 mb. The disk dump is about 25 mb, which is reasonable, but way more than any free solution we have encountered. Hopefully CSE hosting could be capable of fulfilling this role if we can't directly integrate into our Heroku stack. 
 
-One alternative to this is to only store the 20 games with the best score for each game, reducing the size by a factor of 50. All 1000 values would be calculated, then trimmed down. This would ensure that the database would never have more than 3000 records, versus 1000000.
+One alternative to this is to only store the 20 games with the best score for each game, reducing the size by a factor of 50. All 1000 values would be calculated, then trimmed down. This would ensure that the database would never have more than ~20000 records, versus 1000000.
