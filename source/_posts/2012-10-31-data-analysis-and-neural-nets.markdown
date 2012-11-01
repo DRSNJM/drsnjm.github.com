@@ -17,14 +17,12 @@ As you can tell by examining the code, the resulting vector has 100+ dimensions.
 
 It is worthwhile to note that the outliers in the bottom right are party games that can accomodate 50+ people and are fairly unique in that regard. 
 
-Once the data is converted, it is stored in the Redis database.
+Once the data is converted, it is stored in the Mongo database.
 
 The library I used to perform this analysis is [Incanter](http://incanter.org/) which contains much of the functionality found in R, if you are familiar with stats packages. 
 
 ## Neural Net and Engine output
 
-The next step was to run the data through the neural net. Since the expert interface is not accessible to public users at this point, an untrained network is used. The network I used is arbitrary at this point as far as hidden layers and propogation algorithms are concerned, since there is no training data. I ran each combination of games through the network with the input as the following: [GameA Game B]. The results were then stored in another redis DB.
+The next step was to run the data through the neural net. Since the expert interface is not accessible to public users at this point, an untrained network is used. The network I used is arbitrary at this point as far as hidden layers and propogation algorithms are concerned, since there is no training data. I ran each combination of games through the network with the input as the following: [GameA Game B]. The results were then stored in another Mongo collection.
 
-One problem that I encountered was the amount of storage that the output takes. In memory, it is ~65 mb. The disk dump is about 25 mb, which is reasonable, but way more than any free solution we have encountered. Hopefully CSE hosting could be capable of fulfilling this role if we can't directly integrate into our Heroku stack. 
-
-One alternative to this is to only store the 20 games with the best score for each game, reducing the size by a factor of 50. All 1000 values would be calculated, then trimmed down. This would ensure that the database would never have more than ~20000 records, versus 1000000.
+One problem that I encountered was the amount of storage that the output takes. This problem was mitigated by only storing the 50 games with the best score for each game, reducing the size by a factor of 20. All 1000 values would be calculated, then trimmed down. This would ensure that the database would never have more than ~50000 records, versus 1000000.
