@@ -1,0 +1,35 @@
+---
+layout: post
+title: "Timebox 4"
+date: 2012-11-02 12:03
+comments: true
+categories: blog
+author: Chris Powers
+---
+
+## Worklog
+
+### Chris Powers
+
+*   Created the [attribute scoring engine](https://github.com/DRSNJM/board-ultimatum/blob/attr-search/src/board_ultimatum/attr_engine.clj)
+*   Implemented [filtering on the number of players](https://github.com/DRSNJM/board-ultimatum/blob/attr-search/src/board_ultimatum/engine/model.clj)
+*   Added results page sorting by score.
+*   Hooked up front-end with filtering and scoring components to ensure queries now work (takes user input, pulls data, filters, scores, presents, in that order)
+
+### Alex Burkhart
+
+*   
+
+### Ryan McGowan
+
+*   
+
+### David Albert
+
+*   
+
+## Commit History
+
+For more information on who has done what see [our commit
+history](https://github.com/DRSNJM/board-ultimatum/commits/master) on our github
+project.
