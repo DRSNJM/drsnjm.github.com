@@ -1,0 +1,31 @@
+---
+layout: post
+title: "Meeting 13: Putting it Together"
+date: 2011-10-30 22:16
+comments: true
+categories: meetings
+author: Chris Powers
+---
+
+## Goals
+
+Get components connected for fourth timebox.
+
+## Discussion
+
+Ryan has nearly finished building the "expert interface" for extracting expert game recommendations. Chris has already connected the filtering and scoring engines. Alex and Chris are working on filtering on the number of players. David is working on connecting the neural network to the mongo database after dropping plans to connect to a non-mongo database.
+
+## Results
+
+Ryan finished the expert interface, complete with results in a mongo collection. The last part for him to work on is randomizing games pulled from the database. David was able to run his neural network code and generate a database of garbage values. Chris and Alex completed connecting the components of the attribute search and were running successful queries from the interface.
+
+## Attendance
+
+-   Ryan McGowan
+-   Chris Powers (scribe)
+-   Alex Burkhart
+-	David Albert
+
+## Location
+
+Ryan McGowan's house
