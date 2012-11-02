@@ -3,7 +3,7 @@ layout: post
 title: "Timebox 4"
 date: 2012-11-02 12:03
 comments: true
-categories: blog
+categories: blog timebox
 author: Chris Powers
 ---
 
