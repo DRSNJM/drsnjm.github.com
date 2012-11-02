@@ -22,7 +22,16 @@ author: Chris Powers
 
 ### Ryan McGowan
 
-*   
+*   Created expert interface. ([Commits](https://github.com/DRSNJM/board-ultimatum/commits/expert-auth))
+    <br />**Highlights:**
+    *   Designed and implemented routes and markup for expert-select and
+        expert-compare interfaces
+    *   Designed and implemented basic insecure expert authentication.
+    *   Some minor style changes/improvements.
+    *   Rewrite of [`expert.js`](https://github.com/DRSNJM/board-ultimatum/blob/cf44804eb7531caac6e89463d9a2c140c54abfcf/resources/public/js/expert.js)
+    *   Created the following helper namespaces (engine.model.expert,
+        engine.model.relationship, form-validators, session, flash). [Explore
+        here](https://github.com/DRSNJM/board-ultimatum/tree/expert-auth/src/board_ultimatum).
 
 ### David Albert
 
