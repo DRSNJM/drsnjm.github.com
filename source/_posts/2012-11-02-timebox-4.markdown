@@ -35,7 +35,11 @@ author: Chris Powers
 
 ### David Albert
 
-*   
+*   Data Processing and Neural Net Setup
+    *   See blog post [here](/blog/2012/10/31/data-analysis-and-neural-nets/)
+    *   [Data Converstion Script](https://github.com/DRSNJM/board-ultimatum/blob/nnet/src/board_ultimatum/engine/vector_convert.clj)
+    *   [Neural Net Script](https://github.com/DRSNJM/board-ultimatum/blob/nnet/src/board_ultimatum/engine/neural.clj)
+
 
 ## Commit History
 
