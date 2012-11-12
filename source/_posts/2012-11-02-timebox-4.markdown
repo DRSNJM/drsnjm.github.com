@@ -4,7 +4,7 @@ title: "Timebox 4"
 date: 2012-11-02 12:03
 comments: true
 categories: blog timebox
-author: Chris Powers
+author: Chris Powers, Ryan McGowan, David Albert
 ---
 
 ## Worklog
