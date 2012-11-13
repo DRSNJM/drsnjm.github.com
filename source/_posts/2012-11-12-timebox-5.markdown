@@ -1,0 +1,48 @@
+---
+layout: post
+title: "Timebox 5"
+date: 2012-11-12 17:22
+comments: true
+categories: blog timebox
+author: Chris Powers, Ryan McGowan, David Albert
+---
+
+## Worklog
+
+### Chris Powers
+
+*   Created the [attribute scoring engine](https://github.com/DRSNJM/board-ultimatum/blob/attr-search/src/board_ultimatum/attr_engine.clj)
+*   Implemented [filtering on the number of players](https://github.com/DRSNJM/board-ultimatum/blob/attr-search/src/board_ultimatum/engine/model.clj)
+*   Added results page sorting by score.
+*   Hooked up front-end with filtering and scoring components to ensure queries now work (takes user input, pulls data, filters, scores, presents, in that order)
+
+### Alex Burkhart
+
+*   
+
+### Ryan McGowan
+
+*   Completed expert functionality. ([Commits](https://github.com/DRSNJM/board-ultimatum/commits/expert-auth))
+    <br />**Highlights:**
+    *   Designed and implemented routes and markup for expert-select and
+        expert-compare interfaces
+    *   Designed and implemented basic insecure expert authentication.
+    *   Some minor style changes/improvements.
+    *   Rewrite of [`expert.js`](https://github.com/DRSNJM/board-ultimatum/blob/cf44804eb7531caac6e89463d9a2c140c54abfcf/resources/public/js/expert.js)
+    *   Created the following helper namespaces (engine.model.expert,
+        engine.model.relationship, form-validators, session, flash). [Explore
+        here](https://github.com/DRSNJM/board-ultimatum/tree/expert-auth/src/board_ultimatum).
+
+### David Albert
+
+*   Data Processing and Neural Net Setup
+    *   See blog post [here](/blog/2012/10/31/data-analysis-and-neural-nets/)
+    *   [Data Converstion Script](https://github.com/DRSNJM/board-ultimatum/blob/nnet/src/board_ultimatum/engine/vector_convert.clj)
+    *   [Neural Net Script](https://github.com/DRSNJM/board-ultimatum/blob/nnet/src/board_ultimatum/engine/neural.clj)
+
+
+## Commit History
+
+For more information on who has done what see [our commit
+history](https://github.com/DRSNJM/board-ultimatum/commits/master) on our github
+project.
