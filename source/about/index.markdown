@@ -6,7 +6,7 @@ comments: true
 sharing: true
 footer: true
 ---
-We are the Dinosaur Riding Scrum Jedi Ninja Masters, a team of seniors at the
+We are the Dinosaur Riding Scrum Ninja Jedi Masters (DRSNJM), a team of seniors at the
 Ohio State University building an expert system for our computer science
 capstone project. We enjoy doing development projects and have a very diverse
 collective skill set, as well as a wide range of work experience. 
