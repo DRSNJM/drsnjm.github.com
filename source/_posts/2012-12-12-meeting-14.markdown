@@ -1,0 +1,38 @@
+---
+layout: post
+title: "Meeting 14"
+date: 2012-11-12 13:00
+comments: true
+categories: meetings
+author: Ryan McGowan
+---
+
+## Goals
+
+*   Determine how to include simple stats and neural network results.
+
+## Discussion
+
+Despite not having good results from the neural network thus far, replacing our
+network output data with the simple statistics data was undesirable. We are
+somewhat hopeful that the neural network will perform, but since the simple
+statistics shows good results we want the user to use it if they want.
+
+## Results
+
+On the results page and the similar search page there are toggle buttons that
+allow the similarity provider to be selected.
+
+## Outgoing Responsibilities
+
+*   Create UI for provider selection --- *Ryan*
+*   Train and push output data for both collections --- *David*
+
+## Attendance
+
+-   David Albert
+-   Ryan McGowan (scribe)
+
+## Location
+
+Google Chat
