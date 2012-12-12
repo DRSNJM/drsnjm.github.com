@@ -11,11 +11,18 @@ author: Chris Powers, Ryan McGowan, David Albert
 
 ### Poster
 
-*   Template styling and modification (David)
-*   Initial outline content (Ryan)
+*   Template styling and modification --- *David*
+*   Initial outline content --- *Ryan*
 
 ### board-ultimatum
 
-*   Create simple statistical method for determining similarity of games. (David)
-*   Allow the user to specify similarity engine provider (i.e. neural network or
-    similarity engine). (Ryan) [[pull-request](https://github.com/DRSNJM/board-ultimatum/pull/12)]
+*   Create simple statistical method for determining similarity of games. ---
+    *David*
+*   Allow the user to specify similarity engine provider. See the
+    [pull-request](https://github.com/DRSNJM/board-ultimatum/pull/12) ---
+    *Ryan*
+
+    Providers:
+
+    *   Neural Network
+    *   Simple Stats
