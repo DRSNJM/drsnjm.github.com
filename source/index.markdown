@@ -126,6 +126,10 @@ BGG has a massive collection of information on games and an API we used to pull
 down this information. We imported data on the top 1000 games off of BGG into a
 MongoDB database.
 
+#### Expert Interface
+
+*   [Expert interface design](/blog/2012/12/12/expert-interface/)
+
 #### Neural network of game recommendations
 
 *   [Data Analysis and Neural Nets](/blog/2012/10/31/data-analysis-and-neural-nets/)
