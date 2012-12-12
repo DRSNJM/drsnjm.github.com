@@ -18,3 +18,7 @@ the deployment to use github pages.
 ```bash
 rake setup_github_pages['git@github.com:DRSNJM/drsnjm.github.com.git']
 ```
+
+### Deploying the Site
+
+Generated static source files are available in the `_deploy` directory.
