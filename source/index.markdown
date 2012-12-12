@@ -6,45 +6,82 @@ sharing: true
 footer: true
 author: Ryan McGowan, Chris Powers
 ---
-# The DRSNJM
-
-The Dinosaur Riding Scrum Ninja Jedi Masters (DRSNJM) is a team of computer
-scientists studying at the Ohio State University. The team is actively building
-a board game recommendation system, designed and constructed from the ground up
-to emulate the expertise of a board game enthusiast using artificial
-intelligence fundamentals. The system is a major capstone project at the
-university that will be a fully functional and product.
-
----
-
 # The Board Ultimatum
+
+First things first, this project is finished and completely usable!
+
+[See our finished product here!](http://board-ultimatum.herokuapp.com/recommend)
+(may take a minute to load)
 
 ## Description
 
-The Board Ultimatum will be a usable site, where a user can register an account
-and start receiving board game recommendations based on their input and
-preferences. The user will tell the system what it's looking for out of a game,
-and the system will return games as results that match the user's selections.
-The user can rate games, and the system will gain knowledge on what type of
-games the user likes, and factor this information into the results.
+The Board Ultimatum is an interactive site where a user can enter their
+preferences in the form of either game attributes that they like/dislike, or by
+inputting a game they already enjoy, and start receiving board game
+recommendations based on their input. In addition, if the user is an expert in
+the area of board games, he or she may rate the quality of recommendations
+between games and the system will incorporate this knowledge into future
+recommendations.
 
-## Goals
+## Motivation &amp; Goals
 
-*   Build a web interface using the recommendation engine to allow users to
-    decide what to play next. A user can login, search for types of games, and
-    rate results.
-*   Create a library behind the website to act as a recommendation engine. The
-    library will take as input attributes of board games and return an ordered
-    list of games that match this input. The input/output system changes over
-    time as users rate and select different games.
+The motivation behind the project was simple: we want to eliminate guesswork
+from board game selection. Often times board game players, experienced and
+inexperienced alike, struggle to determine the next game to play when
+confronted with a huge selection. We wanted to play the role of a
+knowledgeable player who could ask them questions about games or aspects of
+games they preferred in order to give relevant results.
 
-## Design &amp; Implementation
+We built this system with the intention that it would give recommendations that
+were as good as recommendations from board game experts and enthusiasts. All
+aspects of approach and design move towards this goal.
 
-The board ultimatum system consists of two main components, the web application
-and the engine. The web app contains the engine, in fact the engine is a
-dependency to it.
+Some more specific goals include:
 
-### The Web App
+*   Build a web interface using the recommendation engine to allow users to 
+	decide what to play next. A user can search for types of games based on
+	a variety of attributes.
+*   Create a system behind the website to act as a recommendation engine. The
+    system will take as input attributes of board games and return an ordered
+    list of games that match this input.
+*	Create a second system that takes as input a single game and presents an
+	ordered list of games that are similar to the game. The input/output system
+	changes over time as users rate and select different games.
+
+See our post, [Problem Domain and Motivation](/blog/2012/09/18/problem-domain-and-motivations/).
+
+## Approach
+
+Because our goal was to emulate a board game expert, our approach to the system
+was to capture knowledge from experts through interviews and incorporate this =
+knowledge in the system.
+
+You can [view the experts we interviewed here.](http://localhost:4000/experts)
+
+You can [view the interviews we conducted with the experts here.](http://localhost:4000/interviews)
+
+You may wonder why we took the approach of using two separate systems to make
+recommendations. As credit to the usefulness of interviews, it's because we
+realized that experts will make recommendations based on games that a person
+likes just as much as aspects of games that a person likes.
+
+## Design
+
+#### Overall design
+
+The overall design of the system is summed up nicely by this flowchart:
+
+![System Design](/images/diagrams/system-design.png)
+
+To read more about our system design, see [all of our design posts.](/blog/categories/design/)
+
+Here's a couple of the most significant design posts:
+
+*   [Variety in Recommendation Queries](/blog/2012/09/11/variety-in-recommendation-queries/)
+*   [Preferences and Constraints](/blog/2012/09/17/preferences-and-constraints/)
+*   [Designing the Scoring Engine](/blog/2012/10/30/designing-the-scoring-engine/)
+
+#### Webapp
 
 The web application itself is mostly a front-end to the engine. It takes data
 input from a user, uses the engine to derive a list of games the user might
@@ -59,55 +96,63 @@ following parts:
 *   An HTML generation scheme
 *   Static resources -- (e.g. SASS &rarr; CSS, cljs &rarr; Javascript)
 
+#### Facts and rules
 
-### The Engine
+In general, our experts provide us with rules and decisions as well as helped
+specify what types of facts we should gather and use in our system.
 
-The engine is almost synonymous with the expert system. Not only will it contain
-our rules and at least part of our facts, it will also include the code to make
-inferences and decisions from them. However, the engine will also include the
-explanation component and a machine learning component.
+Our facts concerning games were the attributes of games pulled off of BGG
+(see Database of games under Key Components below). In the similar games
+engine, extra facts on expert recommendations were gathered through our expert
+game-rating interface.
 
+Rules differed between the systems. In the similar games engine, rules were
+innate to the neural network recommendations generated based on the expert's
+rules. In the attribute recommendation engine, rules were based on scoring
+mechanics. Scores were applied by comparing user preferences to each game and
+adding or deducting points based on how their preferences matched up to the
+game. These values change depending on the attribute, but are summed to
+represent the quality of the recommendation of that game as a whole.
 
-#### Facts, Decisions, Inferencing and Rules
+## Key Components
 
-In general, our experts provide us with rules and decisions as well as specify
-what types of facts we should gather and use in our system.
+See some posts on the key components of the system:
 
-Many facts will be stored in a persistent store after being gathered from
-[BoardGameGeek](http://boardgamegeek.com/)'s open API which contains a multitude
-of metadata.  This data includes play time, player number range and other
-helpful information ([see an example
-game](http://boardgamegeek.com/boardgame/25613/through-the-ages-a-story-of-civilization)).
+#### Database of games
 
-These facts are connected by rules and decisions primarily gathered from
-experts.  Sometimes these rules may be common sense (e.g. `IF NOT
-between(num_players(X), min_players, max_players) THEN NOT X`) or they may be
-more complex decisions (e.g. acceptable deviation in complexity is higher for
-experts and beginners than it is for intermediate board gamers).
+Data was used from our non-human expert on board games,
+[BoardGameGeek (BGG)](http://boardgamegeek.com/).
+BGG has a massive collection of information on games and an API we used to pull
+down this information. We imported data on the top 1000 games off of BGG into a
+MongoDB database.
 
+#### Neural network of game recommendations
 
-#### Components
+*   [Data Analysis and Neural Nets](/blog/2012/10/31/data-analysis-and-neural-nets/)
 
-*   Game Attribute Matching Machine (*GAMMa*) -- Rules, facts, decisions and
-    inferencing engine goodness.
-*   Reasoning/Explanation Framework (*Referree*) -- Keep track of how choices
-    are made.
-*   Similar Game Machine (*SiGMa*)-- Given a particular game list some similar
-    ones.
+#### Game preference scoring
 
-For more information on our design see [our design blog posts](/blog/categories/design/).
+*   [Designing the Scoring Engine](/blog/2012/10/30/designing-the-scoring-engine/)
+
+#### Front end design and implementation
+
+*   [Attribute Search Interface Design](/blog/2012/10/06/interface-design/)
+*   [Attribute Search Interface Implementation](/blog/2012/10/16/interface-implementation/)
+
+## Journal
+
+[See our full blog for the content we've journaled on over the project.](/blog)
+
+[See our meeting notes for the lowdown on what we did at each major meeting.](/meetings)
+
+[See our commit history on github to see who contributed what code.](https://github.com/DRSNJM/board-ultimatum/commits)
 
 ## Source Code and Documentation
 
 All of our source and documentation is available on
 [github](https://github.com/DRSNJM). For direct links to our repositories see
-the sidebar. Links to documentation can be found below:
+the sidebar.
 
 #### Board Ultimatum Docs
 
-*	[Web App](http://drsnjm.github.com/board-ultimatum)
-
-The engine component is now included in the web app above. The link below
-remains for historical purposes only.
-
-*	[Engine](http://drsnjm.github.com/board-ultimatum-engine)
+*	[Web App Docs](http://drsnjm.github.com/board-ultimatum)
