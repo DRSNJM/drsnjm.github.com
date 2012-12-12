@@ -153,6 +153,9 @@ All of our source and documentation is available on
 [github](https://github.com/DRSNJM). For direct links to our repositories see
 the sidebar.
 
+A [quick introduction to our setup
+instructions](/blog/2012/12/12/development-setup/) is also available.
+
 #### Board Ultimatum Docs
 
 *	[Web App Docs](http://drsnjm.github.com/board-ultimatum)
