@@ -24,10 +24,14 @@ where he gained extensive experience in designing games.
 Jeff has been playing board games since 1976. Often playing three times a week,
 Jeff played over a thousand different games.  As well as playing games Jeff has
 also been designing them for the past 10 years, one of which, *Manouvre*, has
-been published.
+been published. Jeff was recently elected to the CABS Executive Board for 2013.
 
 <span id="jeffk"></span>
 ## Jeff Kayati
+
+Jeff puts his extensive board game knowledge to good use running the CABS School,
+a program that attempts to teach members new games. He also regularly playtests
+games for several board game publishers.
 
 <span id="corey"></span>
 ## Corey Sanders
