@@ -1,0 +1,328 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: meetings | Dinosaur Riding Scrum Ninja Jedi Masters]]></title>
+  <link href="http://DRSNJM.github.com/blog/categories/meetings/atom.xml" rel="self"/>
+  <link href="http://DRSNJM.github.com/"/>
+  <updated>2012-12-11T19:32:33-05:00</updated>
+  <id>http://DRSNJM.github.com/</id>
+  <author>
+    <name><![CDATA[Ryan McGowan, Alex Burkhart, David Albert, Chris Powers]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Meeting 12: Preparing for Interviews]]></title>
+    <link href="http://DRSNJM.github.com/blog/2012/10/05/meeting-11/"/>
+    <updated>2012-10-05T15:16:00-04:00</updated>
+    <id>http://DRSNJM.github.com/blog/2012/10/05/meeting-11</id>
+    <content type="html"><![CDATA[<h2>Goals</h2>
+
+<p>Prepare for interviews, provide updates on coding.</p>
+
+<h2>Discussion</h2>
+
+<p>Alex set up 4 more interviews for us the following week. In addition, Alex informed everyone that CABS is tonight, so everyone is invited who wants to see what we're building a system for. Chris agreed to come. David suggested that interviews should be straightforward, and that it's more important to have our experts for training the system. Ryan said he could record the interviews again if David couldn't make it. Chris said that the most important thing to get out of the interviews is the attributes of the games used in matching preferences.</p>
+
+<p>David implemented the basic interfaces for allowing experts to train the system and for building a query. Chris said that he would work on populating some of attributes. Alex said that he has pulled all the necessary information off of board game geek, but that he'll just need Ryan's help to properly import it into Mongo, since he has no experience with it.</p>
+
+<h2>Results</h2>
+
+<p>Chris will visit CABS tonight with Alex to see what the system is like. He will also populate some of the attribute records and touch up the expert training interface. Ryan will help Alex import the records into a Mongo instance.</p>
+
+<h2>Attendance</h2>
+
+<ul>
+<li>Ryan McGowan</li>
+<li>Chris Powers (scribe)</li>
+<li>Alex Burkhart</li>
+<li>David Albert</li>
+</ul>
+
+
+<h2>Location</h2>
+
+<p>Dreese Labs</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Meeting 11: Feature Selection &amp; Interface Design]]></title>
+    <link href="http://DRSNJM.github.com/blog/2012/10/05/meeting-11-feature-selection-and-interface-design/"/>
+    <updated>2012-10-05T12:30:00-04:00</updated>
+    <id>http://DRSNJM.github.com/blog/2012/10/05/meeting-11-feature-selection-and-interface-design</id>
+    <content type="html"><![CDATA[<h2>Goals</h2>
+
+<ul>
+<li>Determine interface design for game recommendation and expert training.</li>
+<li>Determine how to convert game attributes into a vector for machine learning.
+Decide what features do we select.</li>
+<li>Create consensus on terminology used for the machine learning component.</li>
+</ul>
+
+
+<h2>Discussion</h2>
+
+<p>At this point, there are two interfaces that need to be designed.</p>
+
+<h4>Recommendation Interface</h4>
+
+<p>The first interface is the users normal route to interact with our system. It is
+the recommendation interface. It takes in some user specified attributes and
+returns a list of recommendations.</p>
+
+<p>Since many attributes that a user may specify will not be used in every query we
+do not want to clutter up the page with input fields. This sends the wrong
+message about fields being optional (or at least makes it harder to indicate),
+it is ugly and it is distracting resulting in an interface the user will not
+enjoy using. This we want a way to allow the user to opt into filling out parts
+of the form (or select sub-forms).  Chris came up with two ideas for this. Both
+ideas simply provide a graphical way for the user to indicate which attributes
+they want to specify.</p>
+
+<ol>
+<li>Accordion -- Display each attribute as a section in the accordion. Allow the
+user to open multiple sections.  An option section indicates that the user
+will be filling in its fields.</li>
+<li>Sidebar Buttons -- Instead of unrolling sections, the user would hit buttons
+in the sidebar describe the attributes he or she wants to filter on.  Each
+button would be stateful (i.e. buttons toggle between a pressed and
+unpressed state). When pressed, a form appears in the main column of the
+page for that attribute. Multilple pressed buttons means multiple forms.</li>
+</ol>
+
+
+<p>In general, the team gravitated toward the sidebar idea.  It makes the
+distinction between used and unused forms clearer.</p>
+
+<h4>Expert Interface</h4>
+
+<p>The second interface will be used to train SiGMa (Similar Game Machine) which is
+this projects machine learning component.  We spent a while discussing the
+proper terminology to describe the data we are looking for.  We decided that the
+term <em>similar</em> is not exactly what we want. Instead we are trying to find a
+relationship like <em>"given game A how good of a recommendation is game B"</em>.  Our
+interface will reflect this, but there are no plans to change the name of the
+library.</p>
+
+<p>The original interface proposed putting two games in front of the expert and a
+slider. The expert would then manipulate the slider to describe how <em>similar</em>
+the two games are. Besides changing the terminology used here from "how similar
+are these two games" to "how good of a recommendation is game <em>A</em> if someone
+likes game <em>B</em>" we also want to change the layout.  Alex made the point that an
+expert might not know one of the two games we are asking them to prepare.
+Providing a skip feature would work, but it might mean the expert does a lot of
+skipping if they know 100 games out of the 1000 we are using in the system it
+could take awhile to find a pair of games that they know both of. Thus the
+excepted interface involves a two step process. The first step is a page that
+shows a group of around 10 games. The expert selects which of these games they
+know.  The expert then continues to the next page which lists all two game
+combinations from their selections on the first page.</p>
+
+<h2>Results</h2>
+
+<ul>
+<li>Decided on two discussed interface designs.</li>
+</ul>
+
+
+<h2>Outgoing Responsibilities</h2>
+
+<ul>
+<li>David is to work on creating a tracer-bullet implementation of the first
+interface.</li>
+<li>Chris is to work on creating a tracer-bullet implementation of the second
+interface.</li>
+</ul>
+
+
+<h2>Attendance</h2>
+
+<ul>
+<li>Ryan McGowan (scribe)</li>
+<li>Chris Powers</li>
+<li>David Albert</li>
+<li>Alex Burkhart</li>
+</ul>
+
+
+<h2>Location</h2>
+
+<p>Thompson Café.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Meeting 10: Defining Requirements]]></title>
+    <link href="http://DRSNJM.github.com/blog/2012/10/03/meeting-10/"/>
+    <updated>2012-10-03T15:15:00-04:00</updated>
+    <id>http://DRSNJM.github.com/blog/2012/10/03/meeting-10</id>
+    <content type="html"><![CDATA[<h2>Goals</h2>
+
+<ul>
+<li>Get basic web/engine system working and interacting</li>
+<li>Discuss progress made in learning and using Clojure and core.logic</li>
+<li>Discuss ways in which we can translate our knowledge into rules and logic</li>
+<li>Schedule an additional expert meeting</li>
+<li>Determine what requirements we can define in concrete terms and put a cap on the scope of this timebox</li>
+</ul>
+
+
+<h2>Discussion</h2>
+
+<p>David shared some of the progress that he had made in learning and using core.logic to create facts and rules, applicable to the problem. Chris and David discussed some of the possible front-end interactions available to the user, including, but not limited to, what options the user should have available to them, what parameters we should entrust to the user and what we should allow the experts to define, and different UI methods for presenting this information to the user.</p>
+
+<p>Alex shared his progress in the data scrape of BoardGameGeek and methods for storing and loading this data into the inference engine were discussed. Pros and cons of SQL vs. JSON based storage were weighed; the decision to go with MongoDB was made after further discussion with Ryan.</p>
+
+<p>Design and implementation issues of the engine itself were discussed heavily, including logic related to weighting and scoring the different attributes that the user is querying on.</p>
+
+<h2>Results</h2>
+
+<ul>
+<li>A simple set of facts and rules written in Clojure/core.logic was demoed by David</li>
+<li>A simple web interface with a form containing input fields was also demoed</li>
+<li>The web front-end succesfully made a query to the inference engine</li>
+<li>Alex presented the data he had gathered and uploaded it to Google Docs</li>
+<li>New tasks for each member were determined for the coming week</li>
+</ul>
+
+
+<h2>Outgoing Responsibilities</h2>
+
+<ul>
+<li>Chris is going to make some wireframes for different UI layouts we can present to the user</li>
+<li>David will consult with Ryan to get the entire dependency chain working</li>
+<li>Alex will nail down an interview time and plan on interviewing one of the CABS experts with David and anyone else who is available</li>
+<li>Ryan will write a script to import the BGG XML data into a MongoDB that can then be loaded as facts into the engine at app startup</li>
+<li>As many team members as possible will try to attend the CABS meeting this weekend to gather information</li>
+</ul>
+
+
+<h2>Attendance</h2>
+
+<ul>
+<li>Alex Burkhart</li>
+<li>Chris Powers</li>
+<li>David Albert (scribe)</li>
+<li>Ryan McGowan</li>
+</ul>
+
+
+<h2>Location</h2>
+
+<p>Dreese Computer Lab</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Meeting 9: Starting Development]]></title>
+    <link href="http://DRSNJM.github.com/blog/2012/09/21/meeting-9-starting-development/"/>
+    <updated>2012-09-21T13:01:00-04:00</updated>
+    <id>http://DRSNJM.github.com/blog/2012/09/21/meeting-9-starting-development</id>
+    <content type="html"><![CDATA[<h2>Goals</h2>
+
+<ul>
+<li>Get development environment setup for everyone</li>
+<li>Go over how we are using Clojure, Noir and Bootstrap to create our web app.</li>
+<li>Plans for next week.</li>
+<li>Post David's machine learning thoughts.</li>
+</ul>
+
+
+<h2>Discussion</h2>
+
+<p>We discussed installing <a href="https://github.com/technomancy/leiningen">leiningen</a>, a
+dependency and project helper tool for Clojure projects. The alternative to
+using leiningen is maven, which is a bit difficult to manage and more complex
+than we need.</p>
+
+<p>We also discussed how Clojure, Noir and Boostrap fit into our web application.
+Clojure is a LISP that runs on the JVM. It's general purpose but with Noir (a
+micro web framework written in Clojure) we can use Clojure to easily make a
+fully featured website.</p>
+
+<p>Bootstrap assists by providing sane default styles and lots of additional
+Javascript based functionality.  We will be generating our CSS resources using
+the LESS files included with Bootstrap.</p>
+
+<h2>Results</h2>
+
+<ul>
+<li>David got leiningen set up on his computer.</li>
+<li>Chris and David are up to speed with the basic implementation design of the
+front-end.</li>
+</ul>
+
+
+<h2>Outgoing Responsibilities</h2>
+
+<ul>
+<li>Alex is going to contact our experts and set up interviews.</li>
+<li>David and Chris on going to work on getting their environments set up.</li>
+<li>Ryan will setup bootstrap and a nice default layout.</li>
+</ul>
+
+
+<h2>Attendance</h2>
+
+<ul>
+<li>Ryan McGowan (scribe)</li>
+<li>Chris Powers</li>
+<li>David Albert</li>
+</ul>
+
+
+<h2>Location</h2>
+
+<p>Thompson Café.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Meeting 8]]></title>
+    <link href="http://DRSNJM.github.com/blog/2012/09/11/meeting-8/"/>
+    <updated>2012-09-11T14:24:00-04:00</updated>
+    <id>http://DRSNJM.github.com/blog/2012/09/11/meeting-8</id>
+    <content type="html"><![CDATA[<h2>Goals</h2>
+
+<p>Determine who is responsible for which tasks in Timebox #2. Bring
+David up to speed from the previous meeting. Arrange the first
+expert interview.</p>
+
+<h2>Discussion</h2>
+
+<p>Several minor bookkeeping issues were discussed in regards to the
+github and pivotal tracker accounts. Utilizing tracker to log our
+team and individual progress was emphasized, and the procedures
+for doing so were decided on. An interview time was arranged with
+our first expert, Ray Chandler, from the Columbus Area Board Game
+Society. A location and time were determined.</p>
+
+<h2>Results</h2>
+
+<p>The tracker was updated to include more detailed descriptions of the
+tasks due for Timebox #2. Ryan, Chris, and Alex are going to meet
+with Ray this evening for an interview. David is going to get
+started on the powerpoint presentation for the Tuesday status update.
+All members are going to complete any tasks assigned to them in the
+tracker: <a href="https://www.pivotaltracker.com/projects/630615">https://www.pivotaltracker.com/projects/630615</a></p>
+
+<h2>Attendance</h2>
+
+<ul>
+<li>Ryan McGowan</li>
+<li>Chris Powers</li>
+<li>Alex Burkhart</li>
+<li>David Albert (scribe)</li>
+</ul>
+
+
+<h2>Location</h2>
+
+<p>Kafe Kerouac and Remote (via campfire)</p>
+]]></content>
+  </entry>
+  
+</feed>

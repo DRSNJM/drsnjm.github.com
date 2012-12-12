@@ -1,0 +1,276 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>Data Analysis and Neural Nets - Dinosaur Riding Scrum Ninja Jedi Masters</title>
+  <meta name="author" content="Ryan McGowan, Alex Burkhart, David Albert, Chris Powers">
+
+  
+  <meta name="description" content="Data Conversion and Analysis The first task that I took on during this timebox was converting the data from the board game database into numerical &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://DRSNJM.github.com/blog/2012/10/31/data-analysis-and-neural-nets/">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="/javascripts/ender.js"></script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <link href="/atom.xml" rel="alternate" title="Dinosaur Riding Scrum Ninja Jedi Masters" type="application/atom+xml">
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href='http://fonts.googleapis.com/css?family=Arvo:400,700|Open+Sans:400italic,700italic,400,700|Six+Caps' rel='stylesheet' type='text/css'>
+
+  
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">Dinosaur Riding Scrum Ninja Jedi Masters</a></h1>
+  
+    <h2>Agile is so last year...</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="http://google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:DRSNJM.github.com" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Project</a></li>
+  <li><a href="/experts">Experts</a></li>
+  <li><a href="/interviews">Interviews</a></li>
+  <li><a href="/blog">Blog</a></li>
+  <li><a href="/meetings">Meeting Notes</a></li>
+  <li><a href="/about">Team Bios</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">Data Analysis and Neural Nets</h1>
+    
+    
+      <p class="meta">
+        
+  
+
+<span class="byline author vcard">Posted by <span class="fn">David Albert</span></span>
+
+		<span>ON</span>
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-10-31T18:17:00-04:00" pubdate data-updated="true">Oct 31<span>st</span>, 2012</time>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><h2>Data Conversion and Analysis</h2>
+
+<p>The first task that I took on during this timebox was converting the data from the board game database into numerical vectors representing each game. The source code for this script can be found <a href="https://github.com/DRSNJM/board-ultimatum/blob/nnet/src/board_ultimatum/engine/vector-convert.clj">here</a>. There are many categories and mechanics included in this vector - its value is 1.0 if the game contains that tag and 0.0 if it does not.</p>
+
+<p>As you can tell by examining the code, the resulting vector has 100+ dimensions. For the sake of performance, I decided that this raw input was impractical for a neural net application. To solve this problem, I turned to PCA (Principal Component Analysis). PCA uses orthagonal transforms to maximize the variability of the data. By projecting my set of 1000 100+ dimensional vectors onto the first 10 principal components, I was able to reduce the dimensionality of the vectors down to ten components. The following is a graph of the data on the first two principal components.</p>
+
+<p><img src="http://i.imgur.com/XEnty.png" alt="PC Analysis" /></p>
+
+<p>It is worthwhile to note that the outliers in the bottom right are party games that can accomodate 50+ people and are fairly unique in that regard.</p>
+
+<p>Once the data is converted, it is stored in the Mongo database.</p>
+
+<p>The library I used to perform this analysis is <a href="http://incanter.org/">Incanter</a> which contains much of the functionality found in R, if you are familiar with stats packages.</p>
+
+<h2>Neural Net and Engine output</h2>
+
+<p>The next step was to run the data through the neural net. Since the expert interface is not accessible to public users at this point, an untrained network is used. The network I used is arbitrary at this point as far as hidden layers and propogation algorithms are concerned, since there is no training data. I ran each combination of games through the network with the input as the following: [GameA Game B]. The results were then stored in another Mongo collection.</p>
+
+<p>One problem that I encountered was the amount of storage that the output takes. This problem was mitigated by only storing the 50 games with the best score for each game, reducing the size by a factor of 20. All 1000 values would be calculated, then trimmed down. This would ensure that the database would never have more than ~50000 records, versus 1000000.</p>
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">David Albert</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-10-31T18:17:00-04:00" pubdate data-updated="true">Oct 31<span>st</span>, 2012</time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/blog/'>blog</a>
+  
+</span>
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://DRSNJM.github.com/blog/2012/10/31/data-analysis-and-neural-nets/" data-via="" data-counturl="http://DRSNJM.github.com/blog/2012/10/31/data-analysis-and-neural-nets/" >Tweet</a>
+  
+  
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2012/10/30/designing-the-scoring-engine/" title="Previous Post: Designing the Scoring Engine">&laquo; Designing the Scoring Engine</a>
+      
+      
+        <a class="basic-alignment right" href="/blog/2012/11/02/timebox-4/" title="Next Post: Timebox 4">Timebox 4 &raquo;</a>
+      
+    </p>
+  </footer>
+</article>
+
+</div>
+
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2012/12/10/final-presentation/">Final Presentation</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/11/12/timebox-5/">Timebox 5</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/11/02/timebox-4/">Timebox 4</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/10/31/data-analysis-and-neural-nets/">Data Analysis and Neural Nets</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/10/30/designing-the-scoring-engine/">Designing the Scoring Engine</a>
+      </li>
+    
+  </ul>
+</section>
+
+<section>
+  <h1>GitHub Repos</h1>
+  <ul id="gh_repos">
+    <li class="loading">Status updating...</li>
+  </ul>
+  
+  <a href="https://github.com/DRSNJM">@DRSNJM</a> on GitHub
+  
+  <script type="text/javascript">
+    $.domReady(function(){
+        if (!window.jXHR){
+            var jxhr = document.createElement('script');
+            jxhr.type = 'text/javascript';
+            jxhr.src = '/javascripts/libs/jXHR.js';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(jxhr, s);
+        }
+
+        github.showRepos({
+            user: 'DRSNJM',
+            count: 3,
+            skip_forks: true,
+            target: '#gh_repos'
+        });
+    });
+  </script>
+  <script src="/javascripts/github.js" type="text/javascript"> </script>
+</section>
+
+
+
+
+
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2012 - Ryan McGowan, Alex Burkhart, David Albert, Chris Powers -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+
+
+
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = 'http://platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>

@@ -1,1 +1,328 @@
-My Octopress Page is coming soon &hellip;
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>Dinosaur Riding Scrum Ninja Jedi Masters</title>
+  <meta name="author" content="Ryan McGowan, Alex Burkhart, David Albert, Chris Powers">
+
+  
+  <meta name="description" content="The DRSNJM The Dinosaur Riding Scrum Ninja Jedi Masters (DRSNJM) is a team of computer
+scientists studying at the Ohio State University. The team is &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://DRSNJM.github.com/">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="/javascripts/ender.js"></script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <link href="/atom.xml" rel="alternate" title="Dinosaur Riding Scrum Ninja Jedi Masters" type="application/atom+xml">
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href='http://fonts.googleapis.com/css?family=Arvo:400,700|Open+Sans:400italic,700italic,400,700|Six+Caps' rel='stylesheet' type='text/css'>
+
+  
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">Dinosaur Riding Scrum Ninja Jedi Masters</a></h1>
+  
+    <h2>Agile is so last year...</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="http://google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:DRSNJM.github.com" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Project</a></li>
+  <li><a href="/experts">Experts</a></li>
+  <li><a href="/interviews">Interviews</a></li>
+  <li><a href="/blog">Blog</a></li>
+  <li><a href="/meetings">Meeting Notes</a></li>
+  <li><a href="/about">Team Bios</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article role="article">
+  
+  <h1>The DRSNJM</h1>
+
+<p>The Dinosaur Riding Scrum Ninja Jedi Masters (DRSNJM) is a team of computer
+scientists studying at the Ohio State University. The team is actively building
+a board game recommendation system, designed and constructed from the ground up
+to emulate the expertise of a board game enthusiast using artificial
+intelligence fundamentals. The system is a major capstone project at the
+university that will be a fully functional and product.</p>
+
+<hr />
+
+<h1>The Board Ultimatum</h1>
+
+<h2>Description</h2>
+
+<p>The Board Ultimatum will be a usable site, where a user can register an account
+and start receiving board game recommendations based on their input and
+preferences. The user will tell the system what it&#8217;s looking for out of a game,
+and the system will return games as results that match the user&#8217;s selections.
+The user can rate games, and the system will gain knowledge on what type of
+games the user likes, and factor this information into the results.</p>
+
+<h2>Goals</h2>
+
+<ul>
+<li>Build a web interface using the recommendation engine to allow users to
+decide what to play next. A user can login, search for types of games, and
+rate results.</li>
+<li>Create a library behind the website to act as a recommendation engine. The
+library will take as input attributes of board games and return an ordered
+list of games that match this input. The input/output system changes over
+time as users rate and select different games.</li>
+</ul>
+
+
+<h2>Design &amp; Implementation</h2>
+
+<p>The board ultimatum system consists of two main components, the web application
+and the engine. The web app contains the engine, in fact the engine is a
+dependency to it.</p>
+
+<h3>The Web App</h3>
+
+<p>The web application itself is mostly a front-end to the engine. It takes data
+input from a user, uses the engine to derive a list of games the user might
+want, and delivers the list back to the user.  The front-end is split into the
+following parts:</p>
+
+<ul>
+<li>A web server &#8211; Capture and format HTTP requests and responses on our host.</li>
+<li>A routing to view framework &#8211; Using <a href="http://www.webnoir.org/">Noir</a> to
+declartivly create pages.</li>
+<li>An API built on top of that framework &#8211; Handle AJAX requests for
+interactive user experience.</li>
+<li>An HTML generation scheme</li>
+<li>Static resources &#8211; (e.g. SASS &rarr; CSS, cljs &rarr; Javascript)</li>
+</ul>
+
+
+<h3>The Engine</h3>
+
+<p>The engine is almost synonymous with the expert system. Not only will it contain
+our rules and at least part of our facts, it will also include the code to make
+inferences and decisions from them. However, the engine will also include the
+explanation component and a machine learning component.</p>
+
+<h4>Facts, Decisions, Inferencing and Rules</h4>
+
+<p>In general, our experts provide us with rules and decisions as well as specify
+what types of facts we should gather and use in our system.</p>
+
+<p>Many facts will be stored in a persistent store after being gathered from
+<a href="http://boardgamegeek.com/">BoardGameGeek</a>&#8217;s open API which contains a multitude
+of metadata.  This data includes play time, player number range and other
+helpful information (<a href="http://boardgamegeek.com/boardgame/25613/through-the-ages-a-story-of-civilization">see an example
+game</a>).</p>
+
+<p>These facts are connected by rules and decisions primarily gathered from
+experts.  Sometimes these rules may be common sense (e.g. <code>IF NOT
+between(num_players(X), min_players, max_players) THEN NOT X</code>) or they may be
+more complex decisions (e.g. acceptable deviation in complexity is higher for
+experts and beginners than it is for intermediate board gamers).</p>
+
+<h4>Components</h4>
+
+<ul>
+<li>Game Attribute Matching Machine (<em>GAMMa</em>) &#8211; Rules, facts, decisions and
+inferencing engine goodness.</li>
+<li>Reasoning/Explanation Framework (<em>Referree</em>) &#8211; Keep track of how choices
+are made.</li>
+<li>Similar Game Machine (<em>SiGMa</em>)&#8211; Given a particular game list some similar
+ones.</li>
+</ul>
+
+
+<p>For more information on our design see <a href="/blog/categories/design/">our design blog posts</a>.</p>
+
+<h2>Source Code and Documentation</h2>
+
+<p>All of our source and documentation is available on
+<a href="https://github.com/DRSNJM">github</a>. For direct links to our repositories see
+the sidebar. Links to documentation can be found below:</p>
+
+<h4>Board Ultimatum Docs</h4>
+
+<ul>
+<li><a href="http://drsnjm.github.com/board-ultimatum">Web App</a></li>
+</ul>
+
+
+<p>The engine component is now included in the web app above. The link below
+remains for historical purposes only.</p>
+
+<ul>
+<li><a href="http://drsnjm.github.com/board-ultimatum-engine">Engine</a></li>
+</ul>
+
+
+  
+    <footer>
+      <p class="meta">
+        
+  
+
+<span class="byline author vcard">Posted by <span class="fn">Ryan McGowan, Chris Powers</span></span>
+
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-09-01T11:53:00-04:00" pubdate data-updated="true">Sep 1<span>st</span>, 2012</time>
+        
+      </p>
+      
+        <div class="sharing">
+  
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://DRSNJM.github.com/index.html" data-via="" data-counturl="http://DRSNJM.github.com/index.html" >Tweet</a>
+  
+  
+  
+</div>
+
+      
+    </footer>
+  
+</article>
+
+</div>
+
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2012/12/10/final-presentation/">Final Presentation</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/11/12/timebox-5/">Timebox 5</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/11/02/timebox-4/">Timebox 4</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/10/31/data-analysis-and-neural-nets/">Data Analysis and Neural Nets</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/10/30/designing-the-scoring-engine/">Designing the Scoring Engine</a>
+      </li>
+    
+  </ul>
+</section>
+
+<section>
+  <h1>GitHub Repos</h1>
+  <ul id="gh_repos">
+    <li class="loading">Status updating...</li>
+  </ul>
+  
+  <a href="https://github.com/DRSNJM">@DRSNJM</a> on GitHub
+  
+  <script type="text/javascript">
+    $.domReady(function(){
+        if (!window.jXHR){
+            var jxhr = document.createElement('script');
+            jxhr.type = 'text/javascript';
+            jxhr.src = '/javascripts/libs/jXHR.js';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(jxhr, s);
+        }
+
+        github.showRepos({
+            user: 'DRSNJM',
+            count: 3,
+            skip_forks: true,
+            target: '#gh_repos'
+        });
+    });
+  </script>
+  <script src="/javascripts/github.js" type="text/javascript"> </script>
+</section>
+
+
+
+
+
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2012 - Ryan McGowan, Alex Burkhart, David Albert, Chris Powers -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+
+
+
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = 'http://platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>

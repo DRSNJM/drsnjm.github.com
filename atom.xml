@@ -1,0 +1,1049 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Dinosaur Riding Scrum Ninja Jedi Masters]]></title>
+  <link href="http://DRSNJM.github.com/atom.xml" rel="self"/>
+  <link href="http://DRSNJM.github.com/"/>
+  <updated>2012-12-11T19:32:33-05:00</updated>
+  <id>http://DRSNJM.github.com/</id>
+  <author>
+    <name><![CDATA[Ryan McGowan, Alex Burkhart, David Albert, Chris Powers]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Final Presentation]]></title>
+    <link href="http://DRSNJM.github.com/blog/2012/12/10/final-presentation/"/>
+    <updated>2012-12-10T20:39:00-05:00</updated>
+    <id>http://DRSNJM.github.com/blog/2012/12/10/final-presentation</id>
+    <content type="html"><![CDATA[<h2>Worklog</h2>
+
+<h3>Poster</h3>
+
+<ul>
+<li>Template styling and modification (David)</li>
+<li>Initial outline content (Ryan)</li>
+</ul>
+
+
+<h3>board-ultimatum</h3>
+
+<ul>
+<li>Create simple statistical method for determining similarity of games. (David)</li>
+<li>Allow the user to specify similarity engine provider (i.e. neural network or
+similarity engine). (Ryan) [<a href="https://github.com/DRSNJM/board-ultimatum/pull/12">pull-request</a>]</li>
+</ul>
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Timebox 5]]></title>
+    <link href="http://DRSNJM.github.com/blog/2012/11/12/timebox-5/"/>
+    <updated>2012-11-12T17:22:00-05:00</updated>
+    <id>http://DRSNJM.github.com/blog/2012/11/12/timebox-5</id>
+    <content type="html"><![CDATA[<h2>Worklog</h2>
+
+<h3>Chris Powers</h3>
+
+<ul>
+<li>Created the <a href="https://github.com/DRSNJM/board-ultimatum/blob/attr-search/src/board_ultimatum/attr_engine.clj">attribute scoring engine</a></li>
+<li>Implemented <a href="https://github.com/DRSNJM/board-ultimatum/blob/attr-search/src/board_ultimatum/engine/model.clj">filtering on the number of players</a></li>
+<li>Added results page sorting by score.</li>
+<li>Hooked up front-end with filtering and scoring components to ensure queries now work (takes user input, pulls data, filters, scores, presents, in that order)</li>
+</ul>
+
+
+<h3>Alex Burkhart</h3>
+
+<ul>
+<li></li>
+</ul>
+
+
+<h3>Ryan McGowan</h3>
+
+<ul>
+<li>Completed expert functionality. (<a href="https://github.com/DRSNJM/board-ultimatum/commits/expert-auth">Commits</a>)
+<br /><strong>Highlights:</strong>
+
+<ul>
+<li>Designed and implemented routes and markup for expert-select and
+expert-compare interfaces</li>
+<li>Designed and implemented basic insecure expert authentication.</li>
+<li>Some minor style changes/improvements.</li>
+<li>Rewrite of <a href="https://github.com/DRSNJM/board-ultimatum/blob/cf44804eb7531caac6e89463d9a2c140c54abfcf/resources/public/js/expert.js"><code>expert.js</code></a></li>
+<li>Created the following helper namespaces (engine.model.expert,
+engine.model.relationship, form-validators, session, flash). <a href="https://github.com/DRSNJM/board-ultimatum/tree/expert-auth/src/board_ultimatum">Explore
+here</a>.</li>
+</ul>
+</li>
+</ul>
+
+
+<h3>David Albert</h3>
+
+<ul>
+<li>Data Processing and Neural Net Setup
+
+<ul>
+<li>See blog post <a href="http://DRSNJM.github.com/blog/2012/10/31/data-analysis-and-neural-nets/">here</a></li>
+<li><a href="https://github.com/DRSNJM/board-ultimatum/blob/nnet/src/board_ultimatum/engine/vector_convert.clj">Data Converstion Script</a></li>
+<li><a href="https://github.com/DRSNJM/board-ultimatum/blob/nnet/src/board_ultimatum/engine/neural.clj">Neural Net Script</a></li>
+</ul>
+</li>
+</ul>
+
+
+<h2>Commit History</h2>
+
+<p>For more information on who has done what see <a href="https://github.com/DRSNJM/board-ultimatum/commits/master">our commit
+history</a> on our github
+project.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Timebox 4]]></title>
+    <link href="http://DRSNJM.github.com/blog/2012/11/02/timebox-4/"/>
+    <updated>2012-11-02T12:03:00-04:00</updated>
+    <id>http://DRSNJM.github.com/blog/2012/11/02/timebox-4</id>
+    <content type="html"><![CDATA[<h2>Worklog</h2>
+
+<h3>Chris Powers</h3>
+
+<ul>
+<li>Created the <a href="https://github.com/DRSNJM/board-ultimatum/blob/attr-search/src/board_ultimatum/attr_engine.clj">attribute scoring engine</a></li>
+<li>Implemented <a href="https://github.com/DRSNJM/board-ultimatum/blob/attr-search/src/board_ultimatum/engine/model.clj">filtering on the number of players</a></li>
+<li>Added results page sorting by score.</li>
+<li>Hooked up front-end with filtering and scoring components to ensure queries now work (takes user input, pulls data, filters, scores, presents, in that order)</li>
+</ul>
+
+
+<h3>Alex Burkhart</h3>
+
+<ul>
+<li></li>
+</ul>
+
+
+<h3>Ryan McGowan</h3>
+
+<ul>
+<li>Created expert interface. (<a href="https://github.com/DRSNJM/board-ultimatum/commits/expert-auth">Commits</a>)
+<br /><strong>Highlights:</strong>
+
+<ul>
+<li>Designed and implemented routes and markup for expert-select and
+expert-compare interfaces</li>
+<li>Designed and implemented basic insecure expert authentication.</li>
+<li>Some minor style changes/improvements.</li>
+<li>Rewrite of <a href="https://github.com/DRSNJM/board-ultimatum/blob/cf44804eb7531caac6e89463d9a2c140c54abfcf/resources/public/js/expert.js"><code>expert.js</code></a></li>
+<li>Created the following helper namespaces (engine.model.expert,
+engine.model.relationship, form-validators, session, flash). <a href="https://github.com/DRSNJM/board-ultimatum/tree/expert-auth/src/board_ultimatum">Explore
+here</a>.</li>
+</ul>
+</li>
+</ul>
+
+
+<h3>David Albert</h3>
+
+<ul>
+<li>Data Processing and Neural Net Setup
+
+<ul>
+<li>See blog post <a href="http://DRSNJM.github.com/blog/2012/10/31/data-analysis-and-neural-nets/">here</a></li>
+<li><a href="https://github.com/DRSNJM/board-ultimatum/blob/nnet/src/board_ultimatum/engine/vector_convert.clj">Data Converstion Script</a></li>
+<li><a href="https://github.com/DRSNJM/board-ultimatum/blob/nnet/src/board_ultimatum/engine/neural.clj">Neural Net Script</a></li>
+</ul>
+</li>
+</ul>
+
+
+<h2>Commit History</h2>
+
+<p>For more information on who has done what see <a href="https://github.com/DRSNJM/board-ultimatum/commits/master">our commit
+history</a> on our github
+project.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Data Analysis and Neural Nets]]></title>
+    <link href="http://DRSNJM.github.com/blog/2012/10/31/data-analysis-and-neural-nets/"/>
+    <updated>2012-10-31T18:17:00-04:00</updated>
+    <id>http://DRSNJM.github.com/blog/2012/10/31/data-analysis-and-neural-nets</id>
+    <content type="html"><![CDATA[<h2>Data Conversion and Analysis</h2>
+
+<p>The first task that I took on during this timebox was converting the data from the board game database into numerical vectors representing each game. The source code for this script can be found <a href="https://github.com/DRSNJM/board-ultimatum/blob/nnet/src/board_ultimatum/engine/vector-convert.clj">here</a>. There are many categories and mechanics included in this vector - its value is 1.0 if the game contains that tag and 0.0 if it does not.</p>
+
+<p>As you can tell by examining the code, the resulting vector has 100+ dimensions. For the sake of performance, I decided that this raw input was impractical for a neural net application. To solve this problem, I turned to PCA (Principal Component Analysis). PCA uses orthagonal transforms to maximize the variability of the data. By projecting my set of 1000 100+ dimensional vectors onto the first 10 principal components, I was able to reduce the dimensionality of the vectors down to ten components. The following is a graph of the data on the first two principal components.</p>
+
+<p><img src="http://i.imgur.com/XEnty.png" alt="PC Analysis" /></p>
+
+<p>It is worthwhile to note that the outliers in the bottom right are party games that can accomodate 50+ people and are fairly unique in that regard.</p>
+
+<p>Once the data is converted, it is stored in the Mongo database.</p>
+
+<p>The library I used to perform this analysis is <a href="http://incanter.org/">Incanter</a> which contains much of the functionality found in R, if you are familiar with stats packages.</p>
+
+<h2>Neural Net and Engine output</h2>
+
+<p>The next step was to run the data through the neural net. Since the expert interface is not accessible to public users at this point, an untrained network is used. The network I used is arbitrary at this point as far as hidden layers and propogation algorithms are concerned, since there is no training data. I ran each combination of games through the network with the input as the following: [GameA Game B]. The results were then stored in another Mongo collection.</p>
+
+<p>One problem that I encountered was the amount of storage that the output takes. This problem was mitigated by only storing the 50 games with the best score for each game, reducing the size by a factor of 20. All 1000 values would be calculated, then trimmed down. This would ensure that the database would never have more than ~50000 records, versus 1000000.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Designing the Scoring Engine]]></title>
+    <link href="http://DRSNJM.github.com/blog/2012/10/30/designing-the-scoring-engine/"/>
+    <updated>2012-10-30T18:03:00-04:00</updated>
+    <id>http://DRSNJM.github.com/blog/2012/10/30/designing-the-scoring-engine</id>
+    <content type="html"><![CDATA[<p>In <a href="http://DRSNJM.github.com/blog/2012/09/17/preferences-and-constraints/">a previous post</a>, I
+discussed the differences between filtering on constraints and scoring on
+preferences. As of the last timebox, filtering on game length was implemented
+(that is, using the interface, a user could return games of only certain
+lengths). For this timebox, I completed the filtering step on the only other
+constraint that needs to be filtered on, the number of players.</p>
+
+<p>That is the easy part. Scoring games can get very tricky. At the highest
+level, it&#8217;s very intuitive; you simply compare the user preferences to the
+game attributes and sum up scores for each match. The most pertinent question
+is, what will the numerical score values be based on? Will they be
+normalized? To answer the question of normalization, there is no need to
+normalize the scores for each match. The only place the scores will be used
+is in the ordering of the games presented to the user. In other words, the
+scores only need be relative.</p>
+
+<p>What defines a match? If we only considered matches as the user&#8217;s preference
+being exactly the same as the game&#8217;s attribute, and all else won&#8217;t earn you
+any score, then our job as programmers would be fairly easy. However, the
+fact of that matter is that many games may have <em>partial</em> matches; they match
+to some degree. For example, if a user indicates that they prefer a light
+game, we may want to give some &#8220;full&#8221; score to all light games, but maybe 75%
+of the points if the game is medium light, 45% if medium, and 10% if medium
+heavy. Unforunately, this implies that the scoring functions need to be
+written for each attribute individually, as the degree to which an attribute
+matches a preference is dependant upon the attribute.</p>
+
+<p>The final question is, where do we get the scores? This brings us back to the
+original goal of this project: to emulate an expert in the field of board
+game recommendations. We don&#8217;t need to come up with the scores ourselves; we
+need to get experts to tell use what the scores on the attributes ought to be.
+ In the future, this will be important information to extract from our experts.</p>
+
+<p>The last thing to consider is that we will be adding explanations on scores
+for display on the results page. This means that as each match is made, a
+corresponding string must be written or generated that describes what was
+matched and how much it affected the score. We can simply maintain a running
+list of explanations alongside the score to pass back from the game engine.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Interview 4: Corey Sanders]]></title>
+    <link href="http://DRSNJM.github.com/blog/2012/10/19/interview-4-corey-sanders/"/>
+    <updated>2012-10-19T19:39:00-04:00</updated>
+    <id>http://DRSNJM.github.com/blog/2012/10/19/interview-4-corey-sanders</id>
+    <content type="html"><![CDATA[<p>For more <a href="http://DRSNJM.github.com/experts#corey">information about Corey Sanders</a> see the experts page.</p>
+
+<p>A recording of the interview is accessible
+<a href="http://dl.dropbox.com/u/1378350/cse5914/corey-1.3gp">here</a>.</p>
+
+<h2>Notes</h2>
+
+<p>For the most part, Corey reiterated a lot of the things we have heard from
+interviews with other experts.  The attributes he suggested are:</p>
+
+<ul>
+<li>Mechanics</li>
+<li>Easy to Learn?</li>
+<li>Gateway Game?</li>
+<li>Rank (from BGG)</li>
+<li>Play time</li>
+<li>Age Group</li>
+<li>Availability &#8211; How easy is it to buy this game in a store?</li>
+</ul>
+
+
+<p>Corey agreed that player skill might also be important and thought that using
+most difficult game played might work as well as the number of unique games
+played.</p>
+
+<hr />
+
+<h4>Location</h4>
+
+<p>Panera Bread<br />
+3625 Fishinger Boulevard<br />
+Hilliard, Ohio 43026</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Interview 3: Jeff Kayati]]></title>
+    <link href="http://DRSNJM.github.com/blog/2012/10/19/interview-3-jeff-kayati/"/>
+    <updated>2012-10-19T19:38:00-04:00</updated>
+    <id>http://DRSNJM.github.com/blog/2012/10/19/interview-3-jeff-kayati</id>
+    <content type="html"><![CDATA[<p>For more <a href="http://DRSNJM.github.com/experts#jeffk">information about Jeff Kayati</a> see the experts page.</p>
+
+<p>A recording of the interview is accessible
+<a href="http://dl.dropbox.com/u/1378350/cse5914/jeffk-1.3gp">here</a>.</p>
+
+<h2>Notes</h2>
+
+<p>Beyond reiterating significant attributes we&#8217;ve heard from previous experts Jeff
+also suggested that the user be able to specify whether or not they want to
+learn a new game or not. Although we are not tracking user plays we could return
+more varied results in this case.</p>
+
+<p>Jeff also suggested that we allow the user to access the similarity engine
+directly.  That is, a user can query for a game with specific attributes or he
+or she can enter another game they like and get a recommendation from that.</p>
+
+<p>Since the published playtime of a game is often far shorter than actual plays to
+new board game players Jeff suggested adjusting playtime based on player skill
+level.</p>
+
+<p>Similar to Jeff Horger&#8217;s suggestion that we filter by publisher, Kayati also
+suggested we allow filtering on designer. Also like Jeff Horger, Kayati though
+allowing the user to exclude certain attributes is very important.</p>
+
+<hr />
+
+<h4>Location</h4>
+
+<p>The Soldiery, Inc.<br />
+4256 N. High St<br />
+Columbus, Ohio 43214</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Similarity Engine Design and Machine Learning Tools]]></title>
+    <link href="http://DRSNJM.github.com/blog/2012/10/19/similarity-engine-design-and-machine-learning-tools/"/>
+    <updated>2012-10-19T14:50:00-04:00</updated>
+    <id>http://DRSNJM.github.com/blog/2012/10/19/similarity-engine-design-and-machine-learning-tools</id>
+    <content type="html"><![CDATA[<p>My reponsibilities for Timebox #3 have primarily revolved around the machine learning extension to our project. After the expert interviews and discussion with potential users that took place during this timebox, it was decided that a search that provides recommended games based on some individual game that a user had enjoyed playing would be very useful and should be surfaced as a main feaure of the application, giving greater weight to this portion of the project. Elaborating on my <a href="http://DRSNJM.github.com/blog/2012/09/21/similarity-engine/">previous post on the topic</a>, I will be discussing some of the design and implementation decisions we have made.</p>
+
+<h2>Creating a Training Set</h2>
+
+<p>One of the challenges of developing a machine learning system, in our case, is having a reliable and sufficiently large training set to use to train the machine implementations we decide to use. This responsibility will fall on our experts and other experienced members of CABS. The number of games in our current input space is currently at 1000, and may be expanded in the future. Since his experts have to be able to rate games in terms of each other, we decided that an interface that randomly selects a set of ~16 games, and then asks which of those games the user is familiar with, would result in much more efficient training. These selections would then be passed to the game comparison screen, described previously, in which the users selects on a sliding scale how much they would recommend the second game based on someone enjoying the first.</p>
+
+<p>Some of the issues that arise from this system include the potential for multiple experts to rate the same pair of games. It is because of this, and also the fact that we dont want experts to be presented the same game pair more than once, that it is necessary to keep track of which training patterns belong to which expert. When it comes time to actually train the system, any duplicates will be averaged together to create the final training set.</p>
+
+<h2>Input Data</h2>
+
+<p>Another step in implementing the system is to produce a set of input data that can be fed through the network. Currently, a record for a single game in the database looks like the following:</p>
+
+<pre><code>{
+  "_id" : ObjectId("507ddc8538ef1f102b000001"),
+  "bgg_id" : 12002,
+  "name" : "Jambo",
+  "thumbnail" : "http://cf.geekdo-images.com/images/pic1244694_t.jpg",
+  "image" : "http://cf.geekdo-images.com/images/pic1244694.jpg",
+  "min_players" : 2,
+  "max_players" : 2,
+  "min_age" : 12,
+  "length" : 45,
+  "year_published" : 2004,
+  "rating_average" : 7.13898,
+  "rating_bayes_average" : 7.01279,
+  "rating_std_dev" : 1.19381,
+  "rating_median" : 0,
+  "weight_average" : 2.0779,
+  "weight_num" : 693,
+  "rank" : 233,
+  "tags" : [
+    {
+      "bgg_id" : 1002,
+      "subtype" : "category",
+      "value" : "Card Game"
+    }
+
+    ...
+
+  },
+  "suggested_age" : {
+    "2" : 0,
+    "3" : 0,
+    "4" : 0,
+    "5" : 0,
+    "6" : 1,
+    "8" : 2,
+    "10" : 14,
+    "12" : 8,
+    "14" : 2,
+    "16" : 0,
+    "18" : 0,
+    "21 and up" : 0
+  }
+}
+</code></pre>
+
+<p>However, in order to appropriate input for a machine learning implementation, the input must be a vector of numerical values, so I have begun to write a map function to perform this conversion, which can be seen <a href="https://github.com/DRSNJM/board-ultimatum/blob/nnet/src/board_ultimatum/engine/vector-convert.clj">here</a>. The output for the game then looks like the following:</p>
+
+<pre><code>[0.0075 0.25 0.25 0.6666666666666666 0.233 0.3465]
+</code></pre>
+
+<p>One interesting issue with our set of data is the possibility of having a very large input vector. Ryan and I have discussed this issue and have been researching techniques such as <a href="http://en.wikipedia.org/wiki/Principal_component_analysis">principal component analysis</a>, among others, as a possible solution to reduce the number of dimensions of our input. The primary concern is training performance, however, I have not yet had the chance to do any sort of dummy training to get an idea of what the limitations are going to be.</p>
+
+<h2>Machine Learning</h2>
+
+<p>Initially we had discussed using <a href="http://www.cs.waikato.ac.nz/ml/weka/">Weka</a> as our machine learning library, however, after looking into the documentation, it seemed that the neural nets and other features were primarily geared towards being used as classifiers. The domain for our problem falls more into function approximation, as we want to be able to return and train with values in a continuous range, rather than a discrete one.</p>
+
+<p>After looking at my options, I decided to go with <a href="http://www.heatonresearch.com/encog">Encog</a>. Encog has a repuation for being mature and rather optimized in terms of performance. It also has a well-documented Clojure wrapper, <a href="https://github.com/jimpil/enclog">Enclog</a>. Encog offers a variety of network types as well as training algorithms that I will need to experiment with to determine what approach is most appropriate for our input data.</p>
+
+<h2>Returning the Results</h2>
+
+<p>In order to quickly return the values generated by the network, we went ahead and set up a <a href="http://redis.io/">Redis</a> instance that is hooked to our Heroku account. We will be using the <a href="http://redis.io/commands#sorted_set">sorted sets</a> data structure to hold the results. The sorted set in redis takes input in the following format:</p>
+
+<pre><code>key score member
+</code></pre>
+
+<p>In our situation, the data we will be inputting will look like the following:</p>
+
+<pre><code>GameID-A similiarty-value GameID-B
+</code></pre>
+
+<p>This way, we will be able to very efficiently query what games, given some game A, have a similarity-value in a certain range. The <a href="http://redis.io/commands/zrevrange">zrevrange function</a> will most likely be the most appropriate for making these queries. Once the Game ID&#8217;s have been retrieved, the normal game database can then be queried to provide full details on each game.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Timebox 3]]></title>
+    <link href="http://DRSNJM.github.com/blog/2012/10/18/timebox-3/"/>
+    <updated>2012-10-18T23:16:00-04:00</updated>
+    <id>http://DRSNJM.github.com/blog/2012/10/18/timebox-3</id>
+    <content type="html"><![CDATA[<p>For detailed information on accomplishments from this timebox, see the links
+below:</p>
+
+<ul>
+<li><a href="http://DRSNJM.github.com/blog/2012/10/18/interface-design/">Attribute search design</a></li>
+<li><a href="http://DRSNJM.github.com/blog/2012/10/16/interface-implementation/">Attribute search implementation</a></li>
+</ul>
+
+
+<h4>Interviews</h4>
+
+<ol>
+<li><a href="http://DRSNJM.github.com/blog/2012/10/19/interview-2-jeff-1/">Jeff Horger</a></li>
+<li><a href="http://DRSNJM.github.com/blog/2012/10/19/interview-3-jeff-kayati/">Jeff Kayati</a></li>
+<li><a href="http://DRSNJM.github.com/blog/2012/10/19/interview-4-corey-sanders/">Corey Sanders</a></li>
+</ol>
+
+
+<h2>Worklog</h2>
+
+<h3>Chris Powers</h3>
+
+<ul>
+<li>Front-end mockups</li>
+<li>Tri-State button functionality</li>
+</ul>
+
+
+<h3>Alex Burkhart</h3>
+
+<ul>
+<li>Load mongodb from BGG data</li>
+<li>Get simple query functionality working</li>
+<li>Make prototype query results page.</li>
+</ul>
+
+
+<h3>Ryan McGowan</h3>
+
+<p>Ryan primarily managed code being included into our master branch.  He did most
+of the merging of features and refactored several components.</p>
+
+<ul>
+<li>Create initial project scaffolding.
+
+<ul>
+<li>Bootstrap, Leiningen, Mongo and the wiring between them to have a
+running app. This includes the config functionality.</li>
+</ul>
+</li>
+<li>Refactor Javascript for query interface.</li>
+<li>Corrections to markup for query interface to properly use bootstrap
+scaffolding.</li>
+<li>Feature branch merges</li>
+<li>Refactor <code>expert.js</code> and the expert select interface to use bootstrap
+scaffolding.</li>
+<li>Several other style changes.</li>
+<li>Interview writeups and notes</li>
+</ul>
+
+
+<h3>David Albert</h3>
+
+<ul>
+<li>Initial bootstrap UI demo</li>
+<li>Machine Learning component R&amp;D
+(<a href="http://DRSNJM.github.com/blog/2012/10/19/similarity-engine-design-and-machine-learning-tools/">more details here</a>)</li>
+</ul>
+
+
+<h2>Commit History</h2>
+
+<p>For more information on who has done what see <a href="https://github.com/DRSNJM/board-ultimatum/commits/master">our commit
+history</a> on our github
+project.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Group Presentation on Timebox 3 Updates]]></title>
+    <link href="http://DRSNJM.github.com/blog/2012/10/16/group-presentation-timebox-3/"/>
+    <updated>2012-10-16T23:03:00-04:00</updated>
+    <id>http://DRSNJM.github.com/blog/2012/10/16/group-presentation-timebox-3</id>
+    <content type="html"><![CDATA[<p>Our group gave a presentation today on our project updates for timebox 3.
+The presentation slides are <a href="https://docs.google.com/presentation/d/1FlgUpLTmazz8MjVawLmZQl6e1MjkDUkvp96wcXEjtxE/edit">available here</a>.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Attribute Search Interface Implementation]]></title>
+    <link href="http://DRSNJM.github.com/blog/2012/10/16/interface-implementation/"/>
+    <updated>2012-10-16T13:35:00-04:00</updated>
+    <id>http://DRSNJM.github.com/blog/2012/10/16/interface-implementation</id>
+    <content type="html"><![CDATA[<p>The most fundamental aspects of the query interface have been implemented.
+Though there may be more attributes added in the future, we decided to add a
+select few attributes that we believed encapsulated differing types of input we
+receive from the user. In particular, we expect the user to select discrete
+values for some attributes, such as number of players and time to play (in
+discrete intervals), and tri-state objects that can encapsulate the user liking,
+disliking, or not caring about a particular attribute. Prototypes were built to
+represent these input types, and are currently present on the interface:</p>
+
+<p><img src="http://DRSNJM.github.com/images/diagrams/fundamental-interface.jpeg" alt="Fundamental interface" /></p>
+
+<p>These input types maintain hidden values in the background in order to formally
+send them to the server.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Interview 2: Jeff Horger]]></title>
+    <link href="http://DRSNJM.github.com/blog/2012/10/08/interview-2-jeff-1/"/>
+    <updated>2012-10-08T20:00:00-04:00</updated>
+    <id>http://DRSNJM.github.com/blog/2012/10/08/interview-2-jeff-1</id>
+    <content type="html"><![CDATA[<p>For more <a href="http://DRSNJM.github.com/experts#jeffh">information about Jeff Horger</a> see the experts page.</p>
+
+<p>A recording of the interview is accessible
+<a href="http://dl.dropbox.com/u/1378350/cse5914/jeffh-1.3gp">here</a>.</p>
+
+<h2>Notes</h2>
+
+<p>As with most of our experts we asked Jeff a few basic questions:</p>
+
+<ol>
+<li>How do you pick what game to play?</li>
+<li>How do you determine what game to suggest to another player?</li>
+<li>What attributes do you think are important to consider when selecting a game
+to play?</li>
+</ol>
+
+
+<h4>1.  Choosing for Self</h4>
+
+<p>Jeff selects games to play far in advance and has a rotation set up with fellow
+players. Thus he always knows what he is going to play.  Foremost Jeff considers
+those he is playing with when selecting games in this fashion.</p>
+
+<p>Here are some attributes Jeff specifically mention he though of:</p>
+
+<ul>
+<li>Mental or Fun? &#8211; Does the game require a lot of thinking or is it simpler
+than that.</li>
+<li>Hard or Easy (i.e. weight)</li>
+<li>Complexity</li>
+</ul>
+
+
+<h4>2.  Suggesting to Others</h4>
+
+<p>Jeff always asks leading questions before making a suggestion. He takes into
+account the likes and dislikes of the other player.  He plays special attention
+to theme.  He also strongly regrades exclusions made by other players.  If some
+one hates games published by Fantasy Flight, then Jeff certainly will not
+suggest one that was.</p>
+
+<p>Jeff also suggested that we put default to placing simpler games before more
+complex ones since that&#8217;s what most new players would prefer.</p>
+
+<h4>3.  Attributes</h4>
+
+<p>(Besides those listed in 1)</p>
+
+<ul>
+<li>Play time</li>
+<li>Gauge skill by the hardest game the client has ever played.</li>
+<li>Difficulty to learn will correlate highly with number of metrics.</li>
+<li>Publishers typically produce games for audience at a certain skill level so
+they can be mapped to difficulty to learn.</li>
+</ul>
+
+
+<hr />
+
+<h4>Location</h4>
+
+<p>The Soldiery, Inc.<br />
+4256 N. High St<br />
+Columbus, Ohio 43214</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Attribute Search Interface Design]]></title>
+    <link href="http://DRSNJM.github.com/blog/2012/10/06/interface-design/"/>
+    <updated>2012-10-06T23:19:00-04:00</updated>
+    <id>http://DRSNJM.github.com/blog/2012/10/06/interface-design</id>
+    <content type="html"><![CDATA[<p>The most significant interface to our system is by far the query-construction
+interface. This is the first page that comes up when a user lands on the
+engine&#8217;s webpage, and it encapsulates the core functionality of the system: to
+take in user specified attributes and provide back a list of matching results.</p>
+
+<p>The interface is a bit tricky in a few significant ways. Firstly, there are
+potentially tens of attributes of games that we could surface as options.
+Fortunately, we have our experts to narrow down these attributes to the relevant
+ones. Secondly, each attribute has a different domain of values that are
+permissible. There&#8217;s no way around this one; we&#8217;ll have to build input selectors
+that match for each attribute. Thirdly, even with the reduced list of
+attributes, the user will still likely only care about a subset of them. We&#8217;d
+prefer if the user only had to interact with those attributes that he considers
+relevant to what he&#8217;s looking for.</p>
+
+<p>This last issue brings us to the design of the interface. After some thought, I
+proposed to the team two layouts for constructing queries:</p>
+
+<p><img src="http://DRSNJM.github.com/images/diagrams/attr-selection-interface.jpeg" alt="Attribute selection" /></p>
+
+<p>The user selects attributes to the left, then chooses the particular desired or
+undesired values of those attributes.</p>
+
+<p><img src="http://DRSNJM.github.com/images/diagrams/accordian-selection.jpeg" alt="Accordian selection" /></p>
+
+<p>The user selects the attributes in the middle, then the area for manipulating
+value preferences of those attributes appears under the attribute (sliding out
+like an accordian).</p>
+
+<p>The two styles are designed around the notion that users shouldn&#8217;t have to
+interact with attributes that they don&#8217;t care about. In both interfaces, the
+user only selects attributes that they have a preference on. It&#8217;s important to
+note that we intent to take into account negative preferences as well, a
+decision made based on feedback from our experts.</p>
+
+<p>After proposing the two designs to the team, it was decided that we would go
+with the first design, because we believed that it looked better and utilized
+the space better.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Meeting 12: Preparing for Interviews]]></title>
+    <link href="http://DRSNJM.github.com/blog/2012/10/05/meeting-11/"/>
+    <updated>2012-10-05T15:16:00-04:00</updated>
+    <id>http://DRSNJM.github.com/blog/2012/10/05/meeting-11</id>
+    <content type="html"><![CDATA[<h2>Goals</h2>
+
+<p>Prepare for interviews, provide updates on coding.</p>
+
+<h2>Discussion</h2>
+
+<p>Alex set up 4 more interviews for us the following week. In addition, Alex informed everyone that CABS is tonight, so everyone is invited who wants to see what we&#8217;re building a system for. Chris agreed to come. David suggested that interviews should be straightforward, and that it&#8217;s more important to have our experts for training the system. Ryan said he could record the interviews again if David couldn&#8217;t make it. Chris said that the most important thing to get out of the interviews is the attributes of the games used in matching preferences.</p>
+
+<p>David implemented the basic interfaces for allowing experts to train the system and for building a query. Chris said that he would work on populating some of attributes. Alex said that he has pulled all the necessary information off of board game geek, but that he&#8217;ll just need Ryan&#8217;s help to properly import it into Mongo, since he has no experience with it.</p>
+
+<h2>Results</h2>
+
+<p>Chris will visit CABS tonight with Alex to see what the system is like. He will also populate some of the attribute records and touch up the expert training interface. Ryan will help Alex import the records into a Mongo instance.</p>
+
+<h2>Attendance</h2>
+
+<ul>
+<li>Ryan McGowan</li>
+<li>Chris Powers (scribe)</li>
+<li>Alex Burkhart</li>
+<li>David Albert</li>
+</ul>
+
+
+<h2>Location</h2>
+
+<p>Dreese Labs</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Meeting 11: Feature Selection &amp; Interface Design]]></title>
+    <link href="http://DRSNJM.github.com/blog/2012/10/05/meeting-11-feature-selection-and-interface-design/"/>
+    <updated>2012-10-05T12:30:00-04:00</updated>
+    <id>http://DRSNJM.github.com/blog/2012/10/05/meeting-11-feature-selection-and-interface-design</id>
+    <content type="html"><![CDATA[<h2>Goals</h2>
+
+<ul>
+<li>Determine interface design for game recommendation and expert training.</li>
+<li>Determine how to convert game attributes into a vector for machine learning.
+Decide what features do we select.</li>
+<li>Create consensus on terminology used for the machine learning component.</li>
+</ul>
+
+
+<h2>Discussion</h2>
+
+<p>At this point, there are two interfaces that need to be designed.</p>
+
+<h4>Recommendation Interface</h4>
+
+<p>The first interface is the users normal route to interact with our system. It is
+the recommendation interface. It takes in some user specified attributes and
+returns a list of recommendations.</p>
+
+<p>Since many attributes that a user may specify will not be used in every query we
+do not want to clutter up the page with input fields. This sends the wrong
+message about fields being optional (or at least makes it harder to indicate),
+it is ugly and it is distracting resulting in an interface the user will not
+enjoy using. This we want a way to allow the user to opt into filling out parts
+of the form (or select sub-forms).  Chris came up with two ideas for this. Both
+ideas simply provide a graphical way for the user to indicate which attributes
+they want to specify.</p>
+
+<ol>
+<li>Accordion &#8211; Display each attribute as a section in the accordion. Allow the
+user to open multiple sections.  An option section indicates that the user
+will be filling in its fields.</li>
+<li>Sidebar Buttons &#8211; Instead of unrolling sections, the user would hit buttons
+in the sidebar describe the attributes he or she wants to filter on.  Each
+button would be stateful (i.e. buttons toggle between a pressed and
+unpressed state). When pressed, a form appears in the main column of the
+page for that attribute. Multilple pressed buttons means multiple forms.</li>
+</ol>
+
+
+<p>In general, the team gravitated toward the sidebar idea.  It makes the
+distinction between used and unused forms clearer.</p>
+
+<h4>Expert Interface</h4>
+
+<p>The second interface will be used to train SiGMa (Similar Game Machine) which is
+this projects machine learning component.  We spent a while discussing the
+proper terminology to describe the data we are looking for.  We decided that the
+term <em>similar</em> is not exactly what we want. Instead we are trying to find a
+relationship like <em>&#8220;given game A how good of a recommendation is game B&#8221;</em>.  Our
+interface will reflect this, but there are no plans to change the name of the
+library.</p>
+
+<p>The original interface proposed putting two games in front of the expert and a
+slider. The expert would then manipulate the slider to describe how <em>similar</em>
+the two games are. Besides changing the terminology used here from &#8220;how similar
+are these two games&#8221; to &#8220;how good of a recommendation is game <em>A</em> if someone
+likes game <em>B</em>&#8221; we also want to change the layout.  Alex made the point that an
+expert might not know one of the two games we are asking them to prepare.
+Providing a skip feature would work, but it might mean the expert does a lot of
+skipping if they know 100 games out of the 1000 we are using in the system it
+could take awhile to find a pair of games that they know both of. Thus the
+excepted interface involves a two step process. The first step is a page that
+shows a group of around 10 games. The expert selects which of these games they
+know.  The expert then continues to the next page which lists all two game
+combinations from their selections on the first page.</p>
+
+<h2>Results</h2>
+
+<ul>
+<li>Decided on two discussed interface designs.</li>
+</ul>
+
+
+<h2>Outgoing Responsibilities</h2>
+
+<ul>
+<li>David is to work on creating a tracer-bullet implementation of the first
+interface.</li>
+<li>Chris is to work on creating a tracer-bullet implementation of the second
+interface.</li>
+</ul>
+
+
+<h2>Attendance</h2>
+
+<ul>
+<li>Ryan McGowan (scribe)</li>
+<li>Chris Powers</li>
+<li>David Albert</li>
+<li>Alex Burkhart</li>
+</ul>
+
+
+<h2>Location</h2>
+
+<p>Thompson Café.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Group Presentation: KBS Chapters 11, 12]]></title>
+    <link href="http://DRSNJM.github.com/blog/2012/10/04/group-presentation-kbs/"/>
+    <updated>2012-10-04T19:20:00-04:00</updated>
+    <id>http://DRSNJM.github.com/blog/2012/10/04/group-presentation-kbs</id>
+    <content type="html"><![CDATA[<p>Our group gave a presentation today on Chapters 11, 12: Reasoning Under
+Uncertainty from the textbook, Knowledge-Based Systems. The presentation slides
+are <a href="https://docs.google.com/presentation/d/17Okm-Li0738Kax09vFIkGtN2YmFgUL2fzJgNGM-oiSw/edit">available here</a>.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Meeting 10: Defining Requirements]]></title>
+    <link href="http://DRSNJM.github.com/blog/2012/10/03/meeting-10/"/>
+    <updated>2012-10-03T15:15:00-04:00</updated>
+    <id>http://DRSNJM.github.com/blog/2012/10/03/meeting-10</id>
+    <content type="html"><![CDATA[<h2>Goals</h2>
+
+<ul>
+<li>Get basic web/engine system working and interacting</li>
+<li>Discuss progress made in learning and using Clojure and core.logic</li>
+<li>Discuss ways in which we can translate our knowledge into rules and logic</li>
+<li>Schedule an additional expert meeting</li>
+<li>Determine what requirements we can define in concrete terms and put a cap on the scope of this timebox</li>
+</ul>
+
+
+<h2>Discussion</h2>
+
+<p>David shared some of the progress that he had made in learning and using core.logic to create facts and rules, applicable to the problem. Chris and David discussed some of the possible front-end interactions available to the user, including, but not limited to, what options the user should have available to them, what parameters we should entrust to the user and what we should allow the experts to define, and different UI methods for presenting this information to the user.</p>
+
+<p>Alex shared his progress in the data scrape of BoardGameGeek and methods for storing and loading this data into the inference engine were discussed. Pros and cons of SQL vs. JSON based storage were weighed; the decision to go with MongoDB was made after further discussion with Ryan.</p>
+
+<p>Design and implementation issues of the engine itself were discussed heavily, including logic related to weighting and scoring the different attributes that the user is querying on.</p>
+
+<h2>Results</h2>
+
+<ul>
+<li>A simple set of facts and rules written in Clojure/core.logic was demoed by David</li>
+<li>A simple web interface with a form containing input fields was also demoed</li>
+<li>The web front-end succesfully made a query to the inference engine</li>
+<li>Alex presented the data he had gathered and uploaded it to Google Docs</li>
+<li>New tasks for each member were determined for the coming week</li>
+</ul>
+
+
+<h2>Outgoing Responsibilities</h2>
+
+<ul>
+<li>Chris is going to make some wireframes for different UI layouts we can present to the user</li>
+<li>David will consult with Ryan to get the entire dependency chain working</li>
+<li>Alex will nail down an interview time and plan on interviewing one of the CABS experts with David and anyone else who is available</li>
+<li>Ryan will write a script to import the BGG XML data into a MongoDB that can then be loaded as facts into the engine at app startup</li>
+<li>As many team members as possible will try to attend the CABS meeting this weekend to gather information</li>
+</ul>
+
+
+<h2>Attendance</h2>
+
+<ul>
+<li>Alex Burkhart</li>
+<li>Chris Powers</li>
+<li>David Albert (scribe)</li>
+<li>Ryan McGowan</li>
+</ul>
+
+
+<h2>Location</h2>
+
+<p>Dreese Computer Lab</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[The Challenges of Implementing a "Similarity" System]]></title>
+    <link href="http://DRSNJM.github.com/blog/2012/09/21/similarity-engine/"/>
+    <updated>2012-09-21T13:05:00-04:00</updated>
+    <id>http://DRSNJM.github.com/blog/2012/09/21/similarity-engine</id>
+    <content type="html"><![CDATA[<p>In the context our project, we would like to extend our project to not only
+provide games directly based on a user’s preferences, but also further recommend
+games that are similar to the ones provided by our rule-based system. However, a
+challenge arises when we try to define the term “similar.” How do we know that a
+user will like a game that is similar in attributes to another? What makes
+certain types of games desirable if a user liked one particular game? To
+alleviate this problem, we decided that utilizing some sort of clustering,
+categorization, or machine learning technique would be beneficial.</p>
+
+<p>To start with the most basic of techniques, first we need to numerically
+represent our knowledge base. This would need to be in the format of a vector:</p>
+
+<pre><code>&lt; a1, a2, a3, a4 … an &gt;
+</code></pre>
+
+<p>Where an is the numerical representation of some attribute of the game. For
+example, a1 may be the minimum number of players and a3 may be the number of
+minutes a game typically takes to play. One metric of game similarity would be
+the euclidean distance between the two vectors.</p>
+
+<p>Minimizing distance would yield the two games that are most numerically similar
+to each other. To query such a system quickly, a data structure such as an
+octree or k-d tree could be used. It is also worthwhile to note that since each
+an would cover a different domain, it would be necessary to normalize each
+domain to a range of values such as (0.0, 1.0). Otherwise, attributes
+represented with large numeric domains would have a greater impact on the
+euclidean distance. This issues leads us into our next line of thought,
+weighting different attributes by their importance to the user.</p>
+
+<p>One way of introducing importance into this equation is to add an additional
+constant to each  attribute of the game, in this case cn, where cn is some value
+in the range (0.0, 1.0).</p>
+
+<pre><code>&lt; c1*a1, c2*a2, c3*a3, c4*a4 … cn*an &gt;
+</code></pre>
+
+<p>A cn value of 0 represents the least importance, as it makes the nth attribute
+have a value of 0 for all vectors. Conversely, a value of 1 represents the
+greatest importance to the user, as it allows that attribute to have the largest
+impact on the resulting distance.</p>
+
+<p>An alternative method of achieving an “importance” when comparing attribute
+values is with gaussian curves. In this case, with the curve centered at μ = an,
+some value would be chosen (for example .75) and all values where curve is
+greater than .75 for each an would be accepted as “similar.” To introduce the
+idea of importance, σ can be changed for each n. A low σ results in a very
+narrow curve, and thusly a very narrow range of “similar” values in that axis,
+representing high importance, whereas a large σ results in a very wide range of
+values, representing a low importance.</p>
+
+<p>In order for this method to work as intended, the curve would have to be scaled
+by a factor of σ such that the peak was always at a value of 1.0.</p>
+
+<p>This method could also potentially be used for determining the “similarity”
+space for a set of multiple vectors (such as a user’s previously enjoyed games),
+but more on that later.</p>
+
+<p>While these methods may be very effective for finding games that are very
+similar in terms of their attributes, however, much of what users desire
+involves variety in games. If the only recommendations made are games that are
+nearly identical, will the user benefit? Also, are there intangible factors that
+make games recommendable in relation to other games that are hard to represent
+numerically or via a set of rules? One solution to this issue is to use a
+machine learning system.</p>
+
+<p>With a machine learning system, the experts themselves can train the system to
+identify games that would be appropriate for recommendation. The hope being that
+with enough input, the system itself will produce results similar to that of an
+expert. This may be accomplished through, for example, a neural network. First,
+the expert would be given an interface that would randomly, or at the choosing
+of the expert, provide two games; let’s call them Game A and Game B. The expert
+would choose, via some sort of slider UI element a value, with “Would never
+recommend” on one end of the spectrum and “Would highly recommend” on the other.
+This would be in reference to if the user enjoyed Game A considerably, the
+expert would “highly recommend” Game B to that user. The input pattern to the
+neural network would be the union of the two games’ attributes, such as the
+following:</p>
+
+<pre><code>&lt; a1, a2, a3, a4 … an, b1, b2, b3, b4 … bn &gt;
+</code></pre>
+
+<p>The network would then be trained with the output being a single floating point
+value, with 0 corresponding to “never recommend” and 1.0 corresponding to
+“highly recommend.” Once a sufficient amount of training data had been provided,
+the system should hypothetically be able to return a confidence factor, provided
+with two games, of whether if the user enjoyed the first, they would also enjoy
+the second.</p>
+
+<p>The problem with this method lies in the performance of the system. If a certain
+number of recommendations are to be made, it would be preferable that those
+recommendations have the highest output from the neural network. This means that
+in order to arbitrarily find the best match, the entire dataset has to be fed
+through the network. If a large dataset exists, this will be very inefficient. A
+possible solution to this problem is to have a process running in the
+background, updating a sorted set of values for each vector with the output of
+the network using some sort of a caching system such as Memcached or Redis for
+storage. This way, the best results can be pulled quickly from the cache.</p>
+
+<p>It would be necessary to also keep a database of the experts’ training data.
+This way, the network can be trained over as many epochs as necessary. This
+would also allow for different networks to be tested and trained with various
+architectural choices such as varying numbers of layers and learning rates. The
+training data could also be used for some other type of machine learning device,
+such as a Support Vector Machine.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Meeting 9: Starting Development]]></title>
+    <link href="http://DRSNJM.github.com/blog/2012/09/21/meeting-9-starting-development/"/>
+    <updated>2012-09-21T13:01:00-04:00</updated>
+    <id>http://DRSNJM.github.com/blog/2012/09/21/meeting-9-starting-development</id>
+    <content type="html"><![CDATA[<h2>Goals</h2>
+
+<ul>
+<li>Get development environment setup for everyone</li>
+<li>Go over how we are using Clojure, Noir and Bootstrap to create our web app.</li>
+<li>Plans for next week.</li>
+<li>Post David&#8217;s machine learning thoughts.</li>
+</ul>
+
+
+<h2>Discussion</h2>
+
+<p>We discussed installing <a href="https://github.com/technomancy/leiningen">leiningen</a>, a
+dependency and project helper tool for Clojure projects. The alternative to
+using leiningen is maven, which is a bit difficult to manage and more complex
+than we need.</p>
+
+<p>We also discussed how Clojure, Noir and Boostrap fit into our web application.
+Clojure is a LISP that runs on the JVM. It&#8217;s general purpose but with Noir (a
+micro web framework written in Clojure) we can use Clojure to easily make a
+fully featured website.</p>
+
+<p>Bootstrap assists by providing sane default styles and lots of additional
+Javascript based functionality.  We will be generating our CSS resources using
+the LESS files included with Bootstrap.</p>
+
+<h2>Results</h2>
+
+<ul>
+<li>David got leiningen set up on his computer.</li>
+<li>Chris and David are up to speed with the basic implementation design of the
+front-end.</li>
+</ul>
+
+
+<h2>Outgoing Responsibilities</h2>
+
+<ul>
+<li>Alex is going to contact our experts and set up interviews.</li>
+<li>David and Chris on going to work on getting their environments set up.</li>
+<li>Ryan will setup bootstrap and a nice default layout.</li>
+</ul>
+
+
+<h2>Attendance</h2>
+
+<ul>
+<li>Ryan McGowan (scribe)</li>
+<li>Chris Powers</li>
+<li>David Albert</li>
+</ul>
+
+
+<h2>Location</h2>
+
+<p>Thompson Café.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Group Presentation on Timebox 2 Updates]]></title>
+    <link href="http://DRSNJM.github.com/blog/2012/09/18/group-presentation-timebox-2/"/>
+    <updated>2012-09-18T15:18:00-04:00</updated>
+    <id>http://DRSNJM.github.com/blog/2012/09/18/group-presentation-timebox-2</id>
+    <content type="html"><![CDATA[<p>Our group gave a presentation today on our project updates for timebox 2.
+The presentation slides are <a href="https://docs.google.com/presentation/d/1PBGewdu7ewXD8qXDOroLOEykBehDpoitwQjXamUCF8w/edit">available here</a>.</p>
+]]></content>
+  </entry>
+  
+</feed>

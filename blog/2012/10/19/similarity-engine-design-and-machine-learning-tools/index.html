@@ -1,0 +1,340 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>Similarity Engine Design and Machine Learning Tools - Dinosaur Riding Scrum Ninja Jedi Masters</title>
+  <meta name="author" content="Ryan McGowan, Alex Burkhart, David Albert, Chris Powers">
+
+  
+  <meta name="description" content="My reponsibilities for Timebox #3 have primarily revolved around the machine learning extension to our project. After the expert interviews and &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://DRSNJM.github.com/blog/2012/10/19/similarity-engine-design-and-machine-learning-tools/">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="/javascripts/ender.js"></script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <link href="/atom.xml" rel="alternate" title="Dinosaur Riding Scrum Ninja Jedi Masters" type="application/atom+xml">
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href='http://fonts.googleapis.com/css?family=Arvo:400,700|Open+Sans:400italic,700italic,400,700|Six+Caps' rel='stylesheet' type='text/css'>
+
+  
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">Dinosaur Riding Scrum Ninja Jedi Masters</a></h1>
+  
+    <h2>Agile is so last year...</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="http://google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:DRSNJM.github.com" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Project</a></li>
+  <li><a href="/experts">Experts</a></li>
+  <li><a href="/interviews">Interviews</a></li>
+  <li><a href="/blog">Blog</a></li>
+  <li><a href="/meetings">Meeting Notes</a></li>
+  <li><a href="/about">Team Bios</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">Similarity Engine Design and Machine Learning Tools</h1>
+    
+    
+      <p class="meta">
+        
+  
+
+<span class="byline author vcard">Posted by <span class="fn">David Albert</span></span>
+
+		<span>ON</span>
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-10-19T14:50:00-04:00" pubdate data-updated="true">Oct 19<span>th</span>, 2012</time>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><p>My reponsibilities for Timebox #3 have primarily revolved around the machine learning extension to our project. After the expert interviews and discussion with potential users that took place during this timebox, it was decided that a search that provides recommended games based on some individual game that a user had enjoyed playing would be very useful and should be surfaced as a main feaure of the application, giving greater weight to this portion of the project. Elaborating on my <a href="/blog/2012/09/21/similarity-engine/">previous post on the topic</a>, I will be discussing some of the design and implementation decisions we have made.</p>
+
+<h2>Creating a Training Set</h2>
+
+<p>One of the challenges of developing a machine learning system, in our case, is having a reliable and sufficiently large training set to use to train the machine implementations we decide to use. This responsibility will fall on our experts and other experienced members of CABS. The number of games in our current input space is currently at 1000, and may be expanded in the future. Since his experts have to be able to rate games in terms of each other, we decided that an interface that randomly selects a set of ~16 games, and then asks which of those games the user is familiar with, would result in much more efficient training. These selections would then be passed to the game comparison screen, described previously, in which the users selects on a sliding scale how much they would recommend the second game based on someone enjoying the first.</p>
+
+<p>Some of the issues that arise from this system include the potential for multiple experts to rate the same pair of games. It is because of this, and also the fact that we dont want experts to be presented the same game pair more than once, that it is necessary to keep track of which training patterns belong to which expert. When it comes time to actually train the system, any duplicates will be averaged together to create the final training set.</p>
+
+<h2>Input Data</h2>
+
+<p>Another step in implementing the system is to produce a set of input data that can be fed through the network. Currently, a record for a single game in the database looks like the following:</p>
+
+<pre><code>{
+  "_id" : ObjectId("507ddc8538ef1f102b000001"),
+  "bgg_id" : 12002,
+  "name" : "Jambo",
+  "thumbnail" : "http://cf.geekdo-images.com/images/pic1244694_t.jpg",
+  "image" : "http://cf.geekdo-images.com/images/pic1244694.jpg",
+  "min_players" : 2,
+  "max_players" : 2,
+  "min_age" : 12,
+  "length" : 45,
+  "year_published" : 2004,
+  "rating_average" : 7.13898,
+  "rating_bayes_average" : 7.01279,
+  "rating_std_dev" : 1.19381,
+  "rating_median" : 0,
+  "weight_average" : 2.0779,
+  "weight_num" : 693,
+  "rank" : 233,
+  "tags" : [
+    {
+      "bgg_id" : 1002,
+      "subtype" : "category",
+      "value" : "Card Game"
+    }
+
+    ...
+
+  },
+  "suggested_age" : {
+    "2" : 0,
+    "3" : 0,
+    "4" : 0,
+    "5" : 0,
+    "6" : 1,
+    "8" : 2,
+    "10" : 14,
+    "12" : 8,
+    "14" : 2,
+    "16" : 0,
+    "18" : 0,
+    "21 and up" : 0
+  }
+}
+</code></pre>
+
+<p>However, in order to appropriate input for a machine learning implementation, the input must be a vector of numerical values, so I have begun to write a map function to perform this conversion, which can be seen <a href="https://github.com/DRSNJM/board-ultimatum/blob/nnet/src/board_ultimatum/engine/vector-convert.clj">here</a>. The output for the game then looks like the following:</p>
+
+<pre><code>[0.0075 0.25 0.25 0.6666666666666666 0.233 0.3465]
+</code></pre>
+
+<p>One interesting issue with our set of data is the possibility of having a very large input vector. Ryan and I have discussed this issue and have been researching techniques such as <a href="http://en.wikipedia.org/wiki/Principal_component_analysis">principal component analysis</a>, among others, as a possible solution to reduce the number of dimensions of our input. The primary concern is training performance, however, I have not yet had the chance to do any sort of dummy training to get an idea of what the limitations are going to be.</p>
+
+<h2>Machine Learning</h2>
+
+<p>Initially we had discussed using <a href="http://www.cs.waikato.ac.nz/ml/weka/">Weka</a> as our machine learning library, however, after looking into the documentation, it seemed that the neural nets and other features were primarily geared towards being used as classifiers. The domain for our problem falls more into function approximation, as we want to be able to return and train with values in a continuous range, rather than a discrete one.</p>
+
+<p>After looking at my options, I decided to go with <a href="http://www.heatonresearch.com/encog">Encog</a>. Encog has a repuation for being mature and rather optimized in terms of performance. It also has a well-documented Clojure wrapper, <a href="https://github.com/jimpil/enclog">Enclog</a>. Encog offers a variety of network types as well as training algorithms that I will need to experiment with to determine what approach is most appropriate for our input data.</p>
+
+<h2>Returning the Results</h2>
+
+<p>In order to quickly return the values generated by the network, we went ahead and set up a <a href="http://redis.io/">Redis</a> instance that is hooked to our Heroku account. We will be using the <a href="http://redis.io/commands#sorted_set">sorted sets</a> data structure to hold the results. The sorted set in redis takes input in the following format:</p>
+
+<pre><code>key score member
+</code></pre>
+
+<p>In our situation, the data we will be inputting will look like the following:</p>
+
+<pre><code>GameID-A similiarty-value GameID-B
+</code></pre>
+
+<p>This way, we will be able to very efficiently query what games, given some game A, have a similarity-value in a certain range. The <a href="http://redis.io/commands/zrevrange">zrevrange function</a> will most likely be the most appropriate for making these queries. Once the Game ID&#8217;s have been retrieved, the normal game database can then be queried to provide full details on each game.</p>
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">David Albert</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-10-19T14:50:00-04:00" pubdate data-updated="true">Oct 19<span>th</span>, 2012</time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/blog/'>blog</a>
+  
+</span>
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://DRSNJM.github.com/blog/2012/10/19/similarity-engine-design-and-machine-learning-tools/" data-via="" data-counturl="http://DRSNJM.github.com/blog/2012/10/19/similarity-engine-design-and-machine-learning-tools/" >Tweet</a>
+  
+  
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2012/10/18/timebox-3/" title="Previous Post: Timebox 3">&laquo; Timebox 3</a>
+      
+      
+        <a class="basic-alignment right" href="/blog/2012/10/19/interview-3-jeff-kayati/" title="Next Post: Interview 3: Jeff Kayati">Interview 3: Jeff Kayati &raquo;</a>
+      
+    </p>
+  </footer>
+</article>
+
+</div>
+
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2012/12/10/final-presentation/">Final Presentation</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/11/12/timebox-5/">Timebox 5</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/11/02/timebox-4/">Timebox 4</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/10/31/data-analysis-and-neural-nets/">Data Analysis and Neural Nets</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/10/30/designing-the-scoring-engine/">Designing the Scoring Engine</a>
+      </li>
+    
+  </ul>
+</section>
+
+<section>
+  <h1>GitHub Repos</h1>
+  <ul id="gh_repos">
+    <li class="loading">Status updating...</li>
+  </ul>
+  
+  <a href="https://github.com/DRSNJM">@DRSNJM</a> on GitHub
+  
+  <script type="text/javascript">
+    $.domReady(function(){
+        if (!window.jXHR){
+            var jxhr = document.createElement('script');
+            jxhr.type = 'text/javascript';
+            jxhr.src = '/javascripts/libs/jXHR.js';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(jxhr, s);
+        }
+
+        github.showRepos({
+            user: 'DRSNJM',
+            count: 3,
+            skip_forks: true,
+            target: '#gh_repos'
+        });
+    });
+  </script>
+  <script src="/javascripts/github.js" type="text/javascript"> </script>
+</section>
+
+
+
+
+
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2012 - Ryan McGowan, Alex Burkhart, David Albert, Chris Powers -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+
+
+
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = 'http://platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>

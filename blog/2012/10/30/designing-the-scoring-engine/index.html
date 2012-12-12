@@ -1,0 +1,297 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>Designing the Scoring Engine - Dinosaur Riding Scrum Ninja Jedi Masters</title>
+  <meta name="author" content="Ryan McGowan, Alex Burkhart, David Albert, Chris Powers">
+
+  
+  <meta name="description" content="In a previous post, I
+discussed the differences between filtering on constraints and scoring on
+preferences. As of the last timebox, filtering on &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://DRSNJM.github.com/blog/2012/10/30/designing-the-scoring-engine/">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="/javascripts/ender.js"></script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <link href="/atom.xml" rel="alternate" title="Dinosaur Riding Scrum Ninja Jedi Masters" type="application/atom+xml">
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href='http://fonts.googleapis.com/css?family=Arvo:400,700|Open+Sans:400italic,700italic,400,700|Six+Caps' rel='stylesheet' type='text/css'>
+
+  
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">Dinosaur Riding Scrum Ninja Jedi Masters</a></h1>
+  
+    <h2>Agile is so last year...</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="http://google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:DRSNJM.github.com" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Project</a></li>
+  <li><a href="/experts">Experts</a></li>
+  <li><a href="/interviews">Interviews</a></li>
+  <li><a href="/blog">Blog</a></li>
+  <li><a href="/meetings">Meeting Notes</a></li>
+  <li><a href="/about">Team Bios</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">Designing the Scoring Engine</h1>
+    
+    
+      <p class="meta">
+        
+  
+
+<span class="byline author vcard">Posted by <span class="fn">Chris Powers</span></span>
+
+		<span>ON</span>
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-10-30T18:03:00-04:00" pubdate data-updated="true">Oct 30<span>th</span>, 2012</time>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><p>In <a href="/blog/2012/09/17/preferences-and-constraints/">a previous post</a>, I
+discussed the differences between filtering on constraints and scoring on
+preferences. As of the last timebox, filtering on game length was implemented
+(that is, using the interface, a user could return games of only certain
+lengths). For this timebox, I completed the filtering step on the only other
+constraint that needs to be filtered on, the number of players.</p>
+
+<p>That is the easy part. Scoring games can get very tricky. At the highest
+level, it&#8217;s very intuitive; you simply compare the user preferences to the
+game attributes and sum up scores for each match. The most pertinent question
+is, what will the numerical score values be based on? Will they be
+normalized? To answer the question of normalization, there is no need to
+normalize the scores for each match. The only place the scores will be used
+is in the ordering of the games presented to the user. In other words, the
+scores only need be relative.</p>
+
+<p>What defines a match? If we only considered matches as the user&#8217;s preference
+being exactly the same as the game&#8217;s attribute, and all else won&#8217;t earn you
+any score, then our job as programmers would be fairly easy. However, the
+fact of that matter is that many games may have <em>partial</em> matches; they match
+to some degree. For example, if a user indicates that they prefer a light
+game, we may want to give some &#8220;full&#8221; score to all light games, but maybe 75%
+of the points if the game is medium light, 45% if medium, and 10% if medium
+heavy. Unforunately, this implies that the scoring functions need to be
+written for each attribute individually, as the degree to which an attribute
+matches a preference is dependant upon the attribute.</p>
+
+<p>The final question is, where do we get the scores? This brings us back to the
+original goal of this project: to emulate an expert in the field of board
+game recommendations. We don&#8217;t need to come up with the scores ourselves; we
+need to get experts to tell use what the scores on the attributes ought to be.
+ In the future, this will be important information to extract from our experts.</p>
+
+<p>The last thing to consider is that we will be adding explanations on scores
+for display on the results page. This means that as each match is made, a
+corresponding string must be written or generated that describes what was
+matched and how much it affected the score. We can simply maintain a running
+list of explanations alongside the score to pass back from the game engine.</p>
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">Chris Powers</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-10-30T18:03:00-04:00" pubdate data-updated="true">Oct 30<span>th</span>, 2012</time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/blog/'>blog</a>, <a class='category' href='/blog/categories/design/'>design</a>
+  
+</span>
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://DRSNJM.github.com/blog/2012/10/30/designing-the-scoring-engine/" data-via="" data-counturl="http://DRSNJM.github.com/blog/2012/10/30/designing-the-scoring-engine/" >Tweet</a>
+  
+  
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2012/10/19/interview-4-corey-sanders/" title="Previous Post: Interview 4: Corey Sanders">&laquo; Interview 4: Corey Sanders</a>
+      
+      
+        <a class="basic-alignment right" href="/blog/2012/10/31/data-analysis-and-neural-nets/" title="Next Post: Data Analysis and Neural Nets">Data Analysis and Neural Nets &raquo;</a>
+      
+    </p>
+  </footer>
+</article>
+
+</div>
+
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2012/12/10/final-presentation/">Final Presentation</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/11/12/timebox-5/">Timebox 5</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/11/02/timebox-4/">Timebox 4</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/10/31/data-analysis-and-neural-nets/">Data Analysis and Neural Nets</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/10/30/designing-the-scoring-engine/">Designing the Scoring Engine</a>
+      </li>
+    
+  </ul>
+</section>
+
+<section>
+  <h1>GitHub Repos</h1>
+  <ul id="gh_repos">
+    <li class="loading">Status updating...</li>
+  </ul>
+  
+  <a href="https://github.com/DRSNJM">@DRSNJM</a> on GitHub
+  
+  <script type="text/javascript">
+    $.domReady(function(){
+        if (!window.jXHR){
+            var jxhr = document.createElement('script');
+            jxhr.type = 'text/javascript';
+            jxhr.src = '/javascripts/libs/jXHR.js';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(jxhr, s);
+        }
+
+        github.showRepos({
+            user: 'DRSNJM',
+            count: 3,
+            skip_forks: true,
+            target: '#gh_repos'
+        });
+    });
+  </script>
+  <script src="/javascripts/github.js" type="text/javascript"> </script>
+</section>
+
+
+
+
+
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2012 - Ryan McGowan, Alex Burkhart, David Albert, Chris Powers -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+
+
+
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = 'http://platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>

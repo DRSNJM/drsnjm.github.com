@@ -1,0 +1,267 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: timebox | Dinosaur Riding Scrum Ninja Jedi Masters]]></title>
+  <link href="http://DRSNJM.github.com/blog/categories/timebox/atom.xml" rel="self"/>
+  <link href="http://DRSNJM.github.com/"/>
+  <updated>2012-12-11T19:32:33-05:00</updated>
+  <id>http://DRSNJM.github.com/</id>
+  <author>
+    <name><![CDATA[Ryan McGowan, Alex Burkhart, David Albert, Chris Powers]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Final Presentation]]></title>
+    <link href="http://DRSNJM.github.com/blog/2012/12/10/final-presentation/"/>
+    <updated>2012-12-10T20:39:00-05:00</updated>
+    <id>http://DRSNJM.github.com/blog/2012/12/10/final-presentation</id>
+    <content type="html"><![CDATA[<h2>Worklog</h2>
+
+<h3>Poster</h3>
+
+<ul>
+<li>Template styling and modification (David)</li>
+<li>Initial outline content (Ryan)</li>
+</ul>
+
+
+<h3>board-ultimatum</h3>
+
+<ul>
+<li>Create simple statistical method for determining similarity of games. (David)</li>
+<li>Allow the user to specify similarity engine provider (i.e. neural network or
+similarity engine). (Ryan) [<a href="https://github.com/DRSNJM/board-ultimatum/pull/12">pull-request</a>]</li>
+</ul>
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Timebox 5]]></title>
+    <link href="http://DRSNJM.github.com/blog/2012/11/12/timebox-5/"/>
+    <updated>2012-11-12T17:22:00-05:00</updated>
+    <id>http://DRSNJM.github.com/blog/2012/11/12/timebox-5</id>
+    <content type="html"><![CDATA[<h2>Worklog</h2>
+
+<h3>Chris Powers</h3>
+
+<ul>
+<li>Created the <a href="https://github.com/DRSNJM/board-ultimatum/blob/attr-search/src/board_ultimatum/attr_engine.clj">attribute scoring engine</a></li>
+<li>Implemented <a href="https://github.com/DRSNJM/board-ultimatum/blob/attr-search/src/board_ultimatum/engine/model.clj">filtering on the number of players</a></li>
+<li>Added results page sorting by score.</li>
+<li>Hooked up front-end with filtering and scoring components to ensure queries now work (takes user input, pulls data, filters, scores, presents, in that order)</li>
+</ul>
+
+
+<h3>Alex Burkhart</h3>
+
+<ul>
+<li></li>
+</ul>
+
+
+<h3>Ryan McGowan</h3>
+
+<ul>
+<li>Completed expert functionality. (<a href="https://github.com/DRSNJM/board-ultimatum/commits/expert-auth">Commits</a>)
+<br /><strong>Highlights:</strong>
+
+<ul>
+<li>Designed and implemented routes and markup for expert-select and
+expert-compare interfaces</li>
+<li>Designed and implemented basic insecure expert authentication.</li>
+<li>Some minor style changes/improvements.</li>
+<li>Rewrite of <a href="https://github.com/DRSNJM/board-ultimatum/blob/cf44804eb7531caac6e89463d9a2c140c54abfcf/resources/public/js/expert.js"><code>expert.js</code></a></li>
+<li>Created the following helper namespaces (engine.model.expert,
+engine.model.relationship, form-validators, session, flash). <a href="https://github.com/DRSNJM/board-ultimatum/tree/expert-auth/src/board_ultimatum">Explore
+here</a>.</li>
+</ul>
+</li>
+</ul>
+
+
+<h3>David Albert</h3>
+
+<ul>
+<li>Data Processing and Neural Net Setup
+
+<ul>
+<li>See blog post <a href="/blog/2012/10/31/data-analysis-and-neural-nets/">here</a></li>
+<li><a href="https://github.com/DRSNJM/board-ultimatum/blob/nnet/src/board_ultimatum/engine/vector_convert.clj">Data Converstion Script</a></li>
+<li><a href="https://github.com/DRSNJM/board-ultimatum/blob/nnet/src/board_ultimatum/engine/neural.clj">Neural Net Script</a></li>
+</ul>
+</li>
+</ul>
+
+
+<h2>Commit History</h2>
+
+<p>For more information on who has done what see <a href="https://github.com/DRSNJM/board-ultimatum/commits/master">our commit
+history</a> on our github
+project.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Timebox 4]]></title>
+    <link href="http://DRSNJM.github.com/blog/2012/11/02/timebox-4/"/>
+    <updated>2012-11-02T12:03:00-04:00</updated>
+    <id>http://DRSNJM.github.com/blog/2012/11/02/timebox-4</id>
+    <content type="html"><![CDATA[<h2>Worklog</h2>
+
+<h3>Chris Powers</h3>
+
+<ul>
+<li>Created the <a href="https://github.com/DRSNJM/board-ultimatum/blob/attr-search/src/board_ultimatum/attr_engine.clj">attribute scoring engine</a></li>
+<li>Implemented <a href="https://github.com/DRSNJM/board-ultimatum/blob/attr-search/src/board_ultimatum/engine/model.clj">filtering on the number of players</a></li>
+<li>Added results page sorting by score.</li>
+<li>Hooked up front-end with filtering and scoring components to ensure queries now work (takes user input, pulls data, filters, scores, presents, in that order)</li>
+</ul>
+
+
+<h3>Alex Burkhart</h3>
+
+<ul>
+<li></li>
+</ul>
+
+
+<h3>Ryan McGowan</h3>
+
+<ul>
+<li>Created expert interface. (<a href="https://github.com/DRSNJM/board-ultimatum/commits/expert-auth">Commits</a>)
+<br /><strong>Highlights:</strong>
+
+<ul>
+<li>Designed and implemented routes and markup for expert-select and
+expert-compare interfaces</li>
+<li>Designed and implemented basic insecure expert authentication.</li>
+<li>Some minor style changes/improvements.</li>
+<li>Rewrite of <a href="https://github.com/DRSNJM/board-ultimatum/blob/cf44804eb7531caac6e89463d9a2c140c54abfcf/resources/public/js/expert.js"><code>expert.js</code></a></li>
+<li>Created the following helper namespaces (engine.model.expert,
+engine.model.relationship, form-validators, session, flash). <a href="https://github.com/DRSNJM/board-ultimatum/tree/expert-auth/src/board_ultimatum">Explore
+here</a>.</li>
+</ul>
+</li>
+</ul>
+
+
+<h3>David Albert</h3>
+
+<ul>
+<li>Data Processing and Neural Net Setup
+
+<ul>
+<li>See blog post <a href="/blog/2012/10/31/data-analysis-and-neural-nets/">here</a></li>
+<li><a href="https://github.com/DRSNJM/board-ultimatum/blob/nnet/src/board_ultimatum/engine/vector_convert.clj">Data Converstion Script</a></li>
+<li><a href="https://github.com/DRSNJM/board-ultimatum/blob/nnet/src/board_ultimatum/engine/neural.clj">Neural Net Script</a></li>
+</ul>
+</li>
+</ul>
+
+
+<h2>Commit History</h2>
+
+<p>For more information on who has done what see <a href="https://github.com/DRSNJM/board-ultimatum/commits/master">our commit
+history</a> on our github
+project.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Timebox 3]]></title>
+    <link href="http://DRSNJM.github.com/blog/2012/10/18/timebox-3/"/>
+    <updated>2012-10-18T23:16:00-04:00</updated>
+    <id>http://DRSNJM.github.com/blog/2012/10/18/timebox-3</id>
+    <content type="html"><![CDATA[<p>For detailed information on accomplishments from this timebox, see the links
+below:</p>
+
+<ul>
+<li><a href="/blog/2012/10/18/interface-design/">Attribute search design</a></li>
+<li><a href="/blog/2012/10/16/interface-implementation/">Attribute search implementation</a></li>
+</ul>
+
+
+<h4>Interviews</h4>
+
+<ol>
+<li><a href="/blog/2012/10/19/interview-2-jeff-1/">Jeff Horger</a></li>
+<li><a href="/blog/2012/10/19/interview-3-jeff-kayati/">Jeff Kayati</a></li>
+<li><a href="/blog/2012/10/19/interview-4-corey-sanders/">Corey Sanders</a></li>
+</ol>
+
+
+<h2>Worklog</h2>
+
+<h3>Chris Powers</h3>
+
+<ul>
+<li>Front-end mockups</li>
+<li>Tri-State button functionality</li>
+</ul>
+
+
+<h3>Alex Burkhart</h3>
+
+<ul>
+<li>Load mongodb from BGG data</li>
+<li>Get simple query functionality working</li>
+<li>Make prototype query results page.</li>
+</ul>
+
+
+<h3>Ryan McGowan</h3>
+
+<p>Ryan primarily managed code being included into our master branch.  He did most
+of the merging of features and refactored several components.</p>
+
+<ul>
+<li>Create initial project scaffolding.
+
+<ul>
+<li>Bootstrap, Leiningen, Mongo and the wiring between them to have a
+running app. This includes the config functionality.</li>
+</ul>
+</li>
+<li>Refactor Javascript for query interface.</li>
+<li>Corrections to markup for query interface to properly use bootstrap
+scaffolding.</li>
+<li>Feature branch merges</li>
+<li>Refactor <code>expert.js</code> and the expert select interface to use bootstrap
+scaffolding.</li>
+<li>Several other style changes.</li>
+<li>Interview writeups and notes</li>
+</ul>
+
+
+<h3>David Albert</h3>
+
+<ul>
+<li>Initial bootstrap UI demo</li>
+<li>Machine Learning component R&amp;D
+(<a href="/blog/2012/10/19/similarity-engine-design-and-machine-learning-tools/">more details here</a>)</li>
+</ul>
+
+
+<h2>Commit History</h2>
+
+<p>For more information on who has done what see <a href="https://github.com/DRSNJM/board-ultimatum/commits/master">our commit
+history</a> on our github
+project.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Group Presentation on Timebox 3 Updates]]></title>
+    <link href="http://DRSNJM.github.com/blog/2012/10/16/group-presentation-timebox-3/"/>
+    <updated>2012-10-16T23:03:00-04:00</updated>
+    <id>http://DRSNJM.github.com/blog/2012/10/16/group-presentation-timebox-3</id>
+    <content type="html"><![CDATA[<p>Our group gave a presentation today on our project updates for timebox 3.
+The presentation slides are <a href="https://docs.google.com/presentation/d/1FlgUpLTmazz8MjVawLmZQl6e1MjkDUkvp96wcXEjtxE/edit">available here</a>.</p>
+]]></content>
+  </entry>
+  
+</feed>

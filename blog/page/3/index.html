@@ -1,0 +1,468 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>Dinosaur Riding Scrum Ninja Jedi Masters</title>
+  <meta name="author" content="Ryan McGowan, Alex Burkhart, David Albert, Chris Powers">
+
+  
+  <meta name="description" content="During our meetings one of our favorite topics has been a board game
+recommendation system. The goal would be to have board game experts
+use their &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://DRSNJM.github.com/blog/page/3/">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="/javascripts/ender.js"></script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <link href="/atom.xml" rel="alternate" title="Dinosaur Riding Scrum Ninja Jedi Masters" type="application/atom+xml">
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href='http://fonts.googleapis.com/css?family=Arvo:400,700|Open+Sans:400italic,700italic,400,700|Six+Caps' rel='stylesheet' type='text/css'>
+
+  
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">Dinosaur Riding Scrum Ninja Jedi Masters</a></h1>
+  
+    <h2>Agile is so last year...</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="http://google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:DRSNJM.github.com" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Project</a></li>
+  <li><a href="/experts">Experts</a></li>
+  <li><a href="/interviews">Interviews</a></li>
+  <li><a href="/blog">Blog</a></li>
+  <li><a href="/meetings">Meeting Notes</a></li>
+  <li><a href="/about">Team Bios</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div class="blog-index">
+  
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2012/09/03/proposal-boardgame-recommendation-system/">Proposal: Board Game Recommendation System</a></h1>
+    
+    
+      <p class="meta">
+        
+  
+
+<span class="byline author vcard">Posted by <span class="fn">Alex Burkhart, Ryan McGowan</span></span>
+
+		<span>ON</span>
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-09-03T21:01:00-04:00" pubdate data-updated="true">Sep 3<span>rd</span>, 2012</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>During our meetings one of our favorite topics has been a board game
+recommendation system. The goal would be to have board game experts
+use their vast knowledge of which games are worth playing to point new
+and old players to games that fit their immediate requirements.</p>
+
+<h2>1. The Problem</h2>
+
+<p>The <a href="http://buckeyeboardgamers.org/">Columbus Area Boarding Society</a>
+(CABS) has over 1000 board games. We aim to save them from the
+paralysis of choice such a large collection brings. At any given hour
+of a meeting, dozens of players will mill around in front of the
+library&#8217;s game cabinets and waste time not playing games.</p>
+
+<p>Each group of people has various restrictions on what they will
+eventually pick. Major requirements are often the Number of Players
+and the Length of Gameplay. A group of 3 people is not interested in
+playing a game for 12. Likewise, a group with only an hour available
+is not interested in anything taking 4 hours.</p>
+
+<p>Other requirements are more varied. Genre, categorization, game
+mechanics, publishing date, suggested age, or community
+awards. Veteran board gamers will take all these things into
+consideration in varying amounts when choosing a new game. This
+analysis is very much an art, not a science. We aim to automate their
+expertise build a system to take any or all of these factors into
+consideration for everyone, not just experienced players.</p>
+
+<h2>2. Expert Sources</h2>
+
+<p>Unfortunately, even experts can make mistakes. A single expert might
+not have all the knowledge necessary to make a good recommendation. We
+will use our local experts at CABS to test and refine the system. With
+their experience at our disposal, we can find the correct calibration
+settings for how much weight we should give to qualities described
+above. Pooling their collective expertise we will be able to cover a
+wide range of games and their appropriate pairings.</p>
+
+<p>We also have <a href="http://boardgamegeek.com">BoardGameGeek.com</a> (BGG),
+the single largest website covering the board gaming community. BGG
+has a <a href="http://boardgamegeek.com/wiki/page/BGG_XML_API2">free API</a> we
+can access to download the extensive board game data. Using this, we
+can import thousands of games worth of data into our database,
+allowing us to focus our time on tweaking our recommendation system as
+tightly as possible.</p>
+
+<h2>3. Our Motivation</h2>
+
+<p>We are going to integrate with the CABS library system so that we can
+allow members to use our system on a day to day basis. This will
+provide real value to a local community organization and its
+members. We hope to be able to use the data collected from actual
+usage to further tweak the system into a mind-reading, board game
+recommending machine.</p>
+
+<h2>4. Details</h2>
+
+<h3>Interfaces</h3>
+
+<p>These are two separate interfaces for the two ideas. The Expert
+Weighted Query System is of more immediate value to the users of the
+system. The system would be much useful very quickly and very
+extendable. The User Profile approach would be very similar to a
+Netflix style recommendation engine. The amount of work required for
+this is much greater with no guarantee of it providing valuable
+output. Team members have expressed interest in this approach and we
+will attempt it given time.</p>
+
+<h4>Expert Weighted Query System:</h4>
+
+<p>The users will primarily access the system through a web interface
+built by the team. This will prompt them to enter the primary
+information necessary for the recommendation engine to make a
+decision. To begin, these will be Number of Players and Game
+Length. We will add the ability to enter other information such as
+categories or game mechanics as the engine begins to handle
+them.</p>
+
+<p>There will be a select box with an appropriate set of time
+ranges (&lt;20m, 30m, 45m, 1h, 1.5h, 2h, 3h, 4+h). There will be a
+multi-select box for number of players (1,2,3,4,5,6, 7+). When we add
+features such as Game Mechanics, we will allow a multiple tag
+selection. This will likely be auto-completed through a query
+interface, but this has not been finalized. After submitting the form,
+the recommendation list is shown in a ranked order. Relevant
+information, pictures, and links to BGG are shown.</p>
+
+<h4>User Profile Driven Recommendations:</h4>
+
+<p>An stretch goal for the project will be to use user profiles to track
+and learn which games each user likes. The CABS system has the
+capability to track each user&#8217;s checkouts and BGG has user profiles
+with tracked plays and collections. The interface for this page would
+allow the user to enter the players involved in the proposed group and
+recommend games the players are all known to like.</p>
+
+<p>Players will be able to type in the names of a player into a text
+field, with known players being auto-completed. Optionally, we can
+integrate with the bar code scanner device already employed by CABS,
+capable of scanning the membership badges. After a player is added,
+another text field will appear, ready to add another player. After
+submitting the form, the recommendation list for this particular group
+of players is shown.</p>
+
+<p>New players will be able to be added to the system and linked with
+their BBG user account.</p>
+
+<h3>Data</h3>
+
+<p>The <a href="http://boardgamegeek.com/wiki/page/BGG_XML_API2">BoardGameGeek
+API</a> will provide us
+with much of the initial data we will need. We will automate the
+process of gathering data and keeping it updated in our own database
+through regular resynchronization. We require a local copy of the data
+as the CABS meeting location does not have regular internet access. We
+will run a copy of the server locally on the machine setup to handle
+checkouts.</p>
+
+<p><a href="http://www.boardgamegeek.com/xmlapi2/thing?id=124742">This is a sample API
+response</a> from
+the BGG API. The basic game information (Name, BGG ID, Publisher, Designer,
+Date Published) and categorization data (Number of Players, Game
+Length, BGG Rank, Game Mechanics, Age Limits, etc) are included. In
+addition to detailed game information, we can gather data about User
+Collections, and Recorded User Plays. Such information may prove
+useful if we are able to attempt the User Profile system.</p>
+
+<p>This this information available, we will be able to focus on
+leveraging our experts&#8217; judgement for the recommendation engine
+instead of inputing data.</p>
+
+<h3>Recommendation Engine</h3>
+
+<p>The meat of the project will be to accurately recommend games based on
+the user desires. Unfortunately this is still the most undecided
+aspect of the project. We are not entirely sure of the best approach
+and these are primary ideas.</p>
+
+<p> We will begin this in phases.</p>
+
+<h4>1. System Integration: Recommend Anything</h4>
+
+<p>The first step is to hook up a system that accesses the data retrieved
+from BGG and return a set of recommended games to the user regardless
+of accuracy. The games recommended is not important, but making the
+entire system work together as a coheisive whole <em>is</em>
+important. Parallel work on downloading BGG data and setting up an
+initial interface will be done during this step.</p>
+
+<h4>2. Number of Players and Game Length</h4>
+
+<p>Now that we have some amount of data from BGG, we can begin to
+restrict our recommendations to games which match the user&#8217;s
+restrictions of Players and Time. Any games matching the appropriate
+number of players will be considered. Next, we look for overlapping
+time ranges in the board game data and the user&#8217;s selection. This
+step is essential in providing a quality recommendation to the
+user. Games not fitting these parameters will not be a useful
+recommendation in the near term. At this step however, the actual
+quality of the game is not being considered.</p>
+
+<h4>3. Weight by BGG Rank</h4>
+
+<p>BGG provides a highly trusted ranking system. The overall rankings and
+the general consensus of quality (ie. fun) seem to be well
+correlated. As an initial quality filter, we will weight the
+recommendations based upon these rankings. We now have games the users
+have time and people to play presented with some emphasis on high
+quality.</p>
+
+<h4>4. Associate Related Games by Expert Review</h4>
+
+<p>This piece is going to be essential to the performance of the
+system. Our interviews with our experts will provide us with essential
+guidance to identify which qualities in games are related.</p>
+
+<p>Exactly how we integrate our expert advice into the system is still up
+in the air. We have talked about using a simple rule based
+system. Once the experts provide some rules, we could use them to add
+weights to certain types of games in certain situations.</p>
+
+<h4>5. Neural Network Linking</h4>
+
+<p>We have discussed having our experts train a neural network which
+learns which games are similar. When it knows which games are similar,
+it could use the rules developed in Step 4 to also recommend similar
+games to their specific recommendations.</p>
+
+<h4>6. Weight by BGG Categorization &amp; Mechanics</h4>
+
+<p>Lastly, we would like to identify a useful way to recommend games
+based on certain Mechanics or by a whole Category. If the user selects
+&#8220;Economic Game&#8221; as a Category, we should appropriately weight the
+recommendations based on this Category. However, we may not want to
+simply eliminate other games from the recommendations list, as similar
+games may still be relevant but lacking the exact categorization. We
+are considering running some clustering algorithms on the database of
+games, scored by how the experts rank them as similar. If a pair of
+games is scored extremely similar by the experts, but has a slightly
+different set of tags, we still may want to recommend both when the
+user enters one of the set of tags.</p>
+
+<h4>7. User Profiles</h4>
+
+<p>Beyond this, we have discussed mining the BGG Board Game Collections
+data and the Board Game Plays data to draw conclusions about which
+games a given set of players will like.</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2012/09/01/managing-the-blog/">Managing the Blog</a></h1>
+    
+    
+      <p class="meta">
+        
+  
+
+<span class="byline author vcard">Posted by <span class="fn">Chris Powers</span></span>
+
+		<span>ON</span>
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-09-01T15:23:00-04:00" pubdate data-updated="true">Sep 1<span>st</span>, 2012</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>Hello there, and welcome to the DRSNJM blog, where the team will be posting updates about our work on our knowledge-based systems capstone project at the Ohio State University. We will be posting notes from our meetings so you can track our progress, as well as interesting challenges we encounter and our solutions to them. If you have interest in expert systems or AI in general, this site should provide some interesting content for you!</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  <div class="pagination">
+    
+    <a href="/blog/archives">Blog Archives</a>
+    
+    <a class="next" href="/blog/page/2/">Newer &rarr;</a>
+    
+  </div>
+</div>
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2012/12/10/final-presentation/">Final Presentation</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/11/12/timebox-5/">Timebox 5</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/11/02/timebox-4/">Timebox 4</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/10/31/data-analysis-and-neural-nets/">Data Analysis and Neural Nets</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/10/30/designing-the-scoring-engine/">Designing the Scoring Engine</a>
+      </li>
+    
+  </ul>
+</section>
+
+<section>
+  <h1>GitHub Repos</h1>
+  <ul id="gh_repos">
+    <li class="loading">Status updating&#8230;</li>
+  </ul>
+  
+  <a href="https://github.com/DRSNJM">@DRSNJM</a> on GitHub
+  
+  <script type="text/javascript">
+    $.domReady(function(){
+        if (!window.jXHR){
+            var jxhr = document.createElement('script');
+            jxhr.type = 'text/javascript';
+            jxhr.src = '/javascripts/libs/jXHR.js';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(jxhr, s);
+        }
+
+        github.showRepos({
+            user: 'DRSNJM',
+            count: 3,
+            skip_forks: true,
+            target: '#gh_repos'
+        });
+    });
+  </script>
+  <script src="/javascripts/github.js" type="text/javascript"> </script>
+</section>
+
+
+
+
+
+
+  
+</aside>
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2012 - Ryan McGowan, Alex Burkhart, David Albert, Chris Powers -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+
+
+
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = 'http://platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>

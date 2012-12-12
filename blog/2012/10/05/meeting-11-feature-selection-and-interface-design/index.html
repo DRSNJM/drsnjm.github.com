@@ -1,0 +1,356 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>Meeting 11: Feature Selection &amp; Interface Design - Dinosaur Riding Scrum Ninja Jedi Masters</title>
+  <meta name="author" content="Ryan McGowan, Alex Burkhart, David Albert, Chris Powers">
+
+  
+  <meta name="description" content="Goals Determine interface design for game recommendation and expert training.
+Determine how to convert game attributes into a vector for machine &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://DRSNJM.github.com/blog/2012/10/05/meeting-11-feature-selection-and-interface-design/">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="/javascripts/ender.js"></script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <link href="/atom.xml" rel="alternate" title="Dinosaur Riding Scrum Ninja Jedi Masters" type="application/atom+xml">
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href='http://fonts.googleapis.com/css?family=Arvo:400,700|Open+Sans:400italic,700italic,400,700|Six+Caps' rel='stylesheet' type='text/css'>
+
+  
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">Dinosaur Riding Scrum Ninja Jedi Masters</a></h1>
+  
+    <h2>Agile is so last year...</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="http://google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:DRSNJM.github.com" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Project</a></li>
+  <li><a href="/experts">Experts</a></li>
+  <li><a href="/interviews">Interviews</a></li>
+  <li><a href="/blog">Blog</a></li>
+  <li><a href="/meetings">Meeting Notes</a></li>
+  <li><a href="/about">Team Bios</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">Meeting 11: Feature Selection &amp; Interface Design</h1>
+    
+    
+      <p class="meta">
+        
+  
+
+<span class="byline author vcard">Posted by <span class="fn">Ryan McGowan</span></span>
+
+		<span>ON</span>
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-10-05T12:30:00-04:00" pubdate data-updated="true">Oct 5<span>th</span>, 2012</time>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><h2>Goals</h2>
+
+<ul>
+<li>Determine interface design for game recommendation and expert training.</li>
+<li>Determine how to convert game attributes into a vector for machine learning.
+Decide what features do we select.</li>
+<li>Create consensus on terminology used for the machine learning component.</li>
+</ul>
+
+
+<h2>Discussion</h2>
+
+<p>At this point, there are two interfaces that need to be designed.</p>
+
+<h4>Recommendation Interface</h4>
+
+<p>The first interface is the users normal route to interact with our system. It is
+the recommendation interface. It takes in some user specified attributes and
+returns a list of recommendations.</p>
+
+<p>Since many attributes that a user may specify will not be used in every query we
+do not want to clutter up the page with input fields. This sends the wrong
+message about fields being optional (or at least makes it harder to indicate),
+it is ugly and it is distracting resulting in an interface the user will not
+enjoy using. This we want a way to allow the user to opt into filling out parts
+of the form (or select sub-forms).  Chris came up with two ideas for this. Both
+ideas simply provide a graphical way for the user to indicate which attributes
+they want to specify.</p>
+
+<ol>
+<li>Accordion &#8211; Display each attribute as a section in the accordion. Allow the
+user to open multiple sections.  An option section indicates that the user
+will be filling in its fields.</li>
+<li>Sidebar Buttons &#8211; Instead of unrolling sections, the user would hit buttons
+in the sidebar describe the attributes he or she wants to filter on.  Each
+button would be stateful (i.e. buttons toggle between a pressed and
+unpressed state). When pressed, a form appears in the main column of the
+page for that attribute. Multilple pressed buttons means multiple forms.</li>
+</ol>
+
+
+<p>In general, the team gravitated toward the sidebar idea.  It makes the
+distinction between used and unused forms clearer.</p>
+
+<h4>Expert Interface</h4>
+
+<p>The second interface will be used to train SiGMa (Similar Game Machine) which is
+this projects machine learning component.  We spent a while discussing the
+proper terminology to describe the data we are looking for.  We decided that the
+term <em>similar</em> is not exactly what we want. Instead we are trying to find a
+relationship like <em>&#8220;given game A how good of a recommendation is game B&#8221;</em>.  Our
+interface will reflect this, but there are no plans to change the name of the
+library.</p>
+
+<p>The original interface proposed putting two games in front of the expert and a
+slider. The expert would then manipulate the slider to describe how <em>similar</em>
+the two games are. Besides changing the terminology used here from &#8220;how similar
+are these two games&#8221; to &#8220;how good of a recommendation is game <em>A</em> if someone
+likes game <em>B</em>&#8221; we also want to change the layout.  Alex made the point that an
+expert might not know one of the two games we are asking them to prepare.
+Providing a skip feature would work, but it might mean the expert does a lot of
+skipping if they know 100 games out of the 1000 we are using in the system it
+could take awhile to find a pair of games that they know both of. Thus the
+excepted interface involves a two step process. The first step is a page that
+shows a group of around 10 games. The expert selects which of these games they
+know.  The expert then continues to the next page which lists all two game
+combinations from their selections on the first page.</p>
+
+<h2>Results</h2>
+
+<ul>
+<li>Decided on two discussed interface designs.</li>
+</ul>
+
+
+<h2>Outgoing Responsibilities</h2>
+
+<ul>
+<li>David is to work on creating a tracer-bullet implementation of the first
+interface.</li>
+<li>Chris is to work on creating a tracer-bullet implementation of the second
+interface.</li>
+</ul>
+
+
+<h2>Attendance</h2>
+
+<ul>
+<li>Ryan McGowan (scribe)</li>
+<li>Chris Powers</li>
+<li>David Albert</li>
+<li>Alex Burkhart</li>
+</ul>
+
+
+<h2>Location</h2>
+
+<p>Thompson Café.</p>
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">Ryan McGowan</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-10-05T12:30:00-04:00" pubdate data-updated="true">Oct 5<span>th</span>, 2012</time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/meetings/'>meetings</a>
+  
+</span>
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://DRSNJM.github.com/blog/2012/10/05/meeting-11-feature-selection-and-interface-design/" data-via="" data-counturl="http://DRSNJM.github.com/blog/2012/10/05/meeting-11-feature-selection-and-interface-design/" >Tweet</a>
+  
+  
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2012/10/04/group-presentation-kbs/" title="Previous Post: Group Presentation: KBS Chapters 11, 12">&laquo; Group Presentation: KBS Chapters 11, 12</a>
+      
+      
+        <a class="basic-alignment right" href="/blog/2012/10/05/meeting-11/" title="Next Post: Meeting 12: Preparing for Interviews">Meeting 12: Preparing for Interviews &raquo;</a>
+      
+    </p>
+  </footer>
+</article>
+
+</div>
+
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2012/12/10/final-presentation/">Final Presentation</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/11/12/timebox-5/">Timebox 5</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/11/02/timebox-4/">Timebox 4</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/10/31/data-analysis-and-neural-nets/">Data Analysis and Neural Nets</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/10/30/designing-the-scoring-engine/">Designing the Scoring Engine</a>
+      </li>
+    
+  </ul>
+</section>
+
+<section>
+  <h1>GitHub Repos</h1>
+  <ul id="gh_repos">
+    <li class="loading">Status updating...</li>
+  </ul>
+  
+  <a href="https://github.com/DRSNJM">@DRSNJM</a> on GitHub
+  
+  <script type="text/javascript">
+    $.domReady(function(){
+        if (!window.jXHR){
+            var jxhr = document.createElement('script');
+            jxhr.type = 'text/javascript';
+            jxhr.src = '/javascripts/libs/jXHR.js';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(jxhr, s);
+        }
+
+        github.showRepos({
+            user: 'DRSNJM',
+            count: 3,
+            skip_forks: true,
+            target: '#gh_repos'
+        });
+    });
+  </script>
+  <script src="/javascripts/github.js" type="text/javascript"> </script>
+</section>
+
+
+
+
+
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2012 - Ryan McGowan, Alex Burkhart, David Albert, Chris Powers -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+
+
+
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = 'http://platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>

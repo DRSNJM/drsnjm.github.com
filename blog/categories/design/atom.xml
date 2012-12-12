@@ -1,0 +1,228 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: design | Dinosaur Riding Scrum Ninja Jedi Masters]]></title>
+  <link href="http://DRSNJM.github.com/blog/categories/design/atom.xml" rel="self"/>
+  <link href="http://DRSNJM.github.com/"/>
+  <updated>2012-12-11T19:32:33-05:00</updated>
+  <id>http://DRSNJM.github.com/</id>
+  <author>
+    <name><![CDATA[Ryan McGowan, Alex Burkhart, David Albert, Chris Powers]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Designing the Scoring Engine]]></title>
+    <link href="http://DRSNJM.github.com/blog/2012/10/30/designing-the-scoring-engine/"/>
+    <updated>2012-10-30T18:03:00-04:00</updated>
+    <id>http://DRSNJM.github.com/blog/2012/10/30/designing-the-scoring-engine</id>
+    <content type="html"><![CDATA[<p>In <a href="/blog/2012/09/17/preferences-and-constraints/">a previous post</a>, I
+discussed the differences between filtering on constraints and scoring on
+preferences. As of the last timebox, filtering on game length was implemented
+(that is, using the interface, a user could return games of only certain
+lengths). For this timebox, I completed the filtering step on the only other
+constraint that needs to be filtered on, the number of players.</p>
+
+<p>That is the easy part. Scoring games can get very tricky. At the highest
+level, it's very intuitive; you simply compare the user preferences to the
+game attributes and sum up scores for each match. The most pertinent question
+is, what will the numerical score values be based on? Will they be
+normalized? To answer the question of normalization, there is no need to
+normalize the scores for each match. The only place the scores will be used
+is in the ordering of the games presented to the user. In other words, the
+scores only need be relative.</p>
+
+<p>What defines a match? If we only considered matches as the user's preference
+being exactly the same as the game's attribute, and all else won't earn you
+any score, then our job as programmers would be fairly easy. However, the
+fact of that matter is that many games may have <em>partial</em> matches; they match
+to some degree. For example, if a user indicates that they prefer a light
+game, we may want to give some "full" score to all light games, but maybe 75%
+of the points if the game is medium light, 45% if medium, and 10% if medium
+heavy. Unforunately, this implies that the scoring functions need to be
+written for each attribute individually, as the degree to which an attribute
+matches a preference is dependant upon the attribute.</p>
+
+<p>The final question is, where do we get the scores? This brings us back to the
+original goal of this project: to emulate an expert in the field of board
+game recommendations. We don't need to come up with the scores ourselves; we
+need to get experts to tell use what the scores on the attributes ought to be.
+ In the future, this will be important information to extract from our experts.</p>
+
+<p>The last thing to consider is that we will be adding explanations on scores
+for display on the results page. This means that as each match is made, a
+corresponding string must be written or generated that describes what was
+matched and how much it affected the score. We can simply maintain a running
+list of explanations alongside the score to pass back from the game engine.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Attribute Search Interface Implementation]]></title>
+    <link href="http://DRSNJM.github.com/blog/2012/10/16/interface-implementation/"/>
+    <updated>2012-10-16T13:35:00-04:00</updated>
+    <id>http://DRSNJM.github.com/blog/2012/10/16/interface-implementation</id>
+    <content type="html"><![CDATA[<p>The most fundamental aspects of the query interface have been implemented.
+Though there may be more attributes added in the future, we decided to add a
+select few attributes that we believed encapsulated differing types of input we
+receive from the user. In particular, we expect the user to select discrete
+values for some attributes, such as number of players and time to play (in
+discrete intervals), and tri-state objects that can encapsulate the user liking,
+disliking, or not caring about a particular attribute. Prototypes were built to
+represent these input types, and are currently present on the interface:</p>
+
+<p><img src="/images/diagrams/fundamental-interface.jpeg" alt="Fundamental interface" /></p>
+
+<p>These input types maintain hidden values in the background in order to formally
+send them to the server.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Attribute Search Interface Design]]></title>
+    <link href="http://DRSNJM.github.com/blog/2012/10/06/interface-design/"/>
+    <updated>2012-10-06T23:19:00-04:00</updated>
+    <id>http://DRSNJM.github.com/blog/2012/10/06/interface-design</id>
+    <content type="html"><![CDATA[<p>The most significant interface to our system is by far the query-construction
+interface. This is the first page that comes up when a user lands on the
+engine's webpage, and it encapsulates the core functionality of the system: to
+take in user specified attributes and provide back a list of matching results.</p>
+
+<p>The interface is a bit tricky in a few significant ways. Firstly, there are
+potentially tens of attributes of games that we could surface as options.
+Fortunately, we have our experts to narrow down these attributes to the relevant
+ones. Secondly, each attribute has a different domain of values that are
+permissible. There's no way around this one; we'll have to build input selectors
+that match for each attribute. Thirdly, even with the reduced list of
+attributes, the user will still likely only care about a subset of them. We'd
+prefer if the user only had to interact with those attributes that he considers
+relevant to what he's looking for.</p>
+
+<p>This last issue brings us to the design of the interface. After some thought, I
+proposed to the team two layouts for constructing queries:</p>
+
+<p><img src="/images/diagrams/attr-selection-interface.jpeg" alt="Attribute selection" /></p>
+
+<p>The user selects attributes to the left, then chooses the particular desired or
+undesired values of those attributes.</p>
+
+<p><img src="/images/diagrams/accordian-selection.jpeg" alt="Accordian selection" /></p>
+
+<p>The user selects the attributes in the middle, then the area for manipulating
+value preferences of those attributes appears under the attribute (sliding out
+like an accordian).</p>
+
+<p>The two styles are designed around the notion that users shouldn't have to
+interact with attributes that they don't care about. In both interfaces, the
+user only selects attributes that they have a preference on. It's important to
+note that we intent to take into account negative preferences as well, a
+decision made based on feedback from our experts.</p>
+
+<p>After proposing the two designs to the team, it was decided that we would go
+with the first design, because we believed that it looked better and utilized
+the space better.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Problem Domain &amp; Motivations]]></title>
+    <link href="http://DRSNJM.github.com/blog/2012/09/18/problem-domain-and-motivations/"/>
+    <updated>2012-09-18T00:32:00-04:00</updated>
+    <id>http://DRSNJM.github.com/blog/2012/09/18/problem-domain-and-motivations</id>
+    <content type="html"><![CDATA[<h2>Problem Domain</h2>
+
+<p>Board games have been around for thousands of years and are enjoyed by
+countless people. The different types of games are innumerable - from something
+as simple as checkers to as complex as an advanced role playing game. These
+games possess many qualities and attributes, including, but not limited to,
+number of players, complexity, age group, mechanics, and player skill level.
+With such a diverse set of criteria to describe games, as well as the large
+number of games available, one can see how it would be difficult to classify
+and recommend games to players that they will enjoy. Whether it is based on a
+set of attributes that the player desires, or the player's history of games
+that they have enjoyed playing in the past, it would be very beneficial to board
+game enthusiasts to have access to a system that could provide such
+recommendations.</p>
+
+<h3>Knowledge Base</h3>
+
+<p>Expert knowledge in the problem domain of board game recommendation can come
+from a variety of sources. Human experts primarily include those who design
+board games and serious board game enthusiasts, however, in order to be
+comprehensive, the opinions and experiences of casual players should also be
+considered. The logical rules and decisions that these experts make in choosing
+which games to play will play a large part in a system designed to solve this
+particular problem.</p>
+
+<p>Soruces of facts and data in regards to the problem domain can also come from
+non-human sources such as <a href="http://boardgamegeek.com">BoardGameGeek</a>. This
+specific website contains a large, publicly accessible database of games,
+descriptions, and ratings. This data can be incorporated, as facts or
+otherwise, into a system to provide recommendations to its users.</p>
+
+<h2>Project Motivation</h2>
+
+<p>One of the team's members, Alex Burkhart, is actively involved in the Columbus
+Area Boardgaming Society. He had mentioned that with such a large library (over
+1000 games), it would be very beneficial if some sort of application existed to
+recommend board games to prospective players. While resources such as
+BoardGameGeek exist, there is not a user-friendly interface available to filter
+and evaluate the data available to generate relevant recommendations to its
+users. The team decided that this problem offered a challenging, flexible, and
+extensible project opportunity, and would also provide a complementary service
+that would be frequently used and appreciated.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Preferences and Constraints]]></title>
+    <link href="http://DRSNJM.github.com/blog/2012/09/17/preferences-and-constraints/"/>
+    <updated>2012-09-17T17:42:00-04:00</updated>
+    <id>http://DRSNJM.github.com/blog/2012/09/17/preferences-and-constraints</id>
+    <content type="html"><![CDATA[<p>The types of input that the user will be providing through the webpage
+interface can be broken down into two categories: preferences and constraints.
+Preferences match the user's desired characterics of a game, whereas
+constraints match rigid conditions of the game.</p>
+
+<p>Preferences include things like:</p>
+
+<ul>
+<li>Mechanics</li>
+<li>Systems</li>
+<li>Themes</li>
+<li>Turn system</li>
+<li>Skill vs. luck base</li>
+<li>Cooperative vs. competative</li>
+</ul>
+
+
+<p>Constraints include things like:</p>
+
+<ul>
+<li>Number of players</li>
+<li>Time to play</li>
+</ul>
+
+
+<p>In fact, that constraints list may be comprehensive.</p>
+
+<p>Constraints are easy; there's no such thing as a mostly matched constraint.
+All they need is a straightforward filter. Simply remove games that don't
+match these constraints from consideration. There's potential for efficiency
+increase if filtering is done properly before the recommendation engine parses
+the preferences. Preferences, on the other hand, are accurate to some degree,
+rather than being a boolean match. We may display a game that matches <em>most</em>
+of the mechanics, or is <em>close enough</em> to the user's skill vs. luck base,
+even though it wasn't exactly what they were searching for.</p>
+
+<p>The other significant aspect of preferences is that they can (and should)
+incorporate some weighting system on the inputs. A user may not care what
+the themes of the game are, and they may only partially care what the turn
+system is like. A true expert could take such things into consideration, and,
+therefore, so should our expert system.</p>
+]]></content>
+  </entry>
+  
+</feed>
