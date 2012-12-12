@@ -1,0 +1,43 @@
+---
+layout: post
+title: "Meeting 15"
+date: 2012-11-18 16:55
+author: Chris Powers
+comments: true
+categories: meetings
+---
+
+## Goals
+
+*   Finish up attribute scoring weights
+
+## Discussion
+
+Alex was almost finished adding all weights for current attributes. Alex wanted
+to add a separate page for setting mechanics and category weights.
+
+Alex requested that Chris add scoring and explanations on the weight attribute.
+Ideally, the all games would be scored on their weight, so a closeness fit
+function needs to be used to score the real valued differences between weights.
+
+## Results
+
+Chris successfully added a scoring function as hoped for weights.
+
+Alex added a page where users can modify the tag weightings and modify the
+explanation for any tag. The negative and positive tag weightings can be
+independently modified.
+
+## Outgoing Responsibilities
+
+*   Add full explanations to different weight scores --- *Chris*
+*   Populate tag weights and explanations --- *Alex*
+
+## Attendance
+
+-   Alex Burkhart
+-   Chris Powers (scribe)
+
+## Location
+
+Campfirenow Chat
