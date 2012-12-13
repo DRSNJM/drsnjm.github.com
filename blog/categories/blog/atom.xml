@@ -4,7 +4,7 @@
   <title><![CDATA[Category: blog | Dinosaur Riding Scrum Ninja Jedi Masters]]></title>
   <link href="http://DRSNJM.github.com/blog/categories/blog/atom.xml" rel="self"/>
   <link href="http://DRSNJM.github.com/"/>
-  <updated>2012-12-11T19:32:33-05:00</updated>
+  <updated>2012-12-12T21:10:21-05:00</updated>
   <id>http://DRSNJM.github.com/</id>
   <author>
     <name><![CDATA[Ryan McGowan, Alex Burkhart, David Albert, Chris Powers]]></name>
@@ -14,233 +14,148 @@
 
   
   <entry>
-    <title type="html"><![CDATA[Final Presentation]]></title>
-    <link href="http://DRSNJM.github.com/blog/2012/12/10/final-presentation/"/>
-    <updated>2012-12-10T20:39:00-05:00</updated>
-    <id>http://DRSNJM.github.com/blog/2012/12/10/final-presentation</id>
-    <content type="html"><![CDATA[<h2>Worklog</h2>
+    <title type="html"><![CDATA[Similarity Engine - Alternate Methods]]></title>
+    <link href="http://DRSNJM.github.com/blog/2012/12/12/similarity-engine-alternate-methods/"/>
+    <updated>2012-12-12T19:15:00-05:00</updated>
+    <id>http://DRSNJM.github.com/blog/2012/12/12/similarity-engine-alternate-methods</id>
+    <content type="html"><![CDATA[<h2>Neural Network Approach</h2>
 
-<h3>Poster</h3>
+<p>After training the neural network on approximately 200 training samples, it was evident that the network did not necessarily generalize to games outside of the scope of the ones rated by experts in the training set. Further input will be necessary to continue to complete the model; this will hopefully be completed in the coming weeks as Alex makes more vists to CABS meetings. Once a better picture of the training data develops, the network should hypothetically generalize better to the regions of the input space that do not perform well at this point in time (for instance, war games.) This portion of the project will continue to be a work in progress. In the mean time, as seen in our progress reports, I have also set up an alternate method to provide users with a very literal correlation of similarity between games.</p>
 
-<ul>
-<li>Template styling and modification (David)</li>
-<li>Initial outline content (Ryan)</li>
-</ul>
+<h2>Simple Statistical Approach</h2>
 
+<p>In order to provide results that were more relevant in the immediate context of publicizing our project, I introduced an alternate method to the neural network approach that backtracks to some of the work that I had done earlier in the project. Rather than train an network with the training data, the stats method performs component analysis to return a 10 dimensional vector for each game. The confidence level for each game relative to the other games is then calculated merely from the euclidean distance between the two vectors.</p>
 
-<h3>board-ultimatum</h3>
+<h3>Drawbacks</h3>
 
-<ul>
-<li>Create simple statistical method for determining similarity of games. (David)</li>
-<li>Allow the user to specify similarity engine provider (i.e. neural network or
-similarity engine). (Ryan) [<a href="https://github.com/DRSNJM/board-ultimatum/pull/12">pull-request</a>]</li>
-</ul>
-
+<p>While this method provides games that are numerically similar to each other, often returning different versions of the same title in the search results, it fails to meet our initial goal of providing users with recommendations based on the more esoteric relationships with games. While two games, by their attributes, may be incredibly similar, they may be a poor recommendation, particularly if the user is looking for variety and new options in the games that they are playing. It is for these reasons that, while we are leaving this method as an option, we would much prefer the neural net approach to be used and to be successful in providing users with a diverse listing of similar games.</p>
 ]]></content>
   </entry>
   
   <entry>
-    <title type="html"><![CDATA[Timebox 5]]></title>
-    <link href="http://DRSNJM.github.com/blog/2012/11/12/timebox-5/"/>
-    <updated>2012-11-12T17:22:00-05:00</updated>
-    <id>http://DRSNJM.github.com/blog/2012/11/12/timebox-5</id>
-    <content type="html"><![CDATA[<h2>Worklog</h2>
+    <title type="html"><![CDATA[Tag Administration]]></title>
+    <link href="http://DRSNJM.github.com/blog/2012/12/12/tag-administration/"/>
+    <updated>2012-12-12T17:39:00-05:00</updated>
+    <id>http://DRSNJM.github.com/blog/2012/12/12/tag-administration</id>
+    <content type="html"><![CDATA[<h2>Purpose</h2>
 
-<h3>Chris Powers</h3>
+<p>In all the Board Game Geek data, there are a lot of different Mechanics and
+Categories. Within the system they are treated identically, collectively
+called Tags. Each Tag has a name along with a detailed description.</p>
 
-<ul>
-<li>Created the <a href="https://github.com/DRSNJM/board-ultimatum/blob/attr-search/src/board_ultimatum/attr_engine.clj">attribute scoring engine</a></li>
-<li>Implemented <a href="https://github.com/DRSNJM/board-ultimatum/blob/attr-search/src/board_ultimatum/engine/model.clj">filtering on the number of players</a></li>
-<li>Added results page sorting by score.</li>
-<li>Hooked up front-end with filtering and scoring components to ensure queries now work (takes user input, pulls data, filters, scores, presents, in that order)</li>
-</ul>
+<p>We wanted to be able to quickly modify the metadata related to the Tags quickly
+and easily. We already had a webserver setup, so a simple web interface seemed
+a natural way to accomplish this.</p>
 
+<h2>Features</h2>
 
-<h3>Alex Burkhart</h3>
+<p>With the Tag Administration page, we were able to edit the titles and
+descriptions of each tag as we see fit. We pulled all the descriptions in from
+Board Game Geek with a script automatically and were able to quickly edit them
+here.</p>
 
-<ul>
-<li></li>
-</ul>
+<p>We also wanted to be able to modify the weight for each Tag within the query
+scoring system. I added a "Postive Influence" and "Negative Influence" field to
+each Tag. By modifying the Postive Influence, an administrator is able to
+change the maximum score assigned to an attribute by the query engine.
+Similarly, the Negative Influence adjusts the maximum penalty when an attribute
+is marked thumbs down by the user.</p>
 
+<p>Lastly, we had plans to break up the giant wall of tri-state checkboxes on the
+query page by grouping related Tags. A common example of this was to group all
+"Theme" tags together. The administration page gave us a simple way to change
+the grouping.</p>
 
-<h3>Ryan McGowan</h3>
+<p><img src="/images/tag_administration.png" alt="Preview" /></p>
 
-<ul>
-<li>Completed expert functionality. (<a href="https://github.com/DRSNJM/board-ultimatum/commits/expert-auth">Commits</a>)
-<br /><strong>Highlights:</strong>
-
-<ul>
-<li>Designed and implemented routes and markup for expert-select and
-expert-compare interfaces</li>
-<li>Designed and implemented basic insecure expert authentication.</li>
-<li>Some minor style changes/improvements.</li>
-<li>Rewrite of <a href="https://github.com/DRSNJM/board-ultimatum/blob/cf44804eb7531caac6e89463d9a2c140c54abfcf/resources/public/js/expert.js"><code>expert.js</code></a></li>
-<li>Created the following helper namespaces (engine.model.expert,
-engine.model.relationship, form-validators, session, flash). <a href="https://github.com/DRSNJM/board-ultimatum/tree/expert-auth/src/board_ultimatum">Explore
-here</a>.</li>
-</ul>
-</li>
-</ul>
-
-
-<h3>David Albert</h3>
-
-<ul>
-<li>Data Processing and Neural Net Setup
-
-<ul>
-<li>See blog post <a href="/blog/2012/10/31/data-analysis-and-neural-nets/">here</a></li>
-<li><a href="https://github.com/DRSNJM/board-ultimatum/blob/nnet/src/board_ultimatum/engine/vector_convert.clj">Data Converstion Script</a></li>
-<li><a href="https://github.com/DRSNJM/board-ultimatum/blob/nnet/src/board_ultimatum/engine/neural.clj">Neural Net Script</a></li>
-</ul>
-</li>
-</ul>
-
-
-<h2>Commit History</h2>
-
-<p>For more information on who has done what see <a href="https://github.com/DRSNJM/board-ultimatum/commits/master">our commit
-history</a> on our github
-project.</p>
+<p>You can see the final version of the Tag Administration Page
+<a href="http://board-ultimatum.herokuapp.com/tags">here</a>.</p>
 ]]></content>
   </entry>
   
   <entry>
-    <title type="html"><![CDATA[Timebox 4]]></title>
-    <link href="http://DRSNJM.github.com/blog/2012/11/02/timebox-4/"/>
-    <updated>2012-11-02T12:03:00-04:00</updated>
-    <id>http://DRSNJM.github.com/blog/2012/11/02/timebox-4</id>
-    <content type="html"><![CDATA[<h2>Worklog</h2>
+    <title type="html"><![CDATA[Expert Interface]]></title>
+    <link href="http://DRSNJM.github.com/blog/2012/12/12/expert-interface/"/>
+    <updated>2012-12-12T15:29:00-05:00</updated>
+    <id>http://DRSNJM.github.com/blog/2012/12/12/expert-interface</id>
+    <content type="html"><![CDATA[<h2>Purpose</h2>
 
-<h3>Chris Powers</h3>
+<p>Data for the similarity engine (neural network) did not come out of thin air. It
+needed to be collected from our experts. The purpose of expert authentication
+and the expert interface is to easily allow our experts to contribute to the
+training of the neural network. The end goal is for an expert to rate each game
+as similar to another one. With 1,000 games there ate 500,000 pairs (1,000
+choose 2). Getting 500,000 ratings at our scale is difficult thus the neural
+network is needed to expand on the ratings we have.</p>
+
+<h2>Issues &amp; Design</h2>
+
+<p>Our initial design was very simple. A random pair of games is selected. If the
+expert is familiar with both games, they rate how similar they are. Otherwise,
+he or she skips that pair. Unfortunately, most experts are not familiar with a
+significant proportion of the games in our database. That means, under normal
+conditions the expert would be skipping a lot.</p>
+
+<p>To address this the interface was turned into a wizard with the following steps:</p>
+
+<ol>
+<li>Game Selection -- 12 random games are selected from the database. The expert
+selectis which one they are familiar.</li>
+<li>Pair Rating -- For all pair combinations of games selected on page 1 obtain
+a rating from the expert.</li>
+</ol>
+
+
+<p>An expert is far more likely to be familiar with 2 or more games out of a
+randomly selected twelve. Thus, less skipping is involved.</p>
+
+<h2>Features</h2>
 
 <ul>
-<li>Created the <a href="https://github.com/DRSNJM/board-ultimatum/blob/attr-search/src/board_ultimatum/attr_engine.clj">attribute scoring engine</a></li>
-<li>Implemented <a href="https://github.com/DRSNJM/board-ultimatum/blob/attr-search/src/board_ultimatum/engine/model.clj">filtering on the number of players</a></li>
-<li>Added results page sorting by score.</li>
-<li>Hooked up front-end with filtering and scoring components to ensure queries now work (takes user input, pulls data, filters, scores, presents, in that order)</li>
+<li>Do not display games the expert has not seen before.</li>
+<li>Limit the number of combinations shown.</li>
+<li>Do not show combinations the expert has already rated.</li>
 </ul>
 
 
-<h3>Alex Burkhart</h3>
-
-<ul>
-<li></li>
-</ul>
-
-
-<h3>Ryan McGowan</h3>
-
-<ul>
-<li>Created expert interface. (<a href="https://github.com/DRSNJM/board-ultimatum/commits/expert-auth">Commits</a>)
-<br /><strong>Highlights:</strong>
-
-<ul>
-<li>Designed and implemented routes and markup for expert-select and
-expert-compare interfaces</li>
-<li>Designed and implemented basic insecure expert authentication.</li>
-<li>Some minor style changes/improvements.</li>
-<li>Rewrite of <a href="https://github.com/DRSNJM/board-ultimatum/blob/cf44804eb7531caac6e89463d9a2c140c54abfcf/resources/public/js/expert.js"><code>expert.js</code></a></li>
-<li>Created the following helper namespaces (engine.model.expert,
-engine.model.relationship, form-validators, session, flash). <a href="https://github.com/DRSNJM/board-ultimatum/tree/expert-auth/src/board_ultimatum">Explore
-here</a>.</li>
-</ul>
-</li>
-</ul>
-
-
-<h3>David Albert</h3>
-
-<ul>
-<li>Data Processing and Neural Net Setup
-
-<ul>
-<li>See blog post <a href="/blog/2012/10/31/data-analysis-and-neural-nets/">here</a></li>
-<li><a href="https://github.com/DRSNJM/board-ultimatum/blob/nnet/src/board_ultimatum/engine/vector_convert.clj">Data Converstion Script</a></li>
-<li><a href="https://github.com/DRSNJM/board-ultimatum/blob/nnet/src/board_ultimatum/engine/neural.clj">Neural Net Script</a></li>
-</ul>
-</li>
-</ul>
-
-
-<h2>Commit History</h2>
-
-<p>For more information on who has done what see <a href="https://github.com/DRSNJM/board-ultimatum/commits/master">our commit
-history</a> on our github
-project.</p>
+<h4><a href="https://github.com/DRSNJM/board-ultimatum/blob/master/src/board_ultimatum/views/expert.clj">Source Code</a></h4>
 ]]></content>
   </entry>
   
   <entry>
-    <title type="html"><![CDATA[Data Analysis and Neural Nets]]></title>
-    <link href="http://DRSNJM.github.com/blog/2012/10/31/data-analysis-and-neural-nets/"/>
-    <updated>2012-10-31T18:17:00-04:00</updated>
-    <id>http://DRSNJM.github.com/blog/2012/10/31/data-analysis-and-neural-nets</id>
-    <content type="html"><![CDATA[<h2>Data Conversion and Analysis</h2>
+    <title type="html"><![CDATA[Development Setup]]></title>
+    <link href="http://DRSNJM.github.com/blog/2012/12/12/development-setup/"/>
+    <updated>2012-12-12T14:53:00-05:00</updated>
+    <id>http://DRSNJM.github.com/blog/2012/12/12/development-setup</id>
+    <content type="html"><![CDATA[<p>Setting up this board ultimatum for development is not a complicated task, but
+it has several dependencies. Most notably, you will need to install a
+project and dependency management tool for Clojure called leiningen.
+Installation and usage instructions for leiningen can be found on <a href="https://github.com/technomancy/leiningen">its github
+page</a>.</p>
 
-<p>The first task that I took on during this timebox was converting the data from the board game database into numerical vectors representing each game. The source code for this script can be found <a href="https://github.com/DRSNJM/board-ultimatum/blob/nnet/src/board_ultimatum/engine/vector-convert.clj">here</a>. There are many categories and mechanics included in this vector - its value is 1.0 if the game contains that tag and 0.0 if it does not.</p>
+<p>You can get a <a href="https://github.com/DRSNJM/board-ultimatum/archive/master.zip">zip of our current source
+code</a> but we
+suggest using <a href="http://git-scm.com/">git</a> which can be downloaded
+<a href="http://git-scm.com/downloads">here</a>.</p>
 
-<p>As you can tell by examining the code, the resulting vector has 100+ dimensions. For the sake of performance, I decided that this raw input was impractical for a neural net application. To solve this problem, I turned to PCA (Principal Component Analysis). PCA uses orthagonal transforms to maximize the variability of the data. By projecting my set of 1000 100+ dimensional vectors onto the first 10 principal components, I was able to reduce the dimensionality of the vectors down to ten components. The following is a graph of the data on the first two principal components.</p>
-
-<p><img src="http://i.imgur.com/XEnty.png" alt="PC Analysis" /></p>
-
-<p>It is worthwhile to note that the outliers in the bottom right are party games that can accomodate 50+ people and are fairly unique in that regard.</p>
-
-<p>Once the data is converted, it is stored in the Mongo database.</p>
-
-<p>The library I used to perform this analysis is <a href="http://incanter.org/">Incanter</a> which contains much of the functionality found in R, if you are familiar with stats packages.</p>
-
-<h2>Neural Net and Engine output</h2>
-
-<p>The next step was to run the data through the neural net. Since the expert interface is not accessible to public users at this point, an untrained network is used. The network I used is arbitrary at this point as far as hidden layers and propogation algorithms are concerned, since there is no training data. I ran each combination of games through the network with the input as the following: [GameA Game B]. The results were then stored in another Mongo collection.</p>
-
-<p>One problem that I encountered was the amount of storage that the output takes. This problem was mitigated by only storing the 50 games with the best score for each game, reducing the size by a factor of 20. All 1000 values would be calculated, then trimmed down. This would ensure that the database would never have more than ~50000 records, versus 1000000.</p>
+<p>Once you have leiningen setup the <a href="https://github.com/DRSNJM/board-ultimatum">instructions on our github
+repository</a> should suffice. Further
+dependencies exist if you want to modify or use styles. <a href="https://github.com/DRSNJM/board-ultimatum#modifying-styles">Instructions for doing
+this</a> are also
+available on the projects README.</p>
 ]]></content>
   </entry>
   
   <entry>
-    <title type="html"><![CDATA[Designing the Scoring Engine]]></title>
-    <link href="http://DRSNJM.github.com/blog/2012/10/30/designing-the-scoring-engine/"/>
-    <updated>2012-10-30T18:03:00-04:00</updated>
-    <id>http://DRSNJM.github.com/blog/2012/10/30/designing-the-scoring-engine</id>
-    <content type="html"><![CDATA[<p>In <a href="/blog/2012/09/17/preferences-and-constraints/">a previous post</a>, I
-discussed the differences between filtering on constraints and scoring on
-preferences. As of the last timebox, filtering on game length was implemented
-(that is, using the interface, a user could return games of only certain
-lengths). For this timebox, I completed the filtering step on the only other
-constraint that needs to be filtered on, the number of players.</p>
+    <title type="html"><![CDATA[Final System Design]]></title>
+    <link href="http://DRSNJM.github.com/blog/2012/12/11/final-system-design/"/>
+    <updated>2012-12-11T19:44:00-05:00</updated>
+    <id>http://DRSNJM.github.com/blog/2012/12/11/final-system-design</id>
+    <content type="html"><![CDATA[<p>The overall design of the system is now solidified. Here's a quick look at our design:</p>
 
-<p>That is the easy part. Scoring games can get very tricky. At the highest
-level, it's very intuitive; you simply compare the user preferences to the
-game attributes and sum up scores for each match. The most pertinent question
-is, what will the numerical score values be based on? Will they be
-normalized? To answer the question of normalization, there is no need to
-normalize the scores for each match. The only place the scores will be used
-is in the ordering of the games presented to the user. In other words, the
-scores only need be relative.</p>
+<p><img src="/images/diagrams/system-design.png" alt="System Design" /></p>
 
-<p>What defines a match? If we only considered matches as the user's preference
-being exactly the same as the game's attribute, and all else won't earn you
-any score, then our job as programmers would be fairly easy. However, the
-fact of that matter is that many games may have <em>partial</em> matches; they match
-to some degree. For example, if a user indicates that they prefer a light
-game, we may want to give some "full" score to all light games, but maybe 75%
-of the points if the game is medium light, 45% if medium, and 10% if medium
-heavy. Unforunately, this implies that the scoring functions need to be
-written for each attribute individually, as the degree to which an attribute
-matches a preference is dependant upon the attribute.</p>
-
-<p>The final question is, where do we get the scores? This brings us back to the
-original goal of this project: to emulate an expert in the field of board
-game recommendations. We don't need to come up with the scores ourselves; we
-need to get experts to tell use what the scores on the attributes ought to be.
- In the future, this will be important information to extract from our experts.</p>
-
-<p>The last thing to consider is that we will be adding explanations on scores
-for display on the results page. This means that as each match is made, a
-corresponding string must be written or generated that describes what was
-matched and how much it affected the score. We can simply maintain a running
-list of explanations alongside the score to pass back from the game engine.</p>
+<p>It may be a bit simplified, but it captures all of the core elements of the system.</p>
 ]]></content>
   </entry>
   

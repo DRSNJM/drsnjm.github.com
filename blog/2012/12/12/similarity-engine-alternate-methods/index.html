@@ -1,0 +1,266 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>Similarity Engine - Alternate Methods - Dinosaur Riding Scrum Ninja Jedi Masters</title>
+  <meta name="author" content="Ryan McGowan, Alex Burkhart, David Albert, Chris Powers">
+
+  
+  <meta name="description" content="Neural Network Approach After training the neural network on approximately 200 training samples, it was evident that the network did not necessarily &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://DRSNJM.github.com/blog/2012/12/12/similarity-engine-alternate-methods/">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="/javascripts/ender.js"></script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <link href="/atom.xml" rel="alternate" title="Dinosaur Riding Scrum Ninja Jedi Masters" type="application/atom+xml">
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href='http://fonts.googleapis.com/css?family=Arvo:400,700|Open+Sans:400italic,700italic,400,700|Six+Caps' rel='stylesheet' type='text/css'>
+
+  
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">Dinosaur Riding Scrum Ninja Jedi Masters</a></h1>
+  
+    <h2>Agile is so last year...</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="http://google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:DRSNJM.github.com" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Project</a></li>
+  <li><a href="/experts">Experts</a></li>
+  <li><a href="/interviews">Interviews</a></li>
+  <li><a href="/blog">Blog</a></li>
+  <li><a href="/meetings">Meeting Notes</a></li>
+  <li><a href="/about">Team Bios</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">Similarity Engine - Alternate Methods</h1>
+    
+    
+      <p class="meta">
+        
+  
+
+<span class="byline author vcard">Posted by <span class="fn">David Albert</span></span>
+
+		<span>ON</span>
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-12-12T19:15:00-05:00" pubdate data-updated="true">Dec 12<span>th</span>, 2012</time>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><h2>Neural Network Approach</h2>
+
+<p>After training the neural network on approximately 200 training samples, it was evident that the network did not necessarily generalize to games outside of the scope of the ones rated by experts in the training set. Further input will be necessary to continue to complete the model; this will hopefully be completed in the coming weeks as Alex makes more vists to CABS meetings. Once a better picture of the training data develops, the network should hypothetically generalize better to the regions of the input space that do not perform well at this point in time (for instance, war games.) This portion of the project will continue to be a work in progress. In the mean time, as seen in our progress reports, I have also set up an alternate method to provide users with a very literal correlation of similarity between games.</p>
+
+<h2>Simple Statistical Approach</h2>
+
+<p>In order to provide results that were more relevant in the immediate context of publicizing our project, I introduced an alternate method to the neural network approach that backtracks to some of the work that I had done earlier in the project. Rather than train an network with the training data, the stats method performs component analysis to return a 10 dimensional vector for each game. The confidence level for each game relative to the other games is then calculated merely from the euclidean distance between the two vectors.</p>
+
+<h3>Drawbacks</h3>
+
+<p>While this method provides games that are numerically similar to each other, often returning different versions of the same title in the search results, it fails to meet our initial goal of providing users with recommendations based on the more esoteric relationships with games. While two games, by their attributes, may be incredibly similar, they may be a poor recommendation, particularly if the user is looking for variety and new options in the games that they are playing. It is for these reasons that, while we are leaving this method as an option, we would much prefer the neural net approach to be used and to be successful in providing users with a diverse listing of similar games.</p>
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">David Albert</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-12-12T19:15:00-05:00" pubdate data-updated="true">Dec 12<span>th</span>, 2012</time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/blog/'>blog</a>
+  
+</span>
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://DRSNJM.github.com/blog/2012/12/12/similarity-engine-alternate-methods/" data-via="" data-counturl="http://DRSNJM.github.com/blog/2012/12/12/similarity-engine-alternate-methods/" >Tweet</a>
+  
+  
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2012/12/12/tag-administration/" title="Previous Post: Tag Administration">&laquo; Tag Administration</a>
+      
+      
+    </p>
+  </footer>
+</article>
+
+</div>
+
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2012/12/12/similarity-engine-alternate-methods/">Similarity Engine - Alternate Methods</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/12/12/tag-administration/">Tag Administration</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/12/12/expert-interface/">Expert Interface</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/12/12/development-setup/">Development Setup</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/12/11/final-system-design/">Final System Design</a>
+      </li>
+    
+  </ul>
+</section>
+
+<section>
+  <h1>GitHub Repos</h1>
+  <ul id="gh_repos">
+    <li class="loading">Status updating...</li>
+  </ul>
+  
+  <a href="https://github.com/DRSNJM">@DRSNJM</a> on GitHub
+  
+  <script type="text/javascript">
+    $.domReady(function(){
+        if (!window.jXHR){
+            var jxhr = document.createElement('script');
+            jxhr.type = 'text/javascript';
+            jxhr.src = '/javascripts/libs/jXHR.js';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(jxhr, s);
+        }
+
+        github.showRepos({
+            user: 'DRSNJM',
+            count: 3,
+            skip_forks: true,
+            target: '#gh_repos'
+        });
+    });
+  </script>
+  <script src="/javascripts/github.js" type="text/javascript"> </script>
+</section>
+
+
+
+
+
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2012 - Ryan McGowan, Alex Burkhart, David Albert, Chris Powers -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+
+
+
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = 'http://platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>

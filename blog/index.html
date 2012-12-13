@@ -9,8 +9,7 @@
   <meta name="author" content="Ryan McGowan, Alex Burkhart, David Albert, Chris Powers">
 
   
-  <meta name="description" content="Worklog Poster Template styling and modification (David)
-Initial outline content (Ryan) board-ultimatum Create simple statistical method for &hellip;">
+  <meta name="description" content="Neural Network Approach After training the neural network on approximately 200 training samples, it was evident that the network did not necessarily &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -75,6 +74,317 @@ Initial outline content (Ryan) board-ultimatum Create simple statistical method 
       
   <header>
     
+      <h1 class="entry-title"><a href="/blog/2012/12/12/similarity-engine-alternate-methods/">Similarity Engine - Alternate Methods</a></h1>
+    
+    
+      <p class="meta">
+        
+  
+
+<span class="byline author vcard">Posted by <span class="fn">David Albert</span></span>
+
+		<span>ON</span>
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-12-12T19:15:00-05:00" pubdate data-updated="true">Dec 12<span>th</span>, 2012</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><h2>Neural Network Approach</h2>
+
+<p>After training the neural network on approximately 200 training samples, it was evident that the network did not necessarily generalize to games outside of the scope of the ones rated by experts in the training set. Further input will be necessary to continue to complete the model; this will hopefully be completed in the coming weeks as Alex makes more vists to CABS meetings. Once a better picture of the training data develops, the network should hypothetically generalize better to the regions of the input space that do not perform well at this point in time (for instance, war games.) This portion of the project will continue to be a work in progress. In the mean time, as seen in our progress reports, I have also set up an alternate method to provide users with a very literal correlation of similarity between games.</p>
+
+<h2>Simple Statistical Approach</h2>
+
+<p>In order to provide results that were more relevant in the immediate context of publicizing our project, I introduced an alternate method to the neural network approach that backtracks to some of the work that I had done earlier in the project. Rather than train an network with the training data, the stats method performs component analysis to return a 10 dimensional vector for each game. The confidence level for each game relative to the other games is then calculated merely from the euclidean distance between the two vectors.</p>
+
+<h3>Drawbacks</h3>
+
+<p>While this method provides games that are numerically similar to each other, often returning different versions of the same title in the search results, it fails to meet our initial goal of providing users with recommendations based on the more esoteric relationships with games. While two games, by their attributes, may be incredibly similar, they may be a poor recommendation, particularly if the user is looking for variety and new options in the games that they are playing. It is for these reasons that, while we are leaving this method as an option, we would much prefer the neural net approach to be used and to be successful in providing users with a diverse listing of similar games.</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2012/12/12/tag-administration/">Tag Administration</a></h1>
+    
+    
+      <p class="meta">
+        
+  
+
+<span class="byline author vcard">Posted by <span class="fn">Alex Burkhart</span></span>
+
+		<span>ON</span>
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-12-12T17:39:00-05:00" pubdate data-updated="true">Dec 12<span>th</span>, 2012</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><h2>Purpose</h2>
+
+<p>In all the Board Game Geek data, there are a lot of different Mechanics and
+Categories. Within the system they are treated identically, collectively
+called Tags. Each Tag has a name along with a detailed description.</p>
+
+<p>We wanted to be able to quickly modify the metadata related to the Tags quickly
+and easily. We already had a webserver setup, so a simple web interface seemed
+a natural way to accomplish this.</p>
+
+<h2>Features</h2>
+
+<p>With the Tag Administration page, we were able to edit the titles and
+descriptions of each tag as we see fit. We pulled all the descriptions in from
+Board Game Geek with a script automatically and were able to quickly edit them
+here.</p>
+
+<p>We also wanted to be able to modify the weight for each Tag within the query
+scoring system. I added a &#8220;Postive Influence&#8221; and &#8220;Negative Influence&#8221; field to
+each Tag. By modifying the Postive Influence, an administrator is able to
+change the maximum score assigned to an attribute by the query engine.
+Similarly, the Negative Influence adjusts the maximum penalty when an attribute
+is marked thumbs down by the user.</p>
+
+<p>Lastly, we had plans to break up the giant wall of tri-state checkboxes on the
+query page by grouping related Tags. A common example of this was to group all
+&#8220;Theme&#8221; tags together. The administration page gave us a simple way to change
+the grouping.</p>
+
+<p><img src="/images/tag_administration.png" alt="Preview" /></p>
+
+<p>You can see the final version of the Tag Administration Page
+<a href="http://board-ultimatum.herokuapp.com/tags">here</a>.</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2012/12/12/expert-interface/">Expert Interface</a></h1>
+    
+    
+      <p class="meta">
+        
+  
+
+<span class="byline author vcard">Posted by <span class="fn">Ryan McGowan</span></span>
+
+		<span>ON</span>
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-12-12T15:29:00-05:00" pubdate data-updated="true">Dec 12<span>th</span>, 2012</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><h2>Purpose</h2>
+
+<p>Data for the similarity engine (neural network) did not come out of thin air. It
+needed to be collected from our experts. The purpose of expert authentication
+and the expert interface is to easily allow our experts to contribute to the
+training of the neural network. The end goal is for an expert to rate each game
+as similar to another one. With 1,000 games there ate 500,000 pairs (1,000
+choose 2). Getting 500,000 ratings at our scale is difficult thus the neural
+network is needed to expand on the ratings we have.</p>
+
+<h2>Issues &amp; Design</h2>
+
+<p>Our initial design was very simple. A random pair of games is selected. If the
+expert is familiar with both games, they rate how similar they are. Otherwise,
+he or she skips that pair. Unfortunately, most experts are not familiar with a
+significant proportion of the games in our database. That means, under normal
+conditions the expert would be skipping a lot.</p>
+
+<p>To address this the interface was turned into a wizard with the following steps:</p>
+
+<ol>
+<li>Game Selection &#8211; 12 random games are selected from the database. The expert
+selectis which one they are familiar.</li>
+<li>Pair Rating &#8211; For all pair combinations of games selected on page 1 obtain
+a rating from the expert.</li>
+</ol>
+
+
+<p>An expert is far more likely to be familiar with 2 or more games out of a
+randomly selected twelve. Thus, less skipping is involved.</p>
+
+<h2>Features</h2>
+
+<ul>
+<li>Do not display games the expert has not seen before.</li>
+<li>Limit the number of combinations shown.</li>
+<li>Do not show combinations the expert has already rated.</li>
+</ul>
+
+
+<h4><a href="https://github.com/DRSNJM/board-ultimatum/blob/master/src/board_ultimatum/views/expert.clj">Source Code</a></h4>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2012/12/12/development-setup/">Development Setup</a></h1>
+    
+    
+      <p class="meta">
+        
+  
+
+<span class="byline author vcard">Posted by <span class="fn">Ryan McGowan</span></span>
+
+		<span>ON</span>
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-12-12T14:53:00-05:00" pubdate data-updated="true">Dec 12<span>th</span>, 2012</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>Setting up this board ultimatum for development is not a complicated task, but
+it has several dependencies. Most notably, you will need to install a
+project and dependency management tool for Clojure called leiningen.
+Installation and usage instructions for leiningen can be found on <a href="https://github.com/technomancy/leiningen">its github
+page</a>.</p>
+
+<p>You can get a <a href="https://github.com/DRSNJM/board-ultimatum/archive/master.zip">zip of our current source
+code</a> but we
+suggest using <a href="http://git-scm.com/">git</a> which can be downloaded
+<a href="http://git-scm.com/downloads">here</a>.</p>
+
+<p>Once you have leiningen setup the <a href="https://github.com/DRSNJM/board-ultimatum">instructions on our github
+repository</a> should suffice. Further
+dependencies exist if you want to modify or use styles. <a href="https://github.com/DRSNJM/board-ultimatum#modifying-styles">Instructions for doing
+this</a> are also
+available on the projects README.</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2012/12/11/final-system-design/">Final System Design</a></h1>
+    
+    
+      <p class="meta">
+        
+  
+
+<span class="byline author vcard">Posted by <span class="fn">Chris Powers</span></span>
+
+		<span>ON</span>
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-12-11T19:44:00-05:00" pubdate data-updated="true">Dec 11<span>th</span>, 2012</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>The overall design of the system is now solidified. Here&#8217;s a quick look at our design:</p>
+
+<p><img src="/images/diagrams/system-design.png" alt="System Design" /></p>
+
+<p>It may be a bit simplified, but it captures all of the core elements of the system.</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
       <h1 class="entry-title"><a href="/blog/2012/12/10/final-presentation/">Final Presentation</a></h1>
     
     
@@ -104,24 +414,120 @@ Initial outline content (Ryan) board-ultimatum Create simple statistical method 
   </header>
 
 
-  <div class="entry-content"><h2>Worklog</h2>
+  <div class="entry-content"><p>We&#8217;ll be presenting our capstone project at
+<a href="http://www.ceti.cse.ohio-state.edu/">CETI</a> day. You can <a href="https://docs.google.com/presentation/pub?id=12pCKA2sX9XIYasMh3BmRr6pTsjaWTVhSagITDBASn5M&amp;start=false&amp;loop=false&amp;delayms=3000">view the poster we
+made here</a>.</p>
+
+<p>The relative breakdown of work on the poster and presentation was as follows:</p>
+
+<h2>Worklog</h2>
 
 <h3>Poster</h3>
 
 <ul>
-<li>Template styling and modification (David)</li>
-<li>Initial outline content (Ryan)</li>
+<li>Template styling and modification &#8212; <em>David</em></li>
+<li>Initial outline content &#8212; <em>Ryan</em></li>
+<li>Created and arranged design flowchart &#8212; <em>Chris</em></li>
+<li>Added some parts to the design text &#8212; <em>Chris</em></li>
 </ul>
 
 
 <h3>board-ultimatum</h3>
 
 <ul>
-<li>Create simple statistical method for determining similarity of games. (David)</li>
-<li>Allow the user to specify similarity engine provider (i.e. neural network or
-similarity engine). (Ryan) [<a href="https://github.com/DRSNJM/board-ultimatum/pull/12">pull-request</a>]</li>
+<li>Create simple statistical method for determining similarity of games. &#8212;
+<em>David</em></li>
+<li><p>Allow the user to specify similarity engine provider. See the
+<a href="https://github.com/DRSNJM/board-ultimatum/pull/12">pull-request</a> &#8212;
+<em>Ryan</em></p>
+
+<p>Providers:</p>
+
+<ul>
+<li>Neural Network</li>
+<li>Simple Stats</li>
+</ul>
+</li>
 </ul>
 
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2012/11/26/timebox-6/">Timebox 6</a></h1>
+    
+    
+      <p class="meta">
+        
+  
+
+<span class="byline author vcard">Posted by <span class="fn">Ryan McGowan, Alex Burkhart, David Albert, Chris Powers</span></span>
+
+		<span>ON</span>
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-11-26T21:59:00-05:00" pubdate data-updated="true">Nov 26<span>th</span>, 2012</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><h2>Worklog</h2>
+
+<h3>Chris Powers</h3>
+
+<ul>
+<li></li>
+</ul>
+
+
+<h3>Alex Burkhart</h3>
+
+<ul>
+<li></li>
+</ul>
+
+
+<h3>Ryan McGowan</h3>
+
+<ul>
+<li></li>
+</ul>
+
+
+<h3>David Albert</h3>
+
+<ul>
+<li>Created icons for recommendation GUI</li>
+<li>Added cross validation to the Neural Net system</li>
+<li>Refined similar search results UI</li>
+</ul>
+
+
+<h2>Commit History</h2>
+
+<p>For more information on who has done what see <a href="https://github.com/DRSNJM/board-ultimatum/commits/master">our commit
+history</a> on our github
+project.</p>
 </div>
   
   
@@ -205,14 +611,8 @@ here</a>.</li>
 <h3>David Albert</h3>
 
 <ul>
-<li>Data Processing and Neural Net Setup
-
-<ul>
-<li>See blog post <a href="/blog/2012/10/31/data-analysis-and-neural-nets/">here</a></li>
-<li><a href="https://github.com/DRSNJM/board-ultimatum/blob/nnet/src/board_ultimatum/engine/vector_convert.clj">Data Converstion Script</a></li>
-<li><a href="https://github.com/DRSNJM/board-ultimatum/blob/nnet/src/board_ultimatum/engine/neural.clj">Neural Net Script</a></li>
-</ul>
-</li>
+<li>Create auto-completing search UI for finding similar games</li>
+<li>Connect UI to database containing results from neural network</li>
 </ul>
 
 
@@ -387,501 +787,6 @@ project.</p>
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2012/10/30/designing-the-scoring-engine/">Designing the Scoring Engine</a></h1>
-    
-    
-      <p class="meta">
-        
-  
-
-<span class="byline author vcard">Posted by <span class="fn">Chris Powers</span></span>
-
-		<span>ON</span>
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2012-10-30T18:03:00-04:00" pubdate data-updated="true">Oct 30<span>th</span>, 2012</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>In <a href="/blog/2012/09/17/preferences-and-constraints/">a previous post</a>, I
-discussed the differences between filtering on constraints and scoring on
-preferences. As of the last timebox, filtering on game length was implemented
-(that is, using the interface, a user could return games of only certain
-lengths). For this timebox, I completed the filtering step on the only other
-constraint that needs to be filtered on, the number of players.</p>
-
-<p>That is the easy part. Scoring games can get very tricky. At the highest
-level, it&#8217;s very intuitive; you simply compare the user preferences to the
-game attributes and sum up scores for each match. The most pertinent question
-is, what will the numerical score values be based on? Will they be
-normalized? To answer the question of normalization, there is no need to
-normalize the scores for each match. The only place the scores will be used
-is in the ordering of the games presented to the user. In other words, the
-scores only need be relative.</p>
-
-<p>What defines a match? If we only considered matches as the user&#8217;s preference
-being exactly the same as the game&#8217;s attribute, and all else won&#8217;t earn you
-any score, then our job as programmers would be fairly easy. However, the
-fact of that matter is that many games may have <em>partial</em> matches; they match
-to some degree. For example, if a user indicates that they prefer a light
-game, we may want to give some &#8220;full&#8221; score to all light games, but maybe 75%
-of the points if the game is medium light, 45% if medium, and 10% if medium
-heavy. Unforunately, this implies that the scoring functions need to be
-written for each attribute individually, as the degree to which an attribute
-matches a preference is dependant upon the attribute.</p>
-
-<p>The final question is, where do we get the scores? This brings us back to the
-original goal of this project: to emulate an expert in the field of board
-game recommendations. We don&#8217;t need to come up with the scores ourselves; we
-need to get experts to tell use what the scores on the attributes ought to be.
- In the future, this will be important information to extract from our experts.</p>
-
-<p>The last thing to consider is that we will be adding explanations on scores
-for display on the results page. This means that as each match is made, a
-corresponding string must be written or generated that describes what was
-matched and how much it affected the score. We can simply maintain a running
-list of explanations alongside the score to pass back from the game engine.</p>
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2012/10/19/similarity-engine-design-and-machine-learning-tools/">Similarity Engine Design and Machine Learning Tools</a></h1>
-    
-    
-      <p class="meta">
-        
-  
-
-<span class="byline author vcard">Posted by <span class="fn">David Albert</span></span>
-
-		<span>ON</span>
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2012-10-19T14:50:00-04:00" pubdate data-updated="true">Oct 19<span>th</span>, 2012</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>My reponsibilities for Timebox #3 have primarily revolved around the machine learning extension to our project. After the expert interviews and discussion with potential users that took place during this timebox, it was decided that a search that provides recommended games based on some individual game that a user had enjoyed playing would be very useful and should be surfaced as a main feaure of the application, giving greater weight to this portion of the project. Elaborating on my <a href="/blog/2012/09/21/similarity-engine/">previous post on the topic</a>, I will be discussing some of the design and implementation decisions we have made.</p>
-
-<h2>Creating a Training Set</h2>
-
-<p>One of the challenges of developing a machine learning system, in our case, is having a reliable and sufficiently large training set to use to train the machine implementations we decide to use. This responsibility will fall on our experts and other experienced members of CABS. The number of games in our current input space is currently at 1000, and may be expanded in the future. Since his experts have to be able to rate games in terms of each other, we decided that an interface that randomly selects a set of ~16 games, and then asks which of those games the user is familiar with, would result in much more efficient training. These selections would then be passed to the game comparison screen, described previously, in which the users selects on a sliding scale how much they would recommend the second game based on someone enjoying the first.</p>
-
-<p>Some of the issues that arise from this system include the potential for multiple experts to rate the same pair of games. It is because of this, and also the fact that we dont want experts to be presented the same game pair more than once, that it is necessary to keep track of which training patterns belong to which expert. When it comes time to actually train the system, any duplicates will be averaged together to create the final training set.</p>
-
-<h2>Input Data</h2>
-
-<p>Another step in implementing the system is to produce a set of input data that can be fed through the network. Currently, a record for a single game in the database looks like the following:</p>
-
-<pre><code>{
-  "_id" : ObjectId("507ddc8538ef1f102b000001"),
-  "bgg_id" : 12002,
-  "name" : "Jambo",
-  "thumbnail" : "http://cf.geekdo-images.com/images/pic1244694_t.jpg",
-  "image" : "http://cf.geekdo-images.com/images/pic1244694.jpg",
-  "min_players" : 2,
-  "max_players" : 2,
-  "min_age" : 12,
-  "length" : 45,
-  "year_published" : 2004,
-  "rating_average" : 7.13898,
-  "rating_bayes_average" : 7.01279,
-  "rating_std_dev" : 1.19381,
-  "rating_median" : 0,
-  "weight_average" : 2.0779,
-  "weight_num" : 693,
-  "rank" : 233,
-  "tags" : [
-    {
-      "bgg_id" : 1002,
-      "subtype" : "category",
-      "value" : "Card Game"
-    }
-
-    ...
-
-  },
-  "suggested_age" : {
-    "2" : 0,
-    "3" : 0,
-    "4" : 0,
-    "5" : 0,
-    "6" : 1,
-    "8" : 2,
-    "10" : 14,
-    "12" : 8,
-    "14" : 2,
-    "16" : 0,
-    "18" : 0,
-    "21 and up" : 0
-  }
-}
-</code></pre>
-
-<p>However, in order to appropriate input for a machine learning implementation, the input must be a vector of numerical values, so I have begun to write a map function to perform this conversion, which can be seen <a href="https://github.com/DRSNJM/board-ultimatum/blob/nnet/src/board_ultimatum/engine/vector-convert.clj">here</a>. The output for the game then looks like the following:</p>
-
-<pre><code>[0.0075 0.25 0.25 0.6666666666666666 0.233 0.3465]
-</code></pre>
-
-<p>One interesting issue with our set of data is the possibility of having a very large input vector. Ryan and I have discussed this issue and have been researching techniques such as <a href="http://en.wikipedia.org/wiki/Principal_component_analysis">principal component analysis</a>, among others, as a possible solution to reduce the number of dimensions of our input. The primary concern is training performance, however, I have not yet had the chance to do any sort of dummy training to get an idea of what the limitations are going to be.</p>
-
-<h2>Machine Learning</h2>
-
-<p>Initially we had discussed using <a href="http://www.cs.waikato.ac.nz/ml/weka/">Weka</a> as our machine learning library, however, after looking into the documentation, it seemed that the neural nets and other features were primarily geared towards being used as classifiers. The domain for our problem falls more into function approximation, as we want to be able to return and train with values in a continuous range, rather than a discrete one.</p>
-
-<p>After looking at my options, I decided to go with <a href="http://www.heatonresearch.com/encog">Encog</a>. Encog has a repuation for being mature and rather optimized in terms of performance. It also has a well-documented Clojure wrapper, <a href="https://github.com/jimpil/enclog">Enclog</a>. Encog offers a variety of network types as well as training algorithms that I will need to experiment with to determine what approach is most appropriate for our input data.</p>
-
-<h2>Returning the Results</h2>
-
-<p>In order to quickly return the values generated by the network, we went ahead and set up a <a href="http://redis.io/">Redis</a> instance that is hooked to our Heroku account. We will be using the <a href="http://redis.io/commands#sorted_set">sorted sets</a> data structure to hold the results. The sorted set in redis takes input in the following format:</p>
-
-<pre><code>key score member
-</code></pre>
-
-<p>In our situation, the data we will be inputting will look like the following:</p>
-
-<pre><code>GameID-A similiarty-value GameID-B
-</code></pre>
-
-<p>This way, we will be able to very efficiently query what games, given some game A, have a similarity-value in a certain range. The <a href="http://redis.io/commands/zrevrange">zrevrange function</a> will most likely be the most appropriate for making these queries. Once the Game ID&#8217;s have been retrieved, the normal game database can then be queried to provide full details on each game.</p>
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2012/10/18/timebox-3/">Timebox 3</a></h1>
-    
-    
-      <p class="meta">
-        
-  
-
-<span class="byline author vcard">Posted by <span class="fn">Chris Powers, Ryan McGowan</span></span>
-
-		<span>ON</span>
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2012-10-18T23:16:00-04:00" pubdate data-updated="true">Oct 18<span>th</span>, 2012</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>For detailed information on accomplishments from this timebox, see the links
-below:</p>
-
-<ul>
-<li><a href="/blog/2012/10/18/interface-design/">Attribute search design</a></li>
-<li><a href="/blog/2012/10/16/interface-implementation/">Attribute search implementation</a></li>
-</ul>
-
-
-<h4>Interviews</h4>
-
-<ol>
-<li><a href="/blog/2012/10/19/interview-2-jeff-1/">Jeff Horger</a></li>
-<li><a href="/blog/2012/10/19/interview-3-jeff-kayati/">Jeff Kayati</a></li>
-<li><a href="/blog/2012/10/19/interview-4-corey-sanders/">Corey Sanders</a></li>
-</ol>
-
-
-<h2>Worklog</h2>
-
-<h3>Chris Powers</h3>
-
-<ul>
-<li>Front-end mockups</li>
-<li>Tri-State button functionality</li>
-</ul>
-
-
-<h3>Alex Burkhart</h3>
-
-<ul>
-<li>Load mongodb from BGG data</li>
-<li>Get simple query functionality working</li>
-<li>Make prototype query results page.</li>
-</ul>
-
-
-<h3>Ryan McGowan</h3>
-
-<p>Ryan primarily managed code being included into our master branch.  He did most
-of the merging of features and refactored several components.</p>
-
-<ul>
-<li>Create initial project scaffolding.
-
-<ul>
-<li>Bootstrap, Leiningen, Mongo and the wiring between them to have a
-running app. This includes the config functionality.</li>
-</ul>
-</li>
-<li>Refactor Javascript for query interface.</li>
-<li>Corrections to markup for query interface to properly use bootstrap
-scaffolding.</li>
-<li>Feature branch merges</li>
-<li>Refactor <code>expert.js</code> and the expert select interface to use bootstrap
-scaffolding.</li>
-<li>Several other style changes.</li>
-<li>Interview writeups and notes</li>
-</ul>
-
-
-<h3>David Albert</h3>
-
-<ul>
-<li>Initial bootstrap UI demo</li>
-<li>Machine Learning component R&amp;D
-(<a href="/blog/2012/10/19/similarity-engine-design-and-machine-learning-tools/">more details here</a>)</li>
-</ul>
-
-
-<h2>Commit History</h2>
-
-<p>For more information on who has done what see <a href="https://github.com/DRSNJM/board-ultimatum/commits/master">our commit
-history</a> on our github
-project.</p>
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2012/10/16/group-presentation-timebox-3/">Group Presentation on Timebox 3 Updates</a></h1>
-    
-    
-      <p class="meta">
-        
-  
-
-<span class="byline author vcard">Posted by <span class="fn">Chris Powers</span></span>
-
-		<span>ON</span>
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2012-10-16T23:03:00-04:00" pubdate data-updated="true">Oct 16<span>th</span>, 2012</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>Our group gave a presentation today on our project updates for timebox 3.
-The presentation slides are <a href="https://docs.google.com/presentation/d/1FlgUpLTmazz8MjVawLmZQl6e1MjkDUkvp96wcXEjtxE/edit">available here</a>.</p>
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2012/10/16/interface-implementation/">Attribute Search Interface Implementation</a></h1>
-    
-    
-      <p class="meta">
-        
-  
-
-<span class="byline author vcard">Posted by <span class="fn">Chris Powers</span></span>
-
-		<span>ON</span>
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2012-10-16T13:35:00-04:00" pubdate data-updated="true">Oct 16<span>th</span>, 2012</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>The most fundamental aspects of the query interface have been implemented.
-Though there may be more attributes added in the future, we decided to add a
-select few attributes that we believed encapsulated differing types of input we
-receive from the user. In particular, we expect the user to select discrete
-values for some attributes, such as number of players and time to play (in
-discrete intervals), and tri-state objects that can encapsulate the user liking,
-disliking, or not caring about a particular attribute. Prototypes were built to
-represent these input types, and are currently present on the interface:</p>
-
-<p><img src="/images/diagrams/fundamental-interface.jpeg" alt="Fundamental interface" /></p>
-
-<p>These input types maintain hidden values in the background in order to formally
-send them to the server.</p>
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2012/10/06/interface-design/">Attribute Search Interface Design</a></h1>
-    
-    
-      <p class="meta">
-        
-  
-
-<span class="byline author vcard">Posted by <span class="fn">Chris Powers</span></span>
-
-		<span>ON</span>
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2012-10-06T23:19:00-04:00" pubdate data-updated="true">Oct 6<span>th</span>, 2012</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>The most significant interface to our system is by far the query-construction
-interface. This is the first page that comes up when a user lands on the
-engine&#8217;s webpage, and it encapsulates the core functionality of the system: to
-take in user specified attributes and provide back a list of matching results.</p>
-
-<p>The interface is a bit tricky in a few significant ways. Firstly, there are
-potentially tens of attributes of games that we could surface as options.
-Fortunately, we have our experts to narrow down these attributes to the relevant
-ones. Secondly, each attribute has a different domain of values that are
-permissible. There&#8217;s no way around this one; we&#8217;ll have to build input selectors
-that match for each attribute. Thirdly, even with the reduced list of
-attributes, the user will still likely only care about a subset of them. We&#8217;d
-prefer if the user only had to interact with those attributes that he considers
-relevant to what he&#8217;s looking for.</p>
-
-<p>This last issue brings us to the design of the interface. After some thought, I
-proposed to the team two layouts for constructing queries:</p>
-
-<p><img src="/images/diagrams/attr-selection-interface.jpeg" alt="Attribute selection" /></p>
-
-<p>The user selects attributes to the left, then chooses the particular desired or
-undesired values of those attributes.</p>
-
-<p><img src="/images/diagrams/accordian-selection.jpeg" alt="Accordian selection" /></p>
-
-<p>The user selects the attributes in the middle, then the area for manipulating
-value preferences of those attributes appears under the attribute (sliding out
-like an accordian).</p>
-
-<p>The two styles are designed around the notion that users shouldn&#8217;t have to
-interact with attributes that they don&#8217;t care about. In both interfaces, the
-user only selects attributes that they have a preference on. It&#8217;s important to
-note that we intent to take into account negative preferences as well, a
-decision made based on feedback from our experts.</p>
-
-<p>After proposing the two designs to the team, it was decided that we would go
-with the first design, because we believed that it looked better and utilized
-the space better.</p>
-</div>
-  
-  
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="/blog/page/2/">&larr; Older</a>
@@ -897,23 +802,23 @@ the space better.</p>
   <ul id="recent_posts">
     
       <li class="post">
-        <a href="/blog/2012/12/10/final-presentation/">Final Presentation</a>
+        <a href="/blog/2012/12/12/similarity-engine-alternate-methods/">Similarity Engine - Alternate Methods</a>
       </li>
     
       <li class="post">
-        <a href="/blog/2012/11/12/timebox-5/">Timebox 5</a>
+        <a href="/blog/2012/12/12/tag-administration/">Tag Administration</a>
       </li>
     
       <li class="post">
-        <a href="/blog/2012/11/02/timebox-4/">Timebox 4</a>
+        <a href="/blog/2012/12/12/expert-interface/">Expert Interface</a>
       </li>
     
       <li class="post">
-        <a href="/blog/2012/10/31/data-analysis-and-neural-nets/">Data Analysis and Neural Nets</a>
+        <a href="/blog/2012/12/12/development-setup/">Development Setup</a>
       </li>
     
       <li class="post">
-        <a href="/blog/2012/10/30/designing-the-scoring-engine/">Designing the Scoring Engine</a>
+        <a href="/blog/2012/12/11/final-system-design/">Final System Design</a>
       </li>
     
   </ul>

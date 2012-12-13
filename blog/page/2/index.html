@@ -9,8 +9,9 @@
   <meta name="author" content="Ryan McGowan, Alex Burkhart, David Albert, Chris Powers">
 
   
-  <meta name="description" content="Our group gave a presentation today on Chapters 11, 12: Reasoning Under
-Uncertainty from the textbook, Knowledge-Based Systems. The presentation &hellip;">
+  <meta name="description" content="In a previous post, I
+discussed the differences between filtering on constraints and scoring on
+preferences. As of the last timebox, filtering on &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -69,6 +70,501 @@ Uncertainty from the textbook, Knowledge-Based Systems. The presentation &hellip
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2012/10/30/designing-the-scoring-engine/">Designing the Scoring Engine</a></h1>
+    
+    
+      <p class="meta">
+        
+  
+
+<span class="byline author vcard">Posted by <span class="fn">Chris Powers</span></span>
+
+		<span>ON</span>
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-10-30T18:03:00-04:00" pubdate data-updated="true">Oct 30<span>th</span>, 2012</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>In <a href="/blog/2012/09/17/preferences-and-constraints/">a previous post</a>, I
+discussed the differences between filtering on constraints and scoring on
+preferences. As of the last timebox, filtering on game length was implemented
+(that is, using the interface, a user could return games of only certain
+lengths). For this timebox, I completed the filtering step on the only other
+constraint that needs to be filtered on, the number of players.</p>
+
+<p>That is the easy part. Scoring games can get very tricky. At the highest
+level, it&#8217;s very intuitive; you simply compare the user preferences to the
+game attributes and sum up scores for each match. The most pertinent question
+is, what will the numerical score values be based on? Will they be
+normalized? To answer the question of normalization, there is no need to
+normalize the scores for each match. The only place the scores will be used
+is in the ordering of the games presented to the user. In other words, the
+scores only need be relative.</p>
+
+<p>What defines a match? If we only considered matches as the user&#8217;s preference
+being exactly the same as the game&#8217;s attribute, and all else won&#8217;t earn you
+any score, then our job as programmers would be fairly easy. However, the
+fact of that matter is that many games may have <em>partial</em> matches; they match
+to some degree. For example, if a user indicates that they prefer a light
+game, we may want to give some &#8220;full&#8221; score to all light games, but maybe 75%
+of the points if the game is medium light, 45% if medium, and 10% if medium
+heavy. Unforunately, this implies that the scoring functions need to be
+written for each attribute individually, as the degree to which an attribute
+matches a preference is dependant upon the attribute.</p>
+
+<p>The final question is, where do we get the scores? This brings us back to the
+original goal of this project: to emulate an expert in the field of board
+game recommendations. We don&#8217;t need to come up with the scores ourselves; we
+need to get experts to tell use what the scores on the attributes ought to be.
+ In the future, this will be important information to extract from our experts.</p>
+
+<p>The last thing to consider is that we will be adding explanations on scores
+for display on the results page. This means that as each match is made, a
+corresponding string must be written or generated that describes what was
+matched and how much it affected the score. We can simply maintain a running
+list of explanations alongside the score to pass back from the game engine.</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2012/10/19/similarity-engine-design-and-machine-learning-tools/">Similarity Engine Design and Machine Learning Tools</a></h1>
+    
+    
+      <p class="meta">
+        
+  
+
+<span class="byline author vcard">Posted by <span class="fn">David Albert</span></span>
+
+		<span>ON</span>
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-10-19T14:50:00-04:00" pubdate data-updated="true">Oct 19<span>th</span>, 2012</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>My reponsibilities for Timebox #3 have primarily revolved around the machine learning extension to our project. After the expert interviews and discussion with potential users that took place during this timebox, it was decided that a search that provides recommended games based on some individual game that a user had enjoyed playing would be very useful and should be surfaced as a main feaure of the application, giving greater weight to this portion of the project. Elaborating on my <a href="/blog/2012/09/21/similarity-engine/">previous post on the topic</a>, I will be discussing some of the design and implementation decisions we have made.</p>
+
+<h2>Creating a Training Set</h2>
+
+<p>One of the challenges of developing a machine learning system, in our case, is having a reliable and sufficiently large training set to use to train the machine implementations we decide to use. This responsibility will fall on our experts and other experienced members of CABS. The number of games in our current input space is currently at 1000, and may be expanded in the future. Since his experts have to be able to rate games in terms of each other, we decided that an interface that randomly selects a set of ~16 games, and then asks which of those games the user is familiar with, would result in much more efficient training. These selections would then be passed to the game comparison screen, described previously, in which the users selects on a sliding scale how much they would recommend the second game based on someone enjoying the first.</p>
+
+<p>Some of the issues that arise from this system include the potential for multiple experts to rate the same pair of games. It is because of this, and also the fact that we dont want experts to be presented the same game pair more than once, that it is necessary to keep track of which training patterns belong to which expert. When it comes time to actually train the system, any duplicates will be averaged together to create the final training set.</p>
+
+<h2>Input Data</h2>
+
+<p>Another step in implementing the system is to produce a set of input data that can be fed through the network. Currently, a record for a single game in the database looks like the following:</p>
+
+<pre><code>{
+  "_id" : ObjectId("507ddc8538ef1f102b000001"),
+  "bgg_id" : 12002,
+  "name" : "Jambo",
+  "thumbnail" : "http://cf.geekdo-images.com/images/pic1244694_t.jpg",
+  "image" : "http://cf.geekdo-images.com/images/pic1244694.jpg",
+  "min_players" : 2,
+  "max_players" : 2,
+  "min_age" : 12,
+  "length" : 45,
+  "year_published" : 2004,
+  "rating_average" : 7.13898,
+  "rating_bayes_average" : 7.01279,
+  "rating_std_dev" : 1.19381,
+  "rating_median" : 0,
+  "weight_average" : 2.0779,
+  "weight_num" : 693,
+  "rank" : 233,
+  "tags" : [
+    {
+      "bgg_id" : 1002,
+      "subtype" : "category",
+      "value" : "Card Game"
+    }
+
+    ...
+
+  },
+  "suggested_age" : {
+    "2" : 0,
+    "3" : 0,
+    "4" : 0,
+    "5" : 0,
+    "6" : 1,
+    "8" : 2,
+    "10" : 14,
+    "12" : 8,
+    "14" : 2,
+    "16" : 0,
+    "18" : 0,
+    "21 and up" : 0
+  }
+}
+</code></pre>
+
+<p>However, in order to appropriate input for a machine learning implementation, the input must be a vector of numerical values, so I have begun to write a map function to perform this conversion, which can be seen <a href="https://github.com/DRSNJM/board-ultimatum/blob/nnet/src/board_ultimatum/engine/vector-convert.clj">here</a>. The output for the game then looks like the following:</p>
+
+<pre><code>[0.0075 0.25 0.25 0.6666666666666666 0.233 0.3465]
+</code></pre>
+
+<p>One interesting issue with our set of data is the possibility of having a very large input vector. Ryan and I have discussed this issue and have been researching techniques such as <a href="http://en.wikipedia.org/wiki/Principal_component_analysis">principal component analysis</a>, among others, as a possible solution to reduce the number of dimensions of our input. The primary concern is training performance, however, I have not yet had the chance to do any sort of dummy training to get an idea of what the limitations are going to be.</p>
+
+<h2>Machine Learning</h2>
+
+<p>Initially we had discussed using <a href="http://www.cs.waikato.ac.nz/ml/weka/">Weka</a> as our machine learning library, however, after looking into the documentation, it seemed that the neural nets and other features were primarily geared towards being used as classifiers. The domain for our problem falls more into function approximation, as we want to be able to return and train with values in a continuous range, rather than a discrete one.</p>
+
+<p>After looking at my options, I decided to go with <a href="http://www.heatonresearch.com/encog">Encog</a>. Encog has a repuation for being mature and rather optimized in terms of performance. It also has a well-documented Clojure wrapper, <a href="https://github.com/jimpil/enclog">Enclog</a>. Encog offers a variety of network types as well as training algorithms that I will need to experiment with to determine what approach is most appropriate for our input data.</p>
+
+<h2>Returning the Results</h2>
+
+<p>In order to quickly return the values generated by the network, we went ahead and set up a <a href="http://redis.io/">Redis</a> instance that is hooked to our Heroku account. We will be using the <a href="http://redis.io/commands#sorted_set">sorted sets</a> data structure to hold the results. The sorted set in redis takes input in the following format:</p>
+
+<pre><code>key score member
+</code></pre>
+
+<p>In our situation, the data we will be inputting will look like the following:</p>
+
+<pre><code>GameID-A similiarty-value GameID-B
+</code></pre>
+
+<p>This way, we will be able to very efficiently query what games, given some game A, have a similarity-value in a certain range. The <a href="http://redis.io/commands/zrevrange">zrevrange function</a> will most likely be the most appropriate for making these queries. Once the Game ID&#8217;s have been retrieved, the normal game database can then be queried to provide full details on each game.</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2012/10/18/timebox-3/">Timebox 3</a></h1>
+    
+    
+      <p class="meta">
+        
+  
+
+<span class="byline author vcard">Posted by <span class="fn">Chris Powers, Ryan McGowan</span></span>
+
+		<span>ON</span>
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-10-18T23:16:00-04:00" pubdate data-updated="true">Oct 18<span>th</span>, 2012</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>For detailed information on accomplishments from this timebox, see the links
+below:</p>
+
+<ul>
+<li><a href="/blog/2012/10/18/interface-design/">Attribute search design</a></li>
+<li><a href="/blog/2012/10/16/interface-implementation/">Attribute search implementation</a></li>
+</ul>
+
+
+<h4>Interviews</h4>
+
+<ol>
+<li><a href="/blog/2012/10/19/interview-2-jeff-1/">Jeff Horger</a></li>
+<li><a href="/blog/2012/10/19/interview-3-jeff-kayati/">Jeff Kayati</a></li>
+<li><a href="/blog/2012/10/19/interview-4-corey-sanders/">Corey Sanders</a></li>
+</ol>
+
+
+<h2>Worklog</h2>
+
+<h3>Chris Powers</h3>
+
+<ul>
+<li>Front-end mockups</li>
+<li>Tri-State button functionality</li>
+</ul>
+
+
+<h3>Alex Burkhart</h3>
+
+<ul>
+<li>Load mongodb from BGG data</li>
+<li>Get simple query functionality working</li>
+<li>Make prototype query results page.</li>
+</ul>
+
+
+<h3>Ryan McGowan</h3>
+
+<p>Ryan primarily managed code being included into our master branch.  He did most
+of the merging of features and refactored several components.</p>
+
+<ul>
+<li>Create initial project scaffolding.
+
+<ul>
+<li>Bootstrap, Leiningen, Mongo and the wiring between them to have a
+running app. This includes the config functionality.</li>
+</ul>
+</li>
+<li>Refactor Javascript for query interface.</li>
+<li>Corrections to markup for query interface to properly use bootstrap
+scaffolding.</li>
+<li>Feature branch merges</li>
+<li>Refactor <code>expert.js</code> and the expert select interface to use bootstrap
+scaffolding.</li>
+<li>Several other style changes.</li>
+<li>Interview writeups and notes</li>
+</ul>
+
+
+<h3>David Albert</h3>
+
+<ul>
+<li>Initial bootstrap UI demo</li>
+<li>Machine Learning component R&amp;D
+(<a href="/blog/2012/10/19/similarity-engine-design-and-machine-learning-tools/">more details here</a>)</li>
+</ul>
+
+
+<h2>Commit History</h2>
+
+<p>For more information on who has done what see <a href="https://github.com/DRSNJM/board-ultimatum/commits/master">our commit
+history</a> on our github
+project.</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2012/10/16/group-presentation-timebox-3/">Group Presentation on Timebox 3 Updates</a></h1>
+    
+    
+      <p class="meta">
+        
+  
+
+<span class="byline author vcard">Posted by <span class="fn">Chris Powers</span></span>
+
+		<span>ON</span>
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-10-16T23:03:00-04:00" pubdate data-updated="true">Oct 16<span>th</span>, 2012</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>Our group gave a presentation today on our project updates for timebox 3.
+The presentation slides are <a href="https://docs.google.com/presentation/d/1FlgUpLTmazz8MjVawLmZQl6e1MjkDUkvp96wcXEjtxE/edit">available here</a>.</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2012/10/16/interface-implementation/">Attribute Search Interface Implementation</a></h1>
+    
+    
+      <p class="meta">
+        
+  
+
+<span class="byline author vcard">Posted by <span class="fn">Chris Powers</span></span>
+
+		<span>ON</span>
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-10-16T13:35:00-04:00" pubdate data-updated="true">Oct 16<span>th</span>, 2012</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>The most fundamental aspects of the query interface have been implemented.
+Though there may be more attributes added in the future, we decided to add a
+select few attributes that we believed encapsulated differing types of input we
+receive from the user. In particular, we expect the user to select discrete
+values for some attributes, such as number of players and time to play (in
+discrete intervals), and tri-state objects that can encapsulate the user liking,
+disliking, or not caring about a particular attribute. Prototypes were built to
+represent these input types, and are currently present on the interface:</p>
+
+<p><img src="/images/diagrams/fundamental-interface.jpeg" alt="Fundamental interface" /></p>
+
+<p>These input types maintain hidden values in the background in order to formally
+send them to the server.</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2012/10/06/interface-design/">Attribute Search Interface Design</a></h1>
+    
+    
+      <p class="meta">
+        
+  
+
+<span class="byline author vcard">Posted by <span class="fn">Chris Powers</span></span>
+
+		<span>ON</span>
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-10-06T23:19:00-04:00" pubdate data-updated="true">Oct 6<span>th</span>, 2012</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>The most significant interface to our system is by far the query-construction
+interface. This is the first page that comes up when a user lands on the
+engine&#8217;s webpage, and it encapsulates the core functionality of the system: to
+take in user specified attributes and provide back a list of matching results.</p>
+
+<p>The interface is a bit tricky in a few significant ways. Firstly, there are
+potentially tens of attributes of games that we could surface as options.
+Fortunately, we have our experts to narrow down these attributes to the relevant
+ones. Secondly, each attribute has a different domain of values that are
+permissible. There&#8217;s no way around this one; we&#8217;ll have to build input selectors
+that match for each attribute. Thirdly, even with the reduced list of
+attributes, the user will still likely only care about a subset of them. We&#8217;d
+prefer if the user only had to interact with those attributes that he considers
+relevant to what he&#8217;s looking for.</p>
+
+<p>This last issue brings us to the design of the interface. After some thought, I
+proposed to the team two layouts for constructing queries:</p>
+
+<p><img src="/images/diagrams/attr-selection-interface.jpeg" alt="Attribute selection" /></p>
+
+<p>The user selects attributes to the left, then chooses the particular desired or
+undesired values of those attributes.</p>
+
+<p><img src="/images/diagrams/accordian-selection.jpeg" alt="Accordian selection" /></p>
+
+<p>The user selects the attributes in the middle, then the area for manipulating
+value preferences of those attributes appears under the attribute (sliding out
+like an accordian).</p>
+
+<p>The two styles are designed around the notion that users shouldn&#8217;t have to
+interact with attributes that they don&#8217;t care about. In both interfaces, the
+user only selects attributes that they have a preference on. It&#8217;s important to
+note that we intent to take into account negative preferences as well, a
+decision made based on feedback from our experts.</p>
+
+<p>After proposing the two designs to the team, it was decided that we would go
+with the first design, because we believed that it looked better and utilized
+the space better.</p>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -385,464 +881,6 @@ that would be frequently used and appreciated.</p>
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2012/09/17/preferences-and-constraints/">Preferences and Constraints</a></h1>
-    
-    
-      <p class="meta">
-        
-  
-
-<span class="byline author vcard">Posted by <span class="fn">Chris Powers</span></span>
-
-		<span>ON</span>
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2012-09-17T17:42:00-04:00" pubdate data-updated="true">Sep 17<span>th</span>, 2012</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>The types of input that the user will be providing through the webpage
-interface can be broken down into two categories: preferences and constraints.
-Preferences match the user&#8217;s desired characterics of a game, whereas
-constraints match rigid conditions of the game.</p>
-
-<p>Preferences include things like:</p>
-
-<ul>
-<li>Mechanics</li>
-<li>Systems</li>
-<li>Themes</li>
-<li>Turn system</li>
-<li>Skill vs. luck base</li>
-<li>Cooperative vs. competative</li>
-</ul>
-
-
-<p>Constraints include things like:</p>
-
-<ul>
-<li>Number of players</li>
-<li>Time to play</li>
-</ul>
-
-
-<p>In fact, that constraints list may be comprehensive.</p>
-
-<p>Constraints are easy; there&#8217;s no such thing as a mostly matched constraint.
-All they need is a straightforward filter. Simply remove games that don&#8217;t
-match these constraints from consideration. There&#8217;s potential for efficiency
-increase if filtering is done properly before the recommendation engine parses
-the preferences. Preferences, on the other hand, are accurate to some degree,
-rather than being a boolean match. We may display a game that matches <em>most</em>
-of the mechanics, or is <em>close enough</em> to the user&#8217;s skill vs. luck base,
-even though it wasn&#8217;t exactly what they were searching for.</p>
-
-<p>The other significant aspect of preferences is that they can (and should)
-incorporate some weighting system on the inputs. A user may not care what
-the themes of the game are, and they may only partially care what the turn
-system is like. A true expert could take such things into consideration, and,
-therefore, so should our expert system.</p>
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2012/09/14/design-thoughts-upon-interview-with-ray/">Design Thoughts Upon Interview With Ray</a></h1>
-    
-    
-      <p class="meta">
-        
-  
-
-<span class="byline author vcard">Posted by <span class="fn">Chris Powers</span></span>
-
-		<span>ON</span>
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2012-09-14T17:18:00-04:00" pubdate data-updated="true">Sep 14<span>th</span>, 2012</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p><strong>Note:</strong> This post deals with content discussed in <a href="/blog/2012/09/11/interview-1-raymond-chandler/">the first
- interview</a> with Raymond
- Chandler.</p>
-
-<p> Ray offered insight into the design behind board games with his expertise.
- This isn&#8217;t the same type of expertise we intend to model with the board game
- recommendation engine (we&#8217;re not building an engine that creates board games,
- just one that <em>recommends</em> them for play), but in some respects, it&#8217;s still
- relevant to our problem domain. (It&#8217;s also important to note that Ray is an
- a zealous board game player, and so he is still a highly useful expert.)</p>
-
-<p> The interview writeup goes into greater detail on his explanations of board
- game design, but he gave some good possible game attributes and other input
- that we hadn&#8217;t considered, such as the &#8220;ramp&#8221; and &#8220;tempo&#8221; of a game, and the
- average player skill of those in the group. We discussed the possibility of a
- &#8221;<a href="/blog/2012/09/11/variety-in-recommendation-queries/">similar games engine</a>&#8221;
- to add variety to search results with Ray. Ray didn&#8217;t like the idea of
- directly linking games, as it was demanding on experts and poorly scalable.
- He recommended as an alternative that we link attributes across games so that
- newly added games would be immediately integrated in the system.</p>
-
-<p> While what he recommended made sense, the notion of linking arbitrary
- attributes is rather complex. An example of his proposal is to link
- dice-rolling to card-playing systems as similar. When a new card-playing game
- is added, no new links will need to be established; the engine will know that
- the games are similar because of this link. If all we&#8217;re to do is link
- gameplay mechanics, then that is a reasonable approach. However, it may be
- more effective to link arbitrary game attributes in some manner, such as
- linking dice rolling mechanics to luck-based gameplay (in the luck vs.
- skill attribute). The problem is that linking attributes is such a manner is
- rather complex, especially when the only reason we began down this road was
- to add variety to recommendations; a nice feature, but an unnecessary one.</p>
-
-<p> I think this thought shouldn&#8217;t be accepted or rejected so quickly. It will
- require discussion with the team at the next meeting, and potentially further
- exploring this option in the next interview with Ray.</p>
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2012/09/11/variety-in-recommendation-queries/">Variety in Recommendation Queries</a></h1>
-    
-    
-      <p class="meta">
-        
-  
-
-<span class="byline author vcard">Posted by <span class="fn">Chris Powers</span></span>
-
-		<span>ON</span>
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2012-09-11T20:03:00-04:00" pubdate data-updated="true">Sep 11<span>th</span>, 2012</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p><strong>Note:</strong> This post was heavily inspired from the system design that Ryan, Alex, and I <a href="/blog/2012/09/07/meeting-7/">talked about earlier</a>.</p>
-
-<p>Our team has always understood that we would need some contained system that
-gives game recommendations based on preferences (i.e. the recommendation
-system core), but this is only half the work. There&#8217;s more to do in storing
-the data, and providing webpage interfaces for sending queries to the core
-and displaying results. While this bare-bones system should be sufficient to
-meet our initial requirements, there&#8217;s still more to add to the system, as we
-discovered at our meeting. In particular, there&#8217;s a this system doesn&#8217;t
-provide a feature that an expert could provide to a user: variety. Many avid
-players are interested in trying something new, even if it is further away
-from their preferences. We want to provide an option to the user to request
-variety in the search.</p>
-
-<p>Unfortunately, variety is a loosely defined preference in a board game query.
-The user can select that they want a strategy game or a 4 person game, and we
-know exactly what they mean. If the user selects that they want <em>variety</em>,
-then suddenly we have a huge problem. This isn&#8217;t some attribute of a game that
-we just match. It&#8217;s the desire to get games that <em>don&#8217;t</em> match their selected
-attributes, but still will be likely fun by their standards.</p>
-
-<p>The simple solution would be to just not provide this feature. But where&#8217;s the
-fun and variety in that?</p>
-
-<p>The other solution we talked through is to allow experts to map similar games.
-Rather than attempt to model variety ourselves, we can simply return games
-that are similar to the games the user will like, but that the user didn&#8217;t
-actually search for with his input. This would involve providing a new
-interface to experts on the website so that they can map games to each other.</p>
-
-<p>I drew up some flowcharts on the proposed system. When the system is
-finalized, we&#8217;ll have some proper flowcharts:</p>
-
-<p><img src="/images/diagrams/board-ultimatum-flow.jpeg" alt="Overall system chart" /></p>
-
-<p>The overall I/O of the system with the two proposed engines.</p>
-
-<p><img src="/images/diagrams/query-flow.jpeg" alt="Query process" /></p>
-
-<p>The flow of a recommendation query from inception to display.</p>
-
-<p>Essentially, instead of returning games matched by attributes immediately,
-some of these results are then passed into the similar games engine and then
-the mixture of results are returned to the user. The filtering in the second
-chart exists to remove attributes that aren&#8217;t directly relevent to user
-preferences for recommendations; that is, they are closer to constraints than
-preferences (e.g. number of players, time to play).</p>
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2012/09/09/developing-a-recommendation-engine/">Developing a Board Game Recommendation Engine</a></h1>
-    
-    
-      <p class="meta">
-        
-  
-
-<span class="byline author vcard">Posted by <span class="fn">Chris Powers</span></span>
-
-		<span>ON</span>
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2012-09-09T19:34:00-04:00" pubdate data-updated="true">Sep 9<span>th</span>, 2012</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>Surprise! None of us on the team have developed a recommendation engine
-before! This whole experience is entirely new to us. We&#8217;re not following
-any guidebook or teacher directions on how to throw this system together.
-What this means for us as developers, is that we have to work hard, early on,
-to ensure that the design of our engine is sensical and efficient. The system
-components and their interactions must be airtight, or else we risk wasting
-energy on code that won&#8217;t make the final cut. It&#8217;s essential that the engine
-solves a problem that we can identify, and that the system is built from start
-to finish to solve this problem.</p>
-
-<p>What is the purpose of a board game recommendation engine? It&#8217;s easy to think,
-<em>to recommend board games</em>, and skip over this train of thought. For any board
-game enthusiast with a sizeable collection, choosing a game to play is a
-challenge. Even with a type of game in mind, with known time constraints and
-number of players, the person will still often be unsure of what his set of
-options are. Add into this mix the preferences of several other potential
-players, and suddenly the group&#8217;s eagerness to jump into a game is pacified by
-the difficulty of the decision of what to play. It is this very scenario to
-which we hope to provide a solution. So what is the purpose of a board game
-recommendation engine? In our case, it is to take whatever factors a board
-game enthusiast considers when selecting a game to play, quantify them, and
-allow the user to send them as input into our recommendation engine. The
-output will be a list of board games that match the preferences and
-constraints that the user provided as input, in order of expected relevance to
-the query.</p>
-
-<p>That begets the question of what preferences and constraints the user may
-input into the system in order to receive recommendations. That question
-alone is hugely significant and difficult, so it will be discussed in a future
-post.</p>
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2012/09/06/group-presentation-chapter-4/">Group Presentation: Chapter 4</a></h1>
-    
-    
-      <p class="meta">
-        
-  
-
-<span class="byline author vcard">Posted by <span class="fn">Chris Powers</span></span>
-
-		<span>ON</span>
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2012-09-06T19:20:00-04:00" pubdate data-updated="true">Sep 6<span>th</span>, 2012</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>Our group gave a presentation today on Chapter 4: Reasoning Under Uncertainty
-from the textbook, Expert Systems: Principles and Programming, 4th Edition.
-The presentation slides are <a href="https://docs.google.com/presentation/d/1iBxq4iK-MKwQxp-cyGIg51yeFJNWKYk6hqYGHGOMAGg/edit">available here</a>.</p>
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2012/09/03/proposal-writing-level-classification-system/">Proposal: Writing Level Classification System</a></h1>
-    
-    
-      <p class="meta">
-        
-  
-
-<span class="byline author vcard">Posted by <span class="fn">David Albert</span></span>
-
-		<span>ON</span>
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2012-09-03T23:18:00-04:00" pubdate data-updated="true">Sep 3<span>rd</span>, 2012</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>An additional problem that had the potential to provide an interesting
-challenge was that of evaluating the relative reading level of a sample of text.</p>
-
-<h2>1. The Problem</h2>
-
-<p>While many databases exist that rate the reading level on various scales,
-whether it is by grade level or on some other numeric scale, there is a lack of
-tools to dynamically evaluate the complexity of an arbitary piece of text that
-could be sourced from an article, website, book, or many others. An application
-could be developed that would allow a user to paste a sample of a text into an
-input field, and then return a numeric rating or educational level corresponding
-to that text. This way, educators would have a reliable method for determining
-whether a piece of writing was appropriate in terms of difficulty for that age
-level.</p>
-
-<p>The system would need to take in several criteria as input, such as the level of
-difficulty of the vocabulary used and the complexity of the sentence structures
-found in the text. These values could then be input into a rule-based system to
-determine the final level of that text.</p>
-
-<p>To expand the project, additional machine learning and AI concepts could be
-used. Natural Language Processing would be necessary to acurately handle and
-evaluate the sentence structure of the text among other issues. Categorization
-methods such as clustering could used to compare texts to others with known,
-established values, or a machine learning system such as a neural network could
-be trained against a large database of texts with known values.</p>
-
-<h2>2. Expert Sources</h2>
-
-<p>As a team we discussed, and even briefly described this project to a few of
-our family and friends who are experts in this area, including elementary and
-high school teachers, as well as those with degrees in English. Additional
-experts who would be necessary to the completion of the project would likely
-come from an Ohio State department such as Education or Linguistics.</p>
-
-<h2>3. Our Motivation</h2>
-
-<p>As a group, this project was initially appealing because it provided a flexible
-and daunting challenge. The problem has a somewhat subjectively defined
-solution, and yet, if it were to work successfully it could provide a very
-useful tool for educators. Additionally, it allows a very convenient segue into
-other AI areas of interest such as Natural Language Processing and text
-categorization.</p>
-
-<h2>4. Details</h2>
-
-<p>Upon researching the project further, it became apparent that a large portion of
-what would make this project challenging was finding accurate and reliable
-knowledge bases, beyond our experts, to help define the behavior of the system.
-It would be necessary to have access to large amounts of texts, possibly by
-scraping sites like Google Books in conjunction with an existing database such
-as that found at <a href="http://www.arbookfind.com/">AR BookFinder</a>. Additional
-challenges arise from the subjectivity of rating a concept like reading level;
-our experts would need to provide tangible feedback on the &#8220;correctness&#8221; of a
-nebulous concept.</p>
-</div>
-  
-  
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="/blog/page/3/">&larr; Older</a>
@@ -860,23 +898,23 @@ nebulous concept.</p>
   <ul id="recent_posts">
     
       <li class="post">
-        <a href="/blog/2012/12/10/final-presentation/">Final Presentation</a>
+        <a href="/blog/2012/12/12/similarity-engine-alternate-methods/">Similarity Engine - Alternate Methods</a>
       </li>
     
       <li class="post">
-        <a href="/blog/2012/11/12/timebox-5/">Timebox 5</a>
+        <a href="/blog/2012/12/12/tag-administration/">Tag Administration</a>
       </li>
     
       <li class="post">
-        <a href="/blog/2012/11/02/timebox-4/">Timebox 4</a>
+        <a href="/blog/2012/12/12/expert-interface/">Expert Interface</a>
       </li>
     
       <li class="post">
-        <a href="/blog/2012/10/31/data-analysis-and-neural-nets/">Data Analysis and Neural Nets</a>
+        <a href="/blog/2012/12/12/development-setup/">Development Setup</a>
       </li>
     
       <li class="post">
-        <a href="/blog/2012/10/30/designing-the-scoring-engine/">Designing the Scoring Engine</a>
+        <a href="/blog/2012/12/11/final-system-design/">Final System Design</a>
       </li>
     
   </ul>

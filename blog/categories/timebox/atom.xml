@@ -4,7 +4,7 @@
   <title><![CDATA[Category: timebox | Dinosaur Riding Scrum Ninja Jedi Masters]]></title>
   <link href="http://DRSNJM.github.com/blog/categories/timebox/atom.xml" rel="self"/>
   <link href="http://DRSNJM.github.com/"/>
-  <updated>2012-12-11T19:32:33-05:00</updated>
+  <updated>2012-12-12T21:10:21-05:00</updated>
   <id>http://DRSNJM.github.com/</id>
   <author>
     <name><![CDATA[Ryan McGowan, Alex Burkhart, David Albert, Chris Powers]]></name>
@@ -18,24 +18,87 @@
     <link href="http://DRSNJM.github.com/blog/2012/12/10/final-presentation/"/>
     <updated>2012-12-10T20:39:00-05:00</updated>
     <id>http://DRSNJM.github.com/blog/2012/12/10/final-presentation</id>
-    <content type="html"><![CDATA[<h2>Worklog</h2>
+    <content type="html"><![CDATA[<p>We'll be presenting our capstone project at
+<a href="http://www.ceti.cse.ohio-state.edu/">CETI</a> day. You can <a href="https://docs.google.com/presentation/pub?id=12pCKA2sX9XIYasMh3BmRr6pTsjaWTVhSagITDBASn5M&amp;start=false&amp;loop=false&amp;delayms=3000">view the poster we
+made here</a>.</p>
+
+<p>The relative breakdown of work on the poster and presentation was as follows:</p>
+
+<h2>Worklog</h2>
 
 <h3>Poster</h3>
 
 <ul>
-<li>Template styling and modification (David)</li>
-<li>Initial outline content (Ryan)</li>
+<li>Template styling and modification --- <em>David</em></li>
+<li>Initial outline content --- <em>Ryan</em></li>
+<li>Created and arranged design flowchart --- <em>Chris</em></li>
+<li>Added some parts to the design text --- <em>Chris</em></li>
 </ul>
 
 
 <h3>board-ultimatum</h3>
 
 <ul>
-<li>Create simple statistical method for determining similarity of games. (David)</li>
-<li>Allow the user to specify similarity engine provider (i.e. neural network or
-similarity engine). (Ryan) [<a href="https://github.com/DRSNJM/board-ultimatum/pull/12">pull-request</a>]</li>
+<li>Create simple statistical method for determining similarity of games. ---
+<em>David</em></li>
+<li><p>Allow the user to specify similarity engine provider. See the
+<a href="https://github.com/DRSNJM/board-ultimatum/pull/12">pull-request</a> ---
+<em>Ryan</em></p>
+
+<p>Providers:</p>
+
+<ul>
+<li>Neural Network</li>
+<li>Simple Stats</li>
+</ul>
+</li>
 </ul>
 
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Timebox 6]]></title>
+    <link href="http://DRSNJM.github.com/blog/2012/11/26/timebox-6/"/>
+    <updated>2012-11-26T21:59:00-05:00</updated>
+    <id>http://DRSNJM.github.com/blog/2012/11/26/timebox-6</id>
+    <content type="html"><![CDATA[<h2>Worklog</h2>
+
+<h3>Chris Powers</h3>
+
+<ul>
+<li></li>
+</ul>
+
+
+<h3>Alex Burkhart</h3>
+
+<ul>
+<li></li>
+</ul>
+
+
+<h3>Ryan McGowan</h3>
+
+<ul>
+<li></li>
+</ul>
+
+
+<h3>David Albert</h3>
+
+<ul>
+<li>Created icons for recommendation GUI</li>
+<li>Added cross validation to the Neural Net system</li>
+<li>Refined similar search results UI</li>
+</ul>
+
+
+<h2>Commit History</h2>
+
+<p>For more information on who has done what see <a href="https://github.com/DRSNJM/board-ultimatum/commits/master">our commit
+history</a> on our github
+project.</p>
 ]]></content>
   </entry>
   
@@ -86,14 +149,8 @@ here</a>.</li>
 <h3>David Albert</h3>
 
 <ul>
-<li>Data Processing and Neural Net Setup
-
-<ul>
-<li>See blog post <a href="/blog/2012/10/31/data-analysis-and-neural-nets/">here</a></li>
-<li><a href="https://github.com/DRSNJM/board-ultimatum/blob/nnet/src/board_ultimatum/engine/vector_convert.clj">Data Converstion Script</a></li>
-<li><a href="https://github.com/DRSNJM/board-ultimatum/blob/nnet/src/board_ultimatum/engine/neural.clj">Neural Net Script</a></li>
-</ul>
-</li>
+<li>Create auto-completing search UI for finding similar games</li>
+<li>Connect UI to database containing results from neural network</li>
 </ul>
 
 
@@ -251,16 +308,6 @@ scaffolding.</li>
 <p>For more information on who has done what see <a href="https://github.com/DRSNJM/board-ultimatum/commits/master">our commit
 history</a> on our github
 project.</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Group Presentation on Timebox 3 Updates]]></title>
-    <link href="http://DRSNJM.github.com/blog/2012/10/16/group-presentation-timebox-3/"/>
-    <updated>2012-10-16T23:03:00-04:00</updated>
-    <id>http://DRSNJM.github.com/blog/2012/10/16/group-presentation-timebox-3</id>
-    <content type="html"><![CDATA[<p>Our group gave a presentation today on our project updates for timebox 3.
-The presentation slides are <a href="https://docs.google.com/presentation/d/1FlgUpLTmazz8MjVawLmZQl6e1MjkDUkvp96wcXEjtxE/edit">available here</a>.</p>
 ]]></content>
   </entry>
   

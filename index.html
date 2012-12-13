@@ -9,8 +9,8 @@
   <meta name="author" content="Ryan McGowan, Alex Burkhart, David Albert, Chris Powers">
 
   
-  <meta name="description" content="The DRSNJM The Dinosaur Riding Scrum Ninja Jedi Masters (DRSNJM) is a team of computer
-scientists studying at the Ohio State University. The team is &hellip;">
+  <meta name="description" content="The Board Ultimatum First things first, this project is finished and completely usable! See our finished product here!
+(may take a minute to load) &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -70,48 +70,88 @@ scientists studying at the Ohio State University. The team is &hellip;">
       <div>
 <article role="article">
   
-  <h1>The DRSNJM</h1>
+  <h1>The Board Ultimatum</h1>
 
-<p>The Dinosaur Riding Scrum Ninja Jedi Masters (DRSNJM) is a team of computer
-scientists studying at the Ohio State University. The team is actively building
-a board game recommendation system, designed and constructed from the ground up
-to emulate the expertise of a board game enthusiast using artificial
-intelligence fundamentals. The system is a major capstone project at the
-university that will be a fully functional and product.</p>
+<p>First things first, this project is finished and completely usable!</p>
 
-<hr />
-
-<h1>The Board Ultimatum</h1>
+<p><a href="http://board-ultimatum.herokuapp.com/recommend">See our finished product here!</a>
+(may take a minute to load)</p>
 
 <h2>Description</h2>
 
-<p>The Board Ultimatum will be a usable site, where a user can register an account
-and start receiving board game recommendations based on their input and
-preferences. The user will tell the system what it&#8217;s looking for out of a game,
-and the system will return games as results that match the user&#8217;s selections.
-The user can rate games, and the system will gain knowledge on what type of
-games the user likes, and factor this information into the results.</p>
+<p>The Board Ultimatum is an interactive site where a user can enter their
+preferences in the form of either game attributes that they like/dislike, or by
+inputting a game they already enjoy, and start receiving board game
+recommendations based on their input. In addition, if the user is an expert in
+the area of board games, he or she may rate the quality of recommendations
+between games and the system will incorporate this knowledge into future
+recommendations.</p>
 
-<h2>Goals</h2>
+<h2>Motivation &amp; Goals</h2>
+
+<p>The motivation behind the project was simple: we want to eliminate guesswork
+from board game selection. Often times board game players, experienced and
+inexperienced alike, struggle to determine the next game to play when
+confronted with a huge selection. We wanted to play the role of a
+knowledgeable player who could ask them questions about games or aspects of
+games they preferred in order to give relevant results.</p>
+
+<p>We built this system with the intention that it would give recommendations that
+were as good as recommendations from board game experts and enthusiasts. All
+aspects of approach and design move towards this goal.</p>
+
+<p>Some more specific goals include:</p>
 
 <ul>
 <li>Build a web interface using the recommendation engine to allow users to
-decide what to play next. A user can login, search for types of games, and
-rate results.</li>
-<li>Create a library behind the website to act as a recommendation engine. The
-library will take as input attributes of board games and return an ordered
-list of games that match this input. The input/output system changes over
-time as users rate and select different games.</li>
+decide what to play next. A user can search for types of games based on
+a variety of attributes.</li>
+<li>Create a system behind the website to act as a recommendation engine. The
+system will take as input attributes of board games and return an ordered
+list of games that match this input.</li>
+<li>Create a second system that takes as input a single game and presents an
+ordered list of games that are similar to the game. The input/output system
+changes over time as users rate and select different games.</li>
 </ul>
 
 
-<h2>Design &amp; Implementation</h2>
+<p>See our post, <a href="/blog/2012/09/18/problem-domain-and-motivations/">Problem Domain and Motivation</a>.</p>
 
-<p>The board ultimatum system consists of two main components, the web application
-and the engine. The web app contains the engine, in fact the engine is a
-dependency to it.</p>
+<h2>Approach</h2>
 
-<h3>The Web App</h3>
+<p>Because our goal was to emulate a board game expert, our approach to the system
+was to capture knowledge from experts through interviews and incorporate this =
+knowledge in the system.</p>
+
+<p>You can <a href="http://localhost:4000/experts">view the experts we interviewed here.</a></p>
+
+<p>You can <a href="http://localhost:4000/interviews">view the interviews we conducted with the experts here.</a></p>
+
+<p>You may wonder why we took the approach of using two separate systems to make
+recommendations. As credit to the usefulness of interviews, it&#8217;s because we
+realized that experts will make recommendations based on games that a person
+likes just as much as aspects of games that a person likes.</p>
+
+<h2>Design</h2>
+
+<h4>Overall design</h4>
+
+<p>The overall design of the system is summed up nicely by this flowchart:</p>
+
+<p><img src="/images/diagrams/system-design.png" alt="System Design" /></p>
+
+<p>To read more about our system design, see <a href="/blog/categories/design/">all of our design posts.</a></p>
+
+<p>Here&#8217;s a couple of the most significant design posts:</p>
+
+<ul>
+<li><a href="/blog/2012/09/11/variety-in-recommendation-queries/">Variety in Recommendation Queries</a></li>
+<li><a href="/blog/2012/09/17/preferences-and-constraints/">Preferences and Constraints</a></li>
+<li><a href="/blog/2012/10/30/designing-the-scoring-engine/">Designing the Scoring Engine</a></li>
+</ul>
+
+
+<h4>Webapp</h4>
 
 <p>The web application itself is mostly a front-end to the engine. It takes data
 input from a user, uses the engine to derive a list of games the user might
@@ -129,62 +169,86 @@ interactive user experience.</li>
 </ul>
 
 
-<h3>The Engine</h3>
+<h4>Facts and rules</h4>
 
-<p>The engine is almost synonymous with the expert system. Not only will it contain
-our rules and at least part of our facts, it will also include the code to make
-inferences and decisions from them. However, the engine will also include the
-explanation component and a machine learning component.</p>
+<p>In general, our experts provide us with rules and decisions as well as helped
+specify what types of facts we should gather and use in our system.</p>
 
-<h4>Facts, Decisions, Inferencing and Rules</h4>
+<p>Our facts concerning games were the attributes of games pulled off of BGG
+(see Database of games under Key Components below). In the similar games
+engine, extra facts on expert recommendations were gathered through our expert
+game-rating interface.</p>
 
-<p>In general, our experts provide us with rules and decisions as well as specify
-what types of facts we should gather and use in our system.</p>
+<p>Rules differed between the systems. In the similar games engine, rules were
+innate to the neural network recommendations generated based on the expert&#8217;s
+rules. In the attribute recommendation engine, rules were based on scoring
+mechanics. Scores were applied by comparing user preferences to each game and
+adding or deducting points based on how their preferences matched up to the
+game. These values change depending on the attribute, but are summed to
+represent the quality of the recommendation of that game as a whole.</p>
 
-<p>Many facts will be stored in a persistent store after being gathered from
-<a href="http://boardgamegeek.com/">BoardGameGeek</a>&#8217;s open API which contains a multitude
-of metadata.  This data includes play time, player number range and other
-helpful information (<a href="http://boardgamegeek.com/boardgame/25613/through-the-ages-a-story-of-civilization">see an example
-game</a>).</p>
+<h2>Key Components</h2>
 
-<p>These facts are connected by rules and decisions primarily gathered from
-experts.  Sometimes these rules may be common sense (e.g. <code>IF NOT
-between(num_players(X), min_players, max_players) THEN NOT X</code>) or they may be
-more complex decisions (e.g. acceptable deviation in complexity is higher for
-experts and beginners than it is for intermediate board gamers).</p>
+<p>See some posts on the key components of the system:</p>
 
-<h4>Components</h4>
+<h4>Database of games</h4>
+
+<p>Data was used from our non-human expert on board games,
+<a href="http://boardgamegeek.com/">BoardGameGeek (BGG)</a>.
+BGG has a massive collection of information on games and an API we used to pull
+down this information. We imported data on the top 1000 games off of BGG into a
+MongoDB database.</p>
+
+<h4>Expert Interface</h4>
 
 <ul>
-<li>Game Attribute Matching Machine (<em>GAMMa</em>) &#8211; Rules, facts, decisions and
-inferencing engine goodness.</li>
-<li>Reasoning/Explanation Framework (<em>Referree</em>) &#8211; Keep track of how choices
-are made.</li>
-<li>Similar Game Machine (<em>SiGMa</em>)&#8211; Given a particular game list some similar
-ones.</li>
+<li><a href="/blog/2012/12/12/expert-interface/">Expert interface design</a></li>
 </ul>
 
 
-<p>For more information on our design see <a href="/blog/categories/design/">our design blog posts</a>.</p>
+<h4>Neural network of game recommendations</h4>
+
+<ul>
+<li><a href="/blog/2012/10/31/data-analysis-and-neural-nets/">Data Analysis and Neural Nets</a></li>
+</ul>
+
+
+<h4>Game preference scoring</h4>
+
+<ul>
+<li><a href="/blog/2012/10/30/designing-the-scoring-engine/">Designing the Scoring Engine</a></li>
+</ul>
+
+
+<h4>Front end design and implementation</h4>
+
+<ul>
+<li><a href="/blog/2012/10/06/interface-design/">Attribute Search Interface Design</a></li>
+<li><a href="/blog/2012/10/16/interface-implementation/">Attribute Search Interface Implementation</a></li>
+</ul>
+
+
+<h2>Journal</h2>
+
+<p><a href="/blog">See our full blog for the content we&#8217;ve journaled on over the project.</a></p>
+
+<p><a href="/meetings">See our meeting notes for the lowdown on what we did at each major meeting.</a></p>
+
+<p><a href="https://github.com/DRSNJM/board-ultimatum/commits">See our commit history on github to see who contributed what code.</a></p>
 
 <h2>Source Code and Documentation</h2>
 
 <p>All of our source and documentation is available on
 <a href="https://github.com/DRSNJM">github</a>. For direct links to our repositories see
-the sidebar. Links to documentation can be found below:</p>
+the sidebar.</p>
+
+<p>A <a href="/blog/2012/12/12/development-setup/">quick introduction to our setup
+instructions</a> is also available.</p>
 
 <h4>Board Ultimatum Docs</h4>
 
 <ul>
-<li><a href="http://drsnjm.github.com/board-ultimatum">Web App</a></li>
-</ul>
-
-
-<p>The engine component is now included in the web app above. The link below
-remains for historical purposes only.</p>
-
-<ul>
-<li><a href="http://drsnjm.github.com/board-ultimatum-engine">Engine</a></li>
+<li><a href="http://drsnjm.github.com/board-ultimatum">Web App Docs</a></li>
 </ul>
 
 
@@ -234,23 +298,23 @@ remains for historical purposes only.</p>
   <ul id="recent_posts">
     
       <li class="post">
-        <a href="/blog/2012/12/10/final-presentation/">Final Presentation</a>
+        <a href="/blog/2012/12/12/similarity-engine-alternate-methods/">Similarity Engine - Alternate Methods</a>
       </li>
     
       <li class="post">
-        <a href="/blog/2012/11/12/timebox-5/">Timebox 5</a>
+        <a href="/blog/2012/12/12/tag-administration/">Tag Administration</a>
       </li>
     
       <li class="post">
-        <a href="/blog/2012/11/02/timebox-4/">Timebox 4</a>
+        <a href="/blog/2012/12/12/expert-interface/">Expert Interface</a>
       </li>
     
       <li class="post">
-        <a href="/blog/2012/10/31/data-analysis-and-neural-nets/">Data Analysis and Neural Nets</a>
+        <a href="/blog/2012/12/12/development-setup/">Development Setup</a>
       </li>
     
       <li class="post">
-        <a href="/blog/2012/10/30/designing-the-scoring-engine/">Designing the Scoring Engine</a>
+        <a href="/blog/2012/12/11/final-system-design/">Final System Design</a>
       </li>
     
   </ul>

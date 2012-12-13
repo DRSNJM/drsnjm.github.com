@@ -4,7 +4,7 @@
   <title><![CDATA[Category: meetings | Dinosaur Riding Scrum Ninja Jedi Masters]]></title>
   <link href="http://DRSNJM.github.com/blog/categories/meetings/atom.xml" rel="self"/>
   <link href="http://DRSNJM.github.com/"/>
-  <updated>2012-12-11T19:32:33-05:00</updated>
+  <updated>2012-12-12T21:10:21-05:00</updated>
   <id>http://DRSNJM.github.com/</id>
   <author>
     <name><![CDATA[Ryan McGowan, Alex Burkhart, David Albert, Chris Powers]]></name>
@@ -12,6 +12,103 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Meeting 15]]></title>
+    <link href="http://DRSNJM.github.com/blog/2012/11/18/meeting-15/"/>
+    <updated>2012-11-18T16:55:00-05:00</updated>
+    <id>http://DRSNJM.github.com/blog/2012/11/18/meeting-15</id>
+    <content type="html"><![CDATA[<h2>Goals</h2>
+
+<ul>
+<li>Finish up attribute scoring weights</li>
+</ul>
+
+
+<h2>Discussion</h2>
+
+<p>Alex was almost finished adding all weights for current attributes. Alex wanted
+to add a separate page for setting mechanics and category weights.</p>
+
+<p>Alex requested that Chris add scoring and explanations on the weight attribute.
+Ideally, the all games would be scored on their weight, so a closeness fit
+function needs to be used to score the real valued differences between weights.</p>
+
+<h2>Results</h2>
+
+<p>Chris successfully added a scoring function as hoped for weights.</p>
+
+<p>Alex added a page where users can modify the tag weightings and modify the
+explanation for any tag. The negative and positive tag weightings can be
+independently modified.</p>
+
+<h2>Outgoing Responsibilities</h2>
+
+<ul>
+<li>Add full explanations to different weight scores --- <em>Chris</em></li>
+<li>Populate tag weights and explanations --- <em>Alex</em></li>
+</ul>
+
+
+<h2>Attendance</h2>
+
+<ul>
+<li>Alex Burkhart</li>
+<li>Chris Powers (scribe)</li>
+</ul>
+
+
+<h2>Location</h2>
+
+<p>Campfirenow Chat</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Meeting 14]]></title>
+    <link href="http://DRSNJM.github.com/blog/2012/11/12/meeting-14/"/>
+    <updated>2012-11-12T13:00:00-05:00</updated>
+    <id>http://DRSNJM.github.com/blog/2012/11/12/meeting-14</id>
+    <content type="html"><![CDATA[<h2>Goals</h2>
+
+<ul>
+<li>Determine how to include simple stats and neural network results.</li>
+</ul>
+
+
+<h2>Discussion</h2>
+
+<p>Despite not having good results from the neural network thus far, replacing our
+network output data with the simple statistics data was undesirable. We are
+somewhat hopeful that the neural network will perform, but since the simple
+statistics shows good results we want the user to use it if they want.</p>
+
+<h2>Results</h2>
+
+<p>On the results page and the similar search page there are toggle buttons that
+allow the similarity provider to be selected.</p>
+
+<h2>Outgoing Responsibilities</h2>
+
+<ul>
+<li>Create UI for provider selection --- <em>Ryan</em></li>
+<li>Train and push output data for both collections --- <em>David</em></li>
+</ul>
+
+
+<h2>Attendance</h2>
+
+<ul>
+<li>David Albert</li>
+<li>Ryan McGowan (scribe)</li>
+</ul>
+
+
+<h2>Location</h2>
+
+<p>Google Chat</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Meeting 12: Preparing for Interviews]]></title>
@@ -213,115 +310,6 @@ interface.</li>
 <h2>Location</h2>
 
 <p>Dreese Computer Lab</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Meeting 9: Starting Development]]></title>
-    <link href="http://DRSNJM.github.com/blog/2012/09/21/meeting-9-starting-development/"/>
-    <updated>2012-09-21T13:01:00-04:00</updated>
-    <id>http://DRSNJM.github.com/blog/2012/09/21/meeting-9-starting-development</id>
-    <content type="html"><![CDATA[<h2>Goals</h2>
-
-<ul>
-<li>Get development environment setup for everyone</li>
-<li>Go over how we are using Clojure, Noir and Bootstrap to create our web app.</li>
-<li>Plans for next week.</li>
-<li>Post David's machine learning thoughts.</li>
-</ul>
-
-
-<h2>Discussion</h2>
-
-<p>We discussed installing <a href="https://github.com/technomancy/leiningen">leiningen</a>, a
-dependency and project helper tool for Clojure projects. The alternative to
-using leiningen is maven, which is a bit difficult to manage and more complex
-than we need.</p>
-
-<p>We also discussed how Clojure, Noir and Boostrap fit into our web application.
-Clojure is a LISP that runs on the JVM. It's general purpose but with Noir (a
-micro web framework written in Clojure) we can use Clojure to easily make a
-fully featured website.</p>
-
-<p>Bootstrap assists by providing sane default styles and lots of additional
-Javascript based functionality.  We will be generating our CSS resources using
-the LESS files included with Bootstrap.</p>
-
-<h2>Results</h2>
-
-<ul>
-<li>David got leiningen set up on his computer.</li>
-<li>Chris and David are up to speed with the basic implementation design of the
-front-end.</li>
-</ul>
-
-
-<h2>Outgoing Responsibilities</h2>
-
-<ul>
-<li>Alex is going to contact our experts and set up interviews.</li>
-<li>David and Chris on going to work on getting their environments set up.</li>
-<li>Ryan will setup bootstrap and a nice default layout.</li>
-</ul>
-
-
-<h2>Attendance</h2>
-
-<ul>
-<li>Ryan McGowan (scribe)</li>
-<li>Chris Powers</li>
-<li>David Albert</li>
-</ul>
-
-
-<h2>Location</h2>
-
-<p>Thompson Café.</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Meeting 8]]></title>
-    <link href="http://DRSNJM.github.com/blog/2012/09/11/meeting-8/"/>
-    <updated>2012-09-11T14:24:00-04:00</updated>
-    <id>http://DRSNJM.github.com/blog/2012/09/11/meeting-8</id>
-    <content type="html"><![CDATA[<h2>Goals</h2>
-
-<p>Determine who is responsible for which tasks in Timebox #2. Bring
-David up to speed from the previous meeting. Arrange the first
-expert interview.</p>
-
-<h2>Discussion</h2>
-
-<p>Several minor bookkeeping issues were discussed in regards to the
-github and pivotal tracker accounts. Utilizing tracker to log our
-team and individual progress was emphasized, and the procedures
-for doing so were decided on. An interview time was arranged with
-our first expert, Ray Chandler, from the Columbus Area Board Game
-Society. A location and time were determined.</p>
-
-<h2>Results</h2>
-
-<p>The tracker was updated to include more detailed descriptions of the
-tasks due for Timebox #2. Ryan, Chris, and Alex are going to meet
-with Ray this evening for an interview. David is going to get
-started on the powerpoint presentation for the Tuesday status update.
-All members are going to complete any tasks assigned to them in the
-tracker: <a href="https://www.pivotaltracker.com/projects/630615">https://www.pivotaltracker.com/projects/630615</a></p>
-
-<h2>Attendance</h2>
-
-<ul>
-<li>Ryan McGowan</li>
-<li>Chris Powers</li>
-<li>Alex Burkhart</li>
-<li>David Albert (scribe)</li>
-</ul>
-
-
-<h2>Location</h2>
-
-<p>Kafe Kerouac and Remote (via campfire)</p>
 ]]></content>
   </entry>
   

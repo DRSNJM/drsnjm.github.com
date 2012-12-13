@@ -4,7 +4,7 @@
   <title><![CDATA[Category: design | Dinosaur Riding Scrum Ninja Jedi Masters]]></title>
   <link href="http://DRSNJM.github.com/blog/categories/design/atom.xml" rel="self"/>
   <link href="http://DRSNJM.github.com/"/>
-  <updated>2012-12-11T19:32:33-05:00</updated>
+  <updated>2012-12-12T21:10:21-05:00</updated>
   <id>http://DRSNJM.github.com/</id>
   <author>
     <name><![CDATA[Ryan McGowan, Alex Burkhart, David Albert, Chris Powers]]></name>
@@ -12,6 +12,19 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Final System Design]]></title>
+    <link href="http://DRSNJM.github.com/blog/2012/12/11/final-system-design/"/>
+    <updated>2012-12-11T19:44:00-05:00</updated>
+    <id>http://DRSNJM.github.com/blog/2012/12/11/final-system-design</id>
+    <content type="html"><![CDATA[<p>The overall design of the system is now solidified. Here's a quick look at our design:</p>
+
+<p><img src="/images/diagrams/system-design.png" alt="System Design" /></p>
+
+<p>It may be a bit simplified, but it captures all of the core elements of the system.</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Designing the Scoring Engine]]></title>
@@ -173,55 +186,6 @@ and evaluate the data available to generate relevant recommendations to its
 users. The team decided that this problem offered a challenging, flexible, and
 extensible project opportunity, and would also provide a complementary service
 that would be frequently used and appreciated.</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Preferences and Constraints]]></title>
-    <link href="http://DRSNJM.github.com/blog/2012/09/17/preferences-and-constraints/"/>
-    <updated>2012-09-17T17:42:00-04:00</updated>
-    <id>http://DRSNJM.github.com/blog/2012/09/17/preferences-and-constraints</id>
-    <content type="html"><![CDATA[<p>The types of input that the user will be providing through the webpage
-interface can be broken down into two categories: preferences and constraints.
-Preferences match the user's desired characterics of a game, whereas
-constraints match rigid conditions of the game.</p>
-
-<p>Preferences include things like:</p>
-
-<ul>
-<li>Mechanics</li>
-<li>Systems</li>
-<li>Themes</li>
-<li>Turn system</li>
-<li>Skill vs. luck base</li>
-<li>Cooperative vs. competative</li>
-</ul>
-
-
-<p>Constraints include things like:</p>
-
-<ul>
-<li>Number of players</li>
-<li>Time to play</li>
-</ul>
-
-
-<p>In fact, that constraints list may be comprehensive.</p>
-
-<p>Constraints are easy; there's no such thing as a mostly matched constraint.
-All they need is a straightforward filter. Simply remove games that don't
-match these constraints from consideration. There's potential for efficiency
-increase if filtering is done properly before the recommendation engine parses
-the preferences. Preferences, on the other hand, are accurate to some degree,
-rather than being a boolean match. We may display a game that matches <em>most</em>
-of the mechanics, or is <em>close enough</em> to the user's skill vs. luck base,
-even though it wasn't exactly what they were searching for.</p>
-
-<p>The other significant aspect of preferences is that they can (and should)
-incorporate some weighting system on the inputs. A user may not care what
-the themes of the game are, and they may only partially care what the turn
-system is like. A true expert could take such things into consideration, and,
-therefore, so should our expert system.</p>
 ]]></content>
   </entry>
   
